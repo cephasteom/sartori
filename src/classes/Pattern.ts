@@ -1,4 +1,5 @@
-// Credit: the main architecture of this was adapted from https://garten.salat.dev/idlecycles/, which outlines the underlying concepts of how Tidal was ported to Strudel. Very many thanks.
+// Credit: the main architecture of this was adapted from https://garten.salat.dev/idlecycles/, by Froos
+// This outlines the underlying concepts of how Tidal was ported to Strudel. Very many thanks.
 
 // Happening type, representing a value occurring over a time range.
 declare type Hap<T> = { from: number; to: number; value: T };
@@ -30,13 +31,12 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
  * @param factor - the factor by which to speed up the pattern
  * @example seq('A', 'B', 'C').fast(3) // A for 1/3 cycle, B for 1/3 cycle, C for 1/3 cycle.
  */
-const fast = (factor: number, pattern: Pattern<any>) => P((from, to) => 
-    pattern.query(from * factor, to * factor).map(hap => ({
+const fast = (factor: number, pattern: Pattern<any>) => 
+    P((from, to) => pattern.query(from * factor, to * factor).map(hap => ({
         from: hap.from / factor,
         to: hap.to / factor,
         value: hap.value
-    }))
-);
+    })));
 
 /**
  * Slow - slow down a pattern by a given factor
@@ -67,10 +67,8 @@ const seq = (...values: any[]) => fast(values.length, cat(...values));
  * @param values - values to choose from. Can be patterns or raw values.
  * @example choose('A', 'B', 'C') // randomly chooses A, B, or C each cycle.
  */
-const choose = (...values: any[]) => cycle((from, to) => {
-    let value = values[Math.floor(Math.random() * values.length)];
-    return [{ from, to, value }];
-});
+const choose = (...values: any[]) => 
+    cycle((from, to) => ([{ from, to, value: values[Math.floor(Math.random() * values.length)]}]))
 
 // base function for generating continuous waveform patterns
 const waveform = (callback: (i: number, ...args: number[]) => number) => 
@@ -87,10 +85,11 @@ const waveform = (callback: (i: number, ...args: number[]) => number) =>
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
  * @example saw(0, 1) // generates a ramp from 0 to 1 over the course of 1 cycle
  */
-const saw = (min: number = 0, max: number = 1, q: number = 48) => waveform((i, min, max, q) => {
-    const v = i / (q - 1);
-    return min + (max - min) * v;
-})(min, max, q);
+const saw = (min: number = 0, max: number = 1, q: number = 48) => 
+    waveform((i, min, max, q) => {
+        const v = i / (q - 1);
+        return min + (max - min) * v;
+    })(min, max, q);
 
 /**
  * Alias for saw
@@ -107,11 +106,12 @@ const ramp = (...args: Parameters<typeof saw>) => saw(...args);
  * @param max - maximum value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
  */
-const sine = (min: number = 0, max: number = 1, q: number = 48) => waveform((i, min, max, q) => {
-    const v = i / q;
-    const s = Math.sin(v * (360 * (Math.PI / 180))) * 0.5 + 0.5;
-    return min + (max - min) * s;
-})(min, max, q);
+const sine = (min: number = 0, max: number = 1, q: number = 48) => 
+    waveform((i, min, max, q) => {
+        const v = i / q;
+        const s = Math.sin(v * (360 * (Math.PI / 180))) * 0.5 + 0.5;
+        return min + (max - min) * s;
+    })(min, max, q);
 
 /**
  * Cosine - generate a cosine wave pattern from min to max over one cycle
@@ -119,11 +119,12 @@ const sine = (min: number = 0, max: number = 1, q: number = 48) => waveform((i, 
  * @param max - maximum value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
  */
-const cosine = (min: number = 0, max: number = 1, q: number = 48) => waveform((i, min, max, q) => {
-    const v = i / q;
-    const s = Math.cos(v * (360 * (Math.PI / 180))) * 0.5 + 0.5;
-    return min + (max - min) * s;
-})(min, max, q);
+const cosine = (min: number = 0, max: number = 1, q: number = 48) => 
+    waveform((i, min, max, q) => {
+        const v = i / q;
+        const s = Math.cos(v * (360 * (Math.PI / 180))) * 0.5 + 0.5;
+        return min + (max - min) * s;
+    })(min, max, q);
 
 /**
  * Tri - generate a triangle wave pattern from min to max over one cycle
@@ -131,11 +132,12 @@ const cosine = (min: number = 0, max: number = 1, q: number = 48) => waveform((i
  * @param max - maximum value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
  */
-const tri = (min: number = 0, max: number = 1, q: number = 48) => waveform((i, min, max, q) => {
-    const v = i / q;
-    const t = v < 0.5 ? (v * 2) : (1 - (v - 0.5) * 2);
-    return min + (max - min) * t;
-})(min, max, q);
+const tri = (min: number = 0, max: number = 1, q: number = 48) => 
+    waveform((i, min, max, q) => {
+        const v = i / q;
+        const t = v < 0.5 ? (v * 2) : (1 - (v - 0.5) * 2);
+        return min + (max - min) * t;
+    })(min, max, q);
 
 /**
  * Pulse - same as square but you can set the duty cycle
