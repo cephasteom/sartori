@@ -174,14 +174,36 @@ const square = (min: number = 0, max: number = 1, q: number = 48) => pulse(min, 
  */
 const stack = (...values: any[]) => cycle((from, to) => values.map((value) => ({ from, to, value })));
 
+// base function for handling Math[operation] patterns
+const operate = (operator: string) => (...args: (number|Pattern<any>)[]) => cycle((from, to) => {
+    // @ts-ignore
+    if(!args.length) return [{from, to, value: Math[operator]()}]
+    // otherwise, the last arg will always be the pattern
+    const p = args[args.length - 1]
+    // @ts-ignore - so we can ignore .ts
+    return p.query(from, to).map(hap => ({
+        from: hap.from,
+        to: hap.to,
+        // @ts-ignore
+        value: Math[operator](hap.value, ...args)
+    }))
+});
+
+const operations = Object.getOwnPropertyNames(Math).filter(prop => typeof (Math as any)[prop] === 'function')
+
 export const methods = {
     fast,
     slow,
     cat,
     seq,
     choose,
+    stack,
     saw, range, ramp, sine, cosine, tri, pulse, square,
-    stack
+    // add all operations from the Math object
+    ...operations.reduce((obj, name) => ({
+        ...obj,
+        [name]: operate(name)
+    }), {})
 };
 
 /**
@@ -201,6 +223,6 @@ class Pattern<T> {
     }
 }
 
-const code = "stack(0,sine()).fast(2)";
+const code = "random()";
 const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
 console.log(result.query(0, 1));
