@@ -83,7 +83,8 @@ const waveform = (callback: (i: number, ...args: number[]) => number) =>
  * @param min - start value
  * @param max - end value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
- * @example saw(0, 1) // generates a ramp from 0 to 1 over the course of 1 cycle
+ * @example saw(0, 4) // generates a ramp from 0 to 1 over the course of 1 cycle
+ * @example saw(0,1,96).slow(2) // generates a ramp from 0 to 1 over the course of 2 cycles, with finer steps to mitigate the slow pattern
  */
 const saw = (min: number = 0, max: number = 1, q: number = 48) => 
     waveform((i, min, max, q) => {
@@ -105,6 +106,8 @@ const ramp = (...args: Parameters<typeof saw>) => saw(...args);
  * @param min - minimum value
  * @param max - maximum value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
+ * @example sine(0, 1) // generates a sine wave from 0 to 1 over the course of 1 cycle
+ * @example sine(-1, 1, 96).slow(2) // generates a sine wave from -1 to 1 over the course of 2 cycles, with finer steps to mitigate the slow pattern
  */
 const sine = (min: number = 0, max: number = 1, q: number = 48) => 
     waveform((i, min, max, q) => {
@@ -118,6 +121,7 @@ const sine = (min: number = 0, max: number = 1, q: number = 48) =>
  * @param min - minimum value
  * @param max - maximum value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
+ * @example cosine(0, 1) // generates a cosine wave from 0 to 1 over the course of 1 cycle
  */
 const cosine = (min: number = 0, max: number = 1, q: number = 48) => 
     waveform((i, min, max, q) => {
@@ -131,6 +135,7 @@ const cosine = (min: number = 0, max: number = 1, q: number = 48) =>
  * @param min - minimum value
  * @param max - maximum value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
+ * @example tri(0, 1) // generates a triangle wave from 0 to 1 over the course of 1 cycle
  */
 const tri = (min: number = 0, max: number = 1, q: number = 48) => 
     waveform((i, min, max, q) => {
@@ -145,6 +150,7 @@ const tri = (min: number = 0, max: number = 1, q: number = 48) =>
  * @param max - maximum value
  * @param duty - duty cycle (0 to 1)
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
+ * @example pulse(0, 1, 0.25) // generates a pulse wave from 0 to 1 with a duty cycle of 25% over the course of 1 cycle
  */
 const pulse = (min: number = 0, max: number = 1, duty: number = 0.5, q: number = 48) => 
     waveform((i, min, max, duty, q) => {
@@ -157,8 +163,16 @@ const pulse = (min: number = 0, max: number = 1, duty: number = 0.5, q: number =
  * Square - generate a square wave pattern from min to max over one cycle
  * @param min - minimum value
  * @param max - maximum value
+ * @example square(0, 4) // generates a square wave from 0 to 4 over the course of 1 cycle
  */
 const square = (min: number = 0, max: number = 1, q: number = 48) => pulse(min, max, 0.5, q);
+
+/**
+ * Stack - layer given set of values over the same time range
+ * @param values - values to layer. Can be patterns or raw values.
+ * @example stack(0, sine(), square()) // layers a sine wave and square wave over a constant 0 value.
+ */
+const stack = (...values: any[]) => cycle((from, to) => values.map((value) => ({ from, to, value })));
 
 export const methods = {
     fast,
@@ -166,11 +180,8 @@ export const methods = {
     cat,
     seq,
     choose,
-    saw, range, ramp,
-    sine, cosine,
-    tri,
-    pulse, 
-    square
+    saw, range, ramp, sine, cosine, tri, pulse, square,
+    stack
 };
 
 /**
@@ -190,6 +201,6 @@ class Pattern<T> {
     }
 }
 
-const code = "square(0,1,8)";
+const code = "stack(0,sine()).fast(2)";
 const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
 console.log(result.query(0, 1));
