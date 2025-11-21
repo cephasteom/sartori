@@ -25,8 +25,17 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
     return bag;
 })
 
-// Pattern methods - add each to the exported methods obj, which should be added to the global scope as functions
-// These are then added to the Pattern class methods
+/** 
+ * Pattern methods.
+ * In the scope in which we eval the language, these should exist as functions and Pattern methods.
+ * This means we can do both fast(3, pattern) or pattern.fast(3)
+ */ 
+
+/**
+ * Fast - speed up a pattern by a given factor
+ * @param factor - the factor by which to speed up the pattern
+ * @returns 
+ */
 const fast = (factor: number, pattern: Pattern<any>) => P((from, to) => 
     pattern.query(from * factor, to * factor).map(hap => ({
         from: hap.from / factor,
@@ -34,8 +43,18 @@ const fast = (factor: number, pattern: Pattern<any>) => P((from, to) =>
         value: hap.value
     }))
 );
+/**
+ * Slow - slow down a pattern by a given factor
+ * @param factor 
+ * @returns 
+ */
 const slow = (factor: number, pattern: Pattern<any>) => fast(1 / factor, pattern);
 
+/**
+ * Cat - concatenate values into a pattern, one per cycle
+ * @param values 
+ * @returns 
+ */
 const cat = (...values: any[]) => cycle((from, to) => {
     let value = values[from % values.length];
     return [{ from, to, value }];
@@ -72,4 +91,6 @@ export class Pattern<T> {
     fast(factor: number): Pattern<T> { return fast(factor, this) }
 }
 
-console.log( choose(seq('A', 'B', 'C').fast(1), seq('A', 'B', 'C').fast(2), seq('A', 'B', 'C').fast(3)).query(0, 4) );
+const code = "cat('A', 'B', 'C').fast(3)"
+const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
+console.log(result.query(0, 10));
