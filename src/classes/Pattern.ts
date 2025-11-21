@@ -72,17 +72,22 @@ const choose = (...values: any[]) => cycle((from, to) => {
     return [{ from, to, value }];
 });
 
+// base function for generating continuous waveform patterns
+const waveform = (callback: (i: number, ...args: number[]) => number) => 
+    (min: number = 0, max: number = 1, q: number = 48) => 
+        fast(q, cat(...Array.from({ length: q }, (_, i) => callback(i, min, max, q))));
+
 /**
  * Saw - generate a ramp of values from min to max, once per cycle
  * @param min - start value
  * @param max - end value
- * @param q - quantization: steps/cycle. Default 48. Increase for more fine-grained ramps.
+ * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
  * @example saw(0, 1) // generates a ramp from 0 to 1 over the course of 1 cycle
  */
-const saw = (min: number = 0, max: number = 1, q: number = 48) => fast(q, cat(...Array.from({ length: q }, (_, i) => {
+const saw = (min: number = 0, max: number = 1, q: number = 48) => waveform((i, min, max, q) => {
     const v = i / (q - 1);
     return min + (max - min) * v;
-})));
+})(min, max, q);
 
 /**
  * Alias for saw
@@ -97,13 +102,48 @@ const ramp = (...args: Parameters<typeof saw>) => saw(...args);
  * Sine - generate a sine wave pattern from min to max over one cycle
  * @param min - minimum value
  * @param max - maximum value
- * @param q - quantization: steps/cycle. Default 48. Increase for more fine-grained curves.
+ * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
  */
-const sine = (min: number = 0, max: number = 1, q: number = 48) => fast(q, cat(...Array.from({ length: q }, (_, i) => {
+const sine = (min: number = 0, max: number = 1, q: number = 48) => waveform((i, min, max, q) => {
     const v = i / q;
     const s = Math.sin(v * (360 * (Math.PI / 180))) * 0.5 + 0.5;
     return min + (max - min) * s;
-})));
+})(min, max, q);
+
+/**
+ * Cosine - generate a cosine wave pattern from min to max over one cycle
+ * @param min - minimum value
+ * @param max - maximum value
+ * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
+ */
+const cosine = (min: number = 0, max: number = 1, q: number = 48) => waveform((i, min, max, q) => {
+    const v = i / q;
+    const s = Math.cos(v * (360 * (Math.PI / 180))) * 0.5 + 0.5;
+    return min + (max - min) * s;
+})(min, max, q);
+
+/**
+ * Tri - generate a triangle wave pattern from min to max over one cycle
+ * @param min - minimum value
+ * @param max - maximum value
+ * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
+ */
+const tri = (min: number = 0, max: number = 1, q: number = 48) => waveform((i, min, max, q) => {
+    const v = i / q;
+    const t = v < 0.5 ? (v * 2) : (1 - (v - 0.5) * 2);
+    return min + (max - min) * t;
+})(min, max, q);
+
+/**
+ * Square - generate a square wave pattern from min to max over one cycle
+ * @param min - minimum value
+ * @param max - maximum value
+ */
+const square = (min: number = 0, max: number = 1) => waveform((i, min, max) => {
+    const v = i % 2;
+    const s = v === 0 ? 1 : 0;
+    return min + (max - min) * s;
+})(min, max, 2);
 
 export const methods = {
     fast,
@@ -112,7 +152,9 @@ export const methods = {
     seq,
     choose,
     saw, range, ramp,
-    sine
+    sine, cosine,
+    tri,
+    square
 };
 
 /**
@@ -132,6 +174,6 @@ class Pattern<T> {
     }
 }
 
-const code = "sine(0,1,4)";
+const code = "cosine(0,1,4)";
 const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
 console.log(result.query(0, 1));
