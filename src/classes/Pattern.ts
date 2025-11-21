@@ -26,6 +26,10 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
     return bag;
 })
 
+// unwrap function to handle raw values and nested patterns
+const unwrap = <T>(value: Pattern<T>|any, from: number, to: number) => 
+    (value instanceof Pattern ? value.query(from, to) : [{from, to, value}])[0].value
+
 /**
  * Fast - speed up a pattern by a given factor
  * @param factor - the factor by which to speed up the pattern
@@ -184,18 +188,12 @@ const stack = (...values: any[]) => cycle((from, to) => values.map((value) => ({
  * @param value - value to interpolate with. Can be pattern or raw value.
  * @example sine().interp(saw()) // interpolates between sine and saw waveforms over time 
  */
-const interp = (value: number|Pattern<any>, pattern: Pattern<any>) => cycle((from, to) => {
-    return pattern.query(from, to).map((hap) => {
-        const valueHaps = value instanceof Pattern ? value.query(hap.from, hap.to) : [{from, to, value}]
-        const interpValue = valueHaps[0].value
-
-        return {
-            from: hap.from,
-            to: hap.to,
-            value: hap.value + (interpValue - hap.value) * ((hap.from + hap.to) / 2 % 1)
-        }
-    });
-})
+const interp = (value: number|Pattern<any>, pattern: Pattern<any>) => cycle((from, to) =>
+    pattern.query(from, to).map((hap) => ({
+        from: hap.from,
+        to: hap.to,
+        value: hap.value + (unwrap(value, hap.from, hap.to) - hap.value) * ((hap.from + hap.to) / 2 % 1)
+    })))
 
 /**
  * Degrade - randomly replace values with 0 based on a given probability
@@ -236,6 +234,34 @@ const rarely = () => weightedCoin(0.25)
  */
 const often = () => weightedCoin(0.75)
 
+// base function for using logical expressions on Patterns
+const compare = (callback: (a: any, b: any) => boolean) => (value: number|Pattern<any>, pattern: Pattern<any>) => cycle((from, to) => 
+    pattern.query(from, to).map(hap => ({
+        from: hap.from,
+        to: hap.to,
+        value: callback(hap.value, unwrap(value, hap.from, hap.to)) ? 1 : 0
+    })));
+/**
+ * Compare with a value. If both are truthy, return 1, else 0.
+ * @param value - can be a Pattern or a raw value
+ * @example coin().and(coin()) // returns 1 when both coins() are truthy
+ */
+const and = compare((a, b) => a && b)
+
+/**
+ * Compare with a value. If one of them is truth, return 1, else 0.
+ * @param value - can be a Pattern or a raw value
+ * @example coin().or(coin()) // returns 1 when either coin() is truthy
+ */
+const or = compare((a, b) => a || b)
+
+/**
+ * Use XOR to compare values.
+ * @param - can be a Pattern or a raw value
+ * @example set(1).xor(1) // returns 0
+ */
+const xor = compare((a, b) => a != b)
+
 // base function for handling Math[operation] patterns
 const operate = (operator: string) => (...args: (number|Pattern<any>)[]) => cycle((from, to) => {
     // @ts-ignore
@@ -274,6 +300,7 @@ export const methods = {
     rarely, 
     sometimes, 
     often,
+    and, or, xor,
     // add all operators from the Math object
     ...operators.reduce((obj, name) => ({
         ...obj,
@@ -298,6 +325,7 @@ class Pattern<T> {
     }
 }
 
-const code = "often()";
+const code = "set(1).xor(1)";
 const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
-console.log(result.query(0, 1)[0].value);
+// @ts-ignore
+console.log(result.query(0, 1).map(h=>h.value));
