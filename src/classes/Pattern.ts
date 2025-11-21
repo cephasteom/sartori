@@ -56,6 +56,11 @@ const cat = (...values: any[]) => cycle((from, to) => {
 })
 
 /**
+ * Set - just an alias for cat, as it reads better when you're setting a single value
+ */
+const set = (...args: Parameters<typeof cat>) => cat(...args);
+
+/**
  * Seq - sequence values into a single cycle
  * @param values - values to sequence. Can be patterns or raw values.
  * @example seq('A', 'B', 'C', 'D') // A for .25 cycle, B for .25 cycle ... D for .25 cycle
@@ -189,18 +194,42 @@ const operate = (operator: string) => (...args: (number|Pattern<any>)[]) => cycl
     }))
 });
 
-const operations = Object.getOwnPropertyNames(Math).filter(prop => typeof (Math as any)[prop] === 'function')
+/**
+ * Operators - all operators from the JS Math object can be used as functions or Pattern methods.
+ * @example random() // return a random number between 0 and 1 every cycle
+ * @example set(2).pow(2) // returns 4 every cycle
+ * @example seq(1,2,3).pow(2) // returns the sine of 1, then 2, then 3 over successive cycles
+ */
+const operators = Object.getOwnPropertyNames(Math).filter(prop => typeof (Math as any)[prop] === 'function')
+
+/**
+ * Interp - interpolate values
+ * @param value - value to interpolate with. Can be pattern or raw value.
+ * @example sine().interp(saw()) // interpolates between sine and saw waveforms over time 
+ */
+const interp = (value: number|Pattern<any>, pattern: Pattern<any>) => cycle((from, to) => {
+    return pattern.query(from, to).map((hap) => {
+        let interpValue = value instanceof Pattern ? value.query(hap.from, hap.to)[0].value : value
+        return {
+            from: hap.from,
+            to: hap.to,
+            value: hap.value + (interpValue - hap.value) * ((hap.from + hap.to) / 2 % 1)
+        }
+    });
+})
 
 export const methods = {
     fast,
     slow,
+    set,
     cat,
     seq,
     choose,
     stack,
     saw, range, ramp, sine, cosine, tri, pulse, square,
-    // add all operations from the Math object
-    ...operations.reduce((obj, name) => ({
+    interp,
+    // add all operators from the Math object
+    ...operators.reduce((obj, name) => ({
         ...obj,
         [name]: operate(name)
     }), {})
@@ -223,6 +252,6 @@ class Pattern<T> {
     }
 }
 
-const code = "random()";
+const code = "saw(0,1,4).interp(saw(0,10,4))";
 const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
-console.log(result.query(0, 1));
+console.log(result.query(0, 1).map(h => h.value));
