@@ -1,40 +1,34 @@
+// Credit: the main architecture of this was adapted from https://garten.salat.dev/idlecycles/, which outlines the underlying concepts of how Tidal was ported to Strudel. Very many thanks.
+
+// Happening type, representing a value occurring over a time range.
 declare type Hap<T> = { from: number; to: number; value: T };
 
 // Pattern creation shortcut:
 const P = <T>(q: (from: number, to: number) => Hap<T>[]) => new Pattern(q);
 
-// base cycle function which checks for nested Patterns
+// base cycle function, returning a Pattern instance
 const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to) => {
     from = Math.floor(from);
     to = Math.ceil(to);
     let bag: Hap<any>[] = [];
     while (from < to) {
         const haps = callback(from, from + 1);
-        // iterate over haps to check whether there are any nested patterns
+        // handle raw values and nested patterns
         for(let hap of haps) {
-            // if the value is a pattern, query it and add its haps to the bag
-            if(hap.value instanceof Pattern) {
-                bag = bag.concat(hap.value.query(hap.from, hap.to));
-            // otherwise, just add the hap to the bag
-            } else {
-                bag.push(hap)
-            }
+            bag = bag.concat(hap.value instanceof Pattern 
+                ? hap.value.query(hap.from, hap.to) 
+                : [hap]
+            );
         }
         from++;
     }
     return bag;
 })
 
-/** 
- * Pattern methods.
- * In the scope in which we eval the language, these should exist as functions and Pattern methods.
- * This means we can do both fast(3, pattern) or pattern.fast(3)
- */ 
-
 /**
  * Fast - speed up a pattern by a given factor
  * @param factor - the factor by which to speed up the pattern
- * @returns 
+ * @example seq('A', 'B', 'C').fast(3) // A for 1/3 cycle, B for 1/3 cycle, C for 1/3 cycle.
  */
 const fast = (factor: number, pattern: Pattern<any>) => P((from, to) => 
     pattern.query(from * factor, to * factor).map(hap => ({
@@ -43,54 +37,104 @@ const fast = (factor: number, pattern: Pattern<any>) => P((from, to) =>
         value: hap.value
     }))
 );
+
 /**
  * Slow - slow down a pattern by a given factor
  * @param factor 
- * @returns 
+ * @example seq('A', 'B', 'C').slow(2) // A for 2 cycles, B for 2 cycles, C for 2 cycles.
  */
 const slow = (factor: number, pattern: Pattern<any>) => fast(1 / factor, pattern);
 
 /**
  * Cat - concatenate values into a pattern, one per cycle
- * @param values 
- * @returns 
+ * @param values - values to concatenate, Can be patterns or raw values.
+ * @example cat('A', 'B', 'C') // A for 1 cycle, B for 1 cycle, C for 1 cycle.
  */
 const cat = (...values: any[]) => cycle((from, to) => {
     let value = values[from % values.length];
     return [{ from, to, value }];
 })
 
+/**
+ * Seq - sequence values into a single cycle
+ * @param values - values to sequence. Can be patterns or raw values.
+ * @example seq('A', 'B', 'C', 'D') // A for .25 cycle, B for .25 cycle ... D for .25 cycle
+ */
 const seq = (...values: any[]) => fast(values.length, cat(...values));
 
+/**
+ * Choose - randomly choose from a set of values
+ * @param values - values to choose from. Can be patterns or raw values.
+ * @example choose('A', 'B', 'C') // randomly chooses A, B, or C each cycle.
+ */
 const choose = (...values: any[]) => cycle((from, to) => {
     let value = values[Math.floor(Math.random() * values.length)];
     return [{ from, to, value }];
 });
+
+/**
+ * Saw - generate a ramp of values from min to max, once per cycle
+ * @param min - start value
+ * @param max - end value
+ * @param q - quantization steps per cycle, default 24.
+ * @example saw(0, 1) // generates a ramp from 0 to 1 over the course of 1 cycle
+ */
+const saw = (min: number = 0, max: number = 1, q: number = 24) => fast(q, cycle((from, to) => {
+    const stepFrom = Math.floor(from);
+    const stepTo = Math.floor(to);
+    let bag: Hap<number>[] = [];
+    for(let step = stepFrom; step < stepTo; step++) {
+        const value = min + (max - min) * (step % q) / (q - 1);
+        bag.push({
+            from: step,
+            to: step + 1,
+            value
+        });
+    }
+    return bag;
+}));
+
+/**
+ * Alias for saw
+ */
+const range = (...args: Parameters<typeof saw>) => saw(...args);
+
+/** Ramp - alias for saw
+ */
+const ramp = (...args: Parameters<typeof saw>) => saw(...args);
+
+/**
+ * Sine - generate a sine wave pattern from min to max over one cycle
+ * @param min - minimum value
+ * @param max - maximum value
+ */
 
 export const methods = {
     fast,
     slow,
     cat,
     seq,
-    choose
+    choose,
+    saw, range, ramp
 };
 
-
-export class Pattern<T> {
+/**
+ * Pattern class.
+ * Holds a query function and binds all methods to the instance.
+ */
+class Pattern<T> {
     query: (from: number, to: number) => Hap<T>[];
     constructor(query: (from: number, to: number) => Hap<T>[]) {
         this.query = query;
 
-        // add all of the pattern functions to the class
+        // bind methods to this pattern instance
         Object.entries(methods).forEach(([name, method]) => {
-            // @ts-ignore - we know this is a method
+            // @ts-ignore
             this[name] = (...args: any[]) => method(...args, this);
         } );
     }
-
-    fast(factor: number): Pattern<T> { return fast(factor, this) }
 }
 
-const code = "cat('A', 'B', 'C').fast(3)"
+const code = "saw().fast(.5)";
 const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
-console.log(result.query(0, 10));
+console.log(result.query(0, 1));
