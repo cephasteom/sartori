@@ -46,6 +46,18 @@ const withHap = (callback: (hap: Hap<any>) => Hap<any>, pattern: Pattern<any>) =
 const withValue = (callback: (value: any) => any, pattern: Pattern<any>) =>
     withHap(hap => ({...hap, value: callback(hap.value)}), pattern);
 
+const add = (value: number|Pattern<any>, pattern: Pattern<any>) => 
+    withValue(v => v + unwrap(value, 0, 0), pattern);
+
+const sub = (value: number|Pattern<any>, pattern: Pattern<any>) => 
+    withValue(v => v - unwrap(value, 0, 0), pattern);
+
+const mul = (value: number|Pattern<any>, pattern: Pattern<any>) => 
+    withValue(v => v * unwrap(value, 0, 0), pattern);
+
+const div = (value: number|Pattern<any>, pattern: Pattern<any>) => 
+    withValue(v => v / unwrap(value, 0, 0), pattern);
+
 /**
  * Fast - speed up a pattern by a given factor
  * @param factor - the factor by which to speed up the pattern
@@ -320,6 +332,7 @@ const operators = Object.getOwnPropertyNames(Math).filter(prop => typeof (Math a
 
 export const methods = {
     withValue,
+    add, sub, mul, div,
     set,
     cat,
     seq,
@@ -356,7 +369,7 @@ class Pattern<T> {
     }
 }
 
-const code = "cat('cadet','powder','sky','cornflower').withValue(v=>v+'blue').fast(9)";
+const code = "sine(0,1,4).add(saw(1,4,4))";
 const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
 // @ts-ignore
 console.log(result.query(0, 1));
