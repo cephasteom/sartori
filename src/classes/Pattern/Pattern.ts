@@ -37,12 +37,15 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
  * @param callback - function to edit each Hap value @param v - current Hap value, w - value to edit with, from - start time, to - end time
  * @ignore - internal use only
  */
-const withValue = (callback: (v: any, w: any, from: number, to: number) => any) => 
-    (value: number|Pattern<any>, pattern: Pattern<any>) => cycle((from, to) =>
-        pattern.query(from, to).map((hap) => ({
+const withValue = (callback: (...args: any[]) => any) => 
+    (...args: (number|Pattern<any>)[]) => cycle((from, to) => {
+        const pattern = args[args.length - 1] as Pattern<any>;
+        return pattern.query(from, to).map((hap) => ({
             ...hap,
-            value: callback(hap.value, unwrap(value, hap.from, hap.to), hap.from, hap.to)
-        })))
+            // args to the callback are all args except the last (pattern), unwrapped, plus hap.value, hap.from, hap.to
+            value: callback(...args.slice(0, -1).map(v => unwrap(v, hap.from, hap.to)), hap.value, hap.from, hap.to)
+        }))
+    })
 
 /**
  * Add - add a value or pattern to the current pattern
@@ -50,7 +53,7 @@ const withValue = (callback: (v: any, w: any, from: number, to: number) => any) 
  * @example seq(1,2,3).add(2) // results in 3,4,5 over successive cycles
  * @example seq(1,2,3).add(saw(0,3,3)) // results in 1+0, 2+1, 3+2 over successive cycles
  */ 
-const add = withValue((v, w) => v + w);
+const add = withValue((next, prev) => next + prev);
 
 /** 
  * Sub - subtract a value or pattern from the current pattern
@@ -58,7 +61,7 @@ const add = withValue((v, w) => v + w);
  * @example seq(5,6,7).sub(2) // results in 3,4,5 over successive cycles
  * @example seq(5,6,7).sub(saw(0,3,3)) // results in 5-0, 6-1, 7-2 over successive cycles
  */
-const sub = withValue((v, w) => v - w);
+const sub = withValue((next, prev) => prev - next);
 
 /** 
  * Mul - multiply the current pattern by a value or pattern
@@ -66,7 +69,7 @@ const sub = withValue((v, w) => v - w);
  * @example seq(1,2,3).mul(2) // results in 2,4,6 over successive cycles
  * @example seq(1,2,3).mul(saw(1,3,3)) // results in 1*1, 2*2, 3*3 over successive cycles
  */
-const mul = withValue((v, w) => v * w);
+const mul = withValue((next, prev) => next * prev);
    
 /** 
  * Div - divide the current pattern by a value or pattern
@@ -74,7 +77,7 @@ const mul = withValue((v, w) => v * w);
  * @example seq(2,4,6).div(2) // results in 1,2,3 over successive cycles
  * @example seq(2,4,6).div(saw(1,3,3)) // results in 2/1, 4/2, 6/3 over successive cycles
  */
-const div = withValue((v, w) => v / w);
+const div = withValue((next, prev) => prev / next);
 
 /**
  * Mod - modulo the current pattern by a value or pattern
@@ -82,7 +85,37 @@ const div = withValue((v, w) => v / w);
  * @example seq(5,6,7).mod(4) // results in 1,2,3 over successive cycles
  * @example seq(5,6,7).mod(saw(1,4,3)) // results in 5%1, 6%2, 7%3 over successive cycles
  */
-const mod = withValue((v, w) => v % w);
+const mod = withValue((next, prev) => prev % next);
+
+/**
+ * Map to Range - map pattern values from one range to another
+ * @param outMin - output minimum
+ * @param outMax - output maximum
+ * @param inMin - input minimum, default 0
+ * @param inMax - input maximum, default 1
+ * @example random().mtr(50, 100) // maps random() values from 0-1 to 50-100
+ */
+const mtr = withValue((outMin, outMax, ...rest) => {
+    rest = rest.slice(0, -2); // remove from and to
+    const value = rest.pop() as number; // last arg is the value
+    const inMin = rest[0] ?? 0; // default 0
+    const inMax = rest[1] ?? 1; // default 1
+    return outMin + (outMax - outMin) * ((value - inMin) / (inMax - inMin))
+});
+
+/**
+ * Clamp - clamp pattern values to a given range
+ * @param min - minimum value, default 0
+ * @param max - maximum value, default 1
+ * @example random().mul(10).clamp(2, 4) // clamps random()*10 values to between 2 and 4
+ */
+const clamp = withValue((...args) => {
+    args = args.slice(0, -2); // remove from and to
+    const value = args.pop() as number; // last arg is the value
+    const min = args[0] ?? 0; // default 0
+    const max = args[1] ?? 1; // default 1
+    return Math.min(Math.max(value, min), max);
+});
 
 /**
  * Fast - speed up a pattern by a given factor
@@ -296,24 +329,6 @@ const or = withValue((v, w) => v || w);
  */
 const xor = withValue((v, w) => v != w ? 1 : 0);
 
-/**
- * Map to Range - map pattern values from one range to another
- * @param outMin - output minimum
- * @param outMax - output maximum
- * @param inMin - input minimum, default 0
- * @param inMax - input maximum, default 1
- * @example random().mtr(50, 100) // maps random() values from 0-1 to 50-100
- */
-const mtr = (...args: (number|Pattern<any>)[]) => {
-    const pattern = args[args.length - 1] as Pattern<any>;
-    const [outMin, outMax, inMin = 0, inMax = 1] = args.slice(0, -1) as number[];
-    return cycle((from, to) => pattern.query(from, to).map(hap => ({
-        from: hap.from,
-        to: hap.to,
-        value: outMin + (outMax - outMin) * ((hap.value - inMin) / (inMax - inMin))
-    })));
-}
-
 // base function for handling Math[operation] patterns
 const operate = (operator: string) => (...args: (number|Pattern<any>)[]) => cycle((from, to) => {
     // @ts-ignore
@@ -347,7 +362,7 @@ export const methods = {
     slow,
     stack,
     saw, range, ramp, sine, cosine, tri, pulse, square,
-    mtr,
+    mtr, clamp,
     interp,
     degrade,
     choose, coin, rarely, sometimes, often,
@@ -376,7 +391,7 @@ class Pattern<T> {
     }
 }
 
-const code = "seq(1,1,1,1).add(saw(0,10))";
+const code = "random().mul(10).clamp()";
 const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
 // @ts-ignore
-console.log(result.query(0, 1));
+console.log(result.query(0, 1).map(h=> h.value));
