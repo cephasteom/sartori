@@ -31,32 +31,56 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
 })
 
 /**
- * Edit the Haps in a pattern using a callback function
- * @param callback - function to edit each Hap
- * @ignore - internal use only
- */
-const withHap = (callback: (hap: Hap<any>) => Hap<any>, pattern: Pattern<any>) =>
-    P((from, to) => pattern.query(from, to).map(callback));
-
-/**
  * Edit the Hap values in a pattern using a callback function
  * @param callback - function to edit each Hap value
  * @ignore - internal use only
  */
-const withValue = (callback: (value: any) => any, pattern: Pattern<any>) =>
-    withHap(hap => ({...hap, value: callback(hap.value)}), pattern);
+const withValue = (callback: (v: any, w: any, from: number, to: number) => any) => (value: number|Pattern<any>, pattern: Pattern<any>) => cycle((from, to) =>
+    pattern.query(from, to).map((hap) => ({
+        ...hap,
+        // value: hap.value + (unwrap(value, hap.from, hap.to) - hap.value) * ((hap.from + hap.to) / 2 % 1)
+        value: callback(hap.value, unwrap(value, hap.from, hap.to), hap.from, hap.to)
+    })))
 
-const add = (value: number|Pattern<any>, pattern: Pattern<any>) => 
-    withValue(v => v + unwrap(value, 0, 0), pattern);
+/**
+ * Add - add a value or pattern to the current pattern
+ * @param value - value or pattern to add
+ * @example seq(1,2,3).add(2) // results in 3,4,5 over successive cycles
+ * @example seq(1,2,3).add(saw(0,3,3)) // results in 1+0, 2+1, 3+2 over successive cycles
+ */ 
+const add = withValue((v, w) => v + w);
 
-const sub = (value: number|Pattern<any>, pattern: Pattern<any>) => 
-    withValue(v => v - unwrap(value, 0, 0), pattern);
+/** 
+ * Sub - subtract a value or pattern from the current pattern
+ * @param value - value or pattern to subtract
+ * @example seq(5,6,7).sub(2) // results in 3,4,5 over successive cycles
+ * @example seq(5,6,7).sub(saw(0,3,3)) // results in 5-0, 6-1, 7-2 over successive cycles
+ */
+const sub = withValue((v, w) => v - w);
 
-const mul = (value: number|Pattern<any>, pattern: Pattern<any>) => 
-    withValue(v => v * unwrap(value, 0, 0), pattern);
+/** 
+ * Mul - multiply the current pattern by a value or pattern
+ * @param value - value or pattern to multiply by
+ * @example seq(1,2,3).mul(2) // results in 2,4,6 over successive cycles
+ * @example seq(1,2,3).mul(saw(1,3,3)) // results in 1*1, 2*2, 3*3 over successive cycles
+ */
+const mul = withValue((v, w) => v * w);
+   
+/** 
+ * Div - divide the current pattern by a value or pattern
+ * @param value - value or pattern to divide by
+ * @example seq(2,4,6).div(2) // results in 1,2,3 over successive cycles
+ * @example seq(2,4,6).div(saw(1,3,3)) // results in 2/1, 4/2, 6/3 over successive cycles
+ */
+const div = withValue((v, w) => v / w);
 
-const div = (value: number|Pattern<any>, pattern: Pattern<any>) => 
-    withValue(v => v / unwrap(value, 0, 0), pattern);
+/**
+ * Mod - modulo the current pattern by a value or pattern
+ * @param value - value or pattern to modulo by
+ * @example seq(5,6,7).mod(4) // results in 1,2,3 over successive cycles
+ * @example seq(5,6,7).mod(saw(1,4,3)) // results in 5%1, 6%2, 7%3 over successive cycles
+ */
+const mod = withValue((v, w) => v % w);
 
 /**
  * Fast - speed up a pattern by a given factor
@@ -216,12 +240,9 @@ const stack = (...values: any[]) => cycle((from, to) => values.map((value) => ({
  * @param value - value to interpolate with. Can be pattern or raw value.
  * @example sine().interp(saw()) // interpolates between sine and saw waveforms over time 
  */
-const interp = (value: number|Pattern<any>, pattern: Pattern<any>) => cycle((from, to) =>
-    pattern.query(from, to).map((hap) => ({
-        from: hap.from,
-        to: hap.to,
-        value: hap.value + (unwrap(value, hap.from, hap.to) - hap.value) * ((hap.from + hap.to) / 2 % 1)
-    })))
+const interp = withValue((v, w, from, to) => 
+    v + (w - v) * ((from + to) / 2 % 1)
+);
 
 /**
  * Degrade - randomly replace values with 0 based on a given probability
@@ -333,6 +354,7 @@ const operators = Object.getOwnPropertyNames(Math).filter(prop => typeof (Math a
 export const methods = {
     withValue,
     add, sub, mul, div,
+    mod,
     set,
     cat,
     seq,
@@ -369,7 +391,7 @@ class Pattern<T> {
     }
 }
 
-const code = "sine(0,1,4).add(saw(1,4,4))";
+const code = "set(saw(0,3,4)).mod(seq(1,2))";
 const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
 // @ts-ignore
 console.log(result.query(0, 1));
