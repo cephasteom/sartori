@@ -35,12 +35,12 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
  * @param callback - function to edit each Hap value
  * @ignore - internal use only
  */
-const withValue = (callback: (v: any, w: any, from: number, to: number) => any) => (value: number|Pattern<any>, pattern: Pattern<any>) => cycle((from, to) =>
-    pattern.query(from, to).map((hap) => ({
-        ...hap,
-        // value: hap.value + (unwrap(value, hap.from, hap.to) - hap.value) * ((hap.from + hap.to) / 2 % 1)
-        value: callback(hap.value, unwrap(value, hap.from, hap.to), hap.from, hap.to)
-    })))
+const withValue = (callback: (v: any, w: any, from: number, to: number) => any) => 
+    (value: number|Pattern<any>, pattern: Pattern<any>) => cycle((from, to) =>
+        pattern.query(from, to).map((hap) => ({
+            ...hap,
+            value: callback(hap.value, unwrap(value, hap.from, hap.to), hap.from, hap.to)
+        })))
 
 /**
  * Add - add a value or pattern to the current pattern
@@ -106,10 +106,8 @@ const slow = (factor: number, pattern: Pattern<any>) => fast(1 / factor, pattern
  * @param values - values to concatenate, Can be patterns or raw values.
  * @example cat('A', 'B', 'C') // A for 1 cycle, B for 1 cycle, C for 1 cycle.
  */
-const cat = (...values: any[]) => cycle((from, to) => {
-    let value = values[from % values.length];
-    return [{ from, to, value }];
-})
+const cat = (...values: any[]) => 
+    cycle((from, to) => [{ from, to, value: values[from % values.length] }]);
 
 /**
  * Set - just an alias for cat, as it reads better when you're setting a single value
@@ -240,25 +238,18 @@ const stack = (...values: any[]) => cycle((from, to) => values.map((value) => ({
  * @param value - value to interpolate with. Can be pattern or raw value.
  * @example sine().interp(saw()) // interpolates between sine and saw waveforms over time 
  */
-const interp = withValue((v, w, from, to) => 
-    v + (w - v) * ((from + to) / 2 % 1)
-);
+const interp = withValue((v, w, from, to) => v + (w - v) * ((from + to) / 2 % 1));
 
 /**
  * Degrade - randomly replace values with 0 based on a given probability
  * @param probability - number between 0 and 1
  * @example sine().degrade(0.3) // randomly replaces 30% of sine wave values with 0
  */
-const degrade = (probability: number = 0.5, pattern: Pattern<any>) => cycle((from, to) => {
-    return pattern.query(from, to).map(hap => ({
-        from: hap.from,
-        to: hap.to,
-        value: Math.random() < probability ? 0 : hap.value
-    }));
-});
+const degrade = withValue((v, w) => Math.random() < w ? 0 : v);
 
 // base function for probability based Patterns
-const weightedCoin = (probability: number = 0.5) => P((from, to) => ([{from, to, value: Math.random() < probability ? 1 : 0}]));
+const weightedCoin = (probability: number|Pattern<any> = 0.5) => 
+    P((from, to) => ([{from, to, value: Math.random() < unwrap(probability, from, to) ? 1 : 0}]));
 
 /**
  * Coin - return an equal distribution of 1s and 0s
@@ -391,7 +382,7 @@ class Pattern<T> {
     }
 }
 
-const code = "set(saw(0,3,4)).mod(seq(1,2))";
+const code = "sine().degrade(0.3)";
 const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
 // @ts-ignore
 console.log(result.query(0, 1));
