@@ -1,33 +1,8 @@
 // TODO: everything!
-import { Pattern, type Hap } from '../Pattern/Pattern';
+import { Pattern, methods, type Hap } from '../Pattern/Pattern';
 
 export interface Stream extends Record<string, any> {
     id: string;
-    query: (from: number, to: number) => void;
-}
-
-// wrap Pattern instance in a Proxy to intercept mutator calls
-function wrapPattern(stream: any, key: string, pattern: Pattern<any>) {
-    return new Proxy(pattern, {
-        get(target, prop, receiver) {
-            const value = Reflect.get(target, prop, receiver);
-
-            if (typeof value === "function") {
-                // wrap mutator: call fn → get new Pattern → write back → return proxy
-                return (...args: any[]) => {
-                    const result = value.apply(target, args);
-
-                    if (result instanceof Pattern) {
-                        stream[key] = result;                     // persist mutation
-                        return wrapPattern(stream, key, result);  // return wrapped version
-                    }
-                    return result;
-                };
-            }
-
-            return value;
-        }
-    });
 }
 
 
@@ -43,51 +18,50 @@ function wrapPattern(stream: any, key: string, pattern: Pattern<any>) {
  */
 export class Stream {
     constructor(id: string) {
-        const handler = {
-            get: (target: Stream, key: string) => {
-                if (key in target) return target[key as keyof typeof target];
+        this.id = id;
+    }
 
-                // wrap Pattern instance in callable proxy
-                const pattern = wrapPattern(target, key, new Pattern());
-                
-                target[key] = pattern;
-                return pattern;
-            }
-        };
-
-        const init: Stream = { 
-            id,
-            set: (params: Record<string, any>) => {
-                Object.entries(params)
-                    .filter(([key]) => !['id', 'query', '__reset', '__clear'].includes(key))
-                    // @ts-ignore
-                    .forEach(([key, value]) => init[key] = (new Pattern()).set(value));
-            },
-            query: (from: number, to: number) => {
-                // gather the events from .e pattern
-                const events = init.e?.query(from, to) || [];
-                return events
-                    // only keep events with a value
-                    .filter((e: Hap<any>) => !!e.value)
-                    // iterate over events and build param sets
-                    .map((e: Hap<any>) => ({
-                        time: e.from,
-                        params: Object.fromEntries(Object.entries(init)
-                            // only keep Patterns
-                            .filter(([_, value]) => value instanceof Pattern)
-                            // query each Pattern and keep the closes Hap to the event start time
-                            .map(([key, pattern]) => [key, (pattern as Pattern<any>).query(e.from, e.to)[0]?.value])
-                        )
-                    }));
-            },
-        };
-
-        return new Proxy(init, handler);
+    set(params: Record<string, any>) {
+        Object.entries(params)
+            .filter(([key]) => !['id', 'set', 'query'].includes(key))
+            // @ts-ignore
+            .forEach(([key, value]) => this[key] = (value instanceof Pattern 
+                ? value 
+                : (new Pattern()).set(value)));
+    }
+    
+    query(from: number, to: number) {
+        // gather the events from .e pattern
+        const events = this.e?.query(from, to) || [];
+        return events
+            // only keep events with a value
+            .filter((e: Hap<any>) => !!e.value)
+            // iterate over events and build param sets
+            .map((e: Hap<any>) => ({
+                time: e.from,
+                params: Object.fromEntries(Object.entries(this)
+                    // only keep Patterns
+                    .filter(([_, value]) => value instanceof Pattern)
+                    // query each Pattern and keep the closes Hap to the event start time
+                    .map(([key, pattern]) => [key, (pattern as Pattern<any>).query(e.from, e.to)[0]?.value ])
+                )
+            }));
     }
 }
 
 const s0 = new Stream('s0');
-s0.set({inst:1});
-s0.reverb.set(1)
-s0.e.coin().fast(16)
-console.log(s0.query(0,1))
+const s1 = new Stream('s1');
+
+s0.set({
+    inst:1, 
+    reverb: methods.sine(),
+    e: methods.seq(1,0,1)});
+
+s1.set({
+    e:s0.e.degrade()}) // nice! because everything is immutable, we can reference patterns from other streams
+
+
+console.log(s0.query(0,10), s1.query(0,10)); // but the results aren't as expected
+
+// TODO: s0.reverb.sine() not working.
+// We should be able to do something like this s0.e.coin().repeat(8), or repeat(8, coin()).
