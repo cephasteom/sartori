@@ -4,7 +4,7 @@
 // This outlines the underlying concepts of how Tidal was ported to Strudel. Very many thanks.
 
 // Happening type, representing a value occurring over a time range.
-declare type Hap<T> = { from: number; to: number; value: T };
+export declare type Hap<T> = { from: number; to: number; value: T };
 
 // Util: Pattern creation shortcut
 const P = <T>(q: (from: number, to: number) => Hap<T>[]) => new Pattern(q);
@@ -385,7 +385,7 @@ export const methods = {
  */
 export class Pattern<T> {
     query: (from: number, to: number) => Hap<T>[];
-    constructor(query: (from: number, to: number) => Hap<T>[] = (from, to) => [{ from, to, value: undefined as any }]) {
+    constructor(query: (from: number, to: number) => Hap<T>[] = () => []) {
         this.query = query;
 
         // bind methods to this pattern instance
@@ -396,8 +396,8 @@ export class Pattern<T> {
     }
 }
 
-const code = "random().mul(10).clamp()";
-const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
-// @ts-ignore
-// console.log(result.query(0, 1).map(h=> h.value));
-console.log(set(1).add(4).query(0,10).map(h=> h.value));
+// const code = "random().mul(10).clamp()";
+// const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
+// // @ts-ignore
+// // console.log(result.query(0, 1).map(h=> h.value));
+// console.log(set(1).add(4).query(0,10).map(h=> h.value));
