@@ -397,10 +397,10 @@ export class Pattern<T> {
 }
 
 
-const code = "cat(seq(1,2,3,4))";
-const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
-// @ts-ignore
+// const code = "seq(0,1,0).add(1)";
+// const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
+// // @ts-ignore
 // console.log(result.query(0.5, 1)
-    // .map(h=> h.value)
+//     .map(h=> h.value)
 // );
 // // console.log(set(1).add(4).query(0,10).map(h=> h.value));
