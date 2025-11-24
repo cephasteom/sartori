@@ -1,0 +1,4623 @@
+{
+	"schemaVersion": "2.0",
+	"id": 0,
+	"name": "sartori",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 158,
+			"name": "Pattern",
+			"variant": "declaration",
+			"kind": 128,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Pattern class.\nThe core building block of Sartori. Patterns represent time-varying values over cycles."
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@example",
+						"content": [
+							{
+								"kind": "code",
+								"text": "```ts\ns0.set({\n freq: sine(100,1000) // use a Pattern to set frequency\n e: seq(1,1,0,1) // use a Pattern to trigger events\n})\n```"
+							}
+						]
+					}
+				]
+			},
+			"sources": [
+				{
+					"fileName": "Pattern.ts",
+					"line": 393,
+					"character": 13,
+					"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L393"
+				}
+			],
+			"typeParameters": [
+				{
+					"id": 172,
+					"name": "T",
+					"variant": "typeParam",
+					"kind": 131072,
+					"flags": {}
+				}
+			]
+		},
+		{
+			"id": 7,
+			"name": "methods",
+			"variant": "declaration",
+			"kind": 32,
+			"flags": {
+				"isConst": true
+			},
+			"sources": [
+				{
+					"fileName": "Pattern.ts",
+					"line": 362,
+					"character": 13,
+					"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L362"
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 8,
+					"name": "__type",
+					"variant": "declaration",
+					"kind": 65536,
+					"flags": {},
+					"children": [
+						{
+							"id": 19,
+							"name": "add",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Add - add a value or pattern to the current pattern"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(1,2,3).add(2) // results in 3,4,5 over successive cycles\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(1,2,3).add(saw(0,3,3)) // results in 1+0, 2+1, 3+2 over successive cycles\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 364,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L364"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 20,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 21,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 22,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 146,
+							"name": "and",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Compare with a value. If both are truthy, return 1, else 0."
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\ncoin().and(coin()) // returns 1 when both coins() are truthy\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 377,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L377"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 147,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 148,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 149,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 43,
+							"name": "cat",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Cat - concatenate values into a pattern, one per cycle"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\ncat('A', 'B', 'C') // A for 1 cycle, B for 1 cycle, C for 1 cycle.\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 367,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L367"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 44,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 152,
+											"character": 12,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L152"
+										}
+									],
+									"signatures": [
+										{
+											"id": 45,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 152,
+													"character": 12,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L152"
+												}
+											],
+											"parameters": [
+												{
+													"id": 46,
+													"name": "values",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "values to concatenate, Can be patterns or raw values."
+															}
+														]
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "intrinsic",
+															"name": "any"
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 130,
+							"name": "choose",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Choose - randomly choose from a set of values"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nchoose('A', 'B', 'C') // randomly chooses A, B, or C each cycle.\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 376,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L376"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 131,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 172,
+											"character": 15,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L172"
+										}
+									],
+									"signatures": [
+										{
+											"id": 132,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 172,
+													"character": 15,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L172"
+												}
+											],
+											"parameters": [
+												{
+													"id": 133,
+													"name": "values",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "values to choose from. Can be patterns or raw values."
+															}
+														]
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "intrinsic",
+															"name": "any"
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 118,
+							"name": "clamp",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Clamp - clamp pattern values to a given range"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nrandom().mul(10).clamp(2, 4) // clamps random()*10 values to between 2 and 4\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 373,
+									"character": 16,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L373"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 119,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 120,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 121,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 134,
+							"name": "coin",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Coin - return an equal distribution of 1s and 0s"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\ncoin()\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 376,
+									"character": 12,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L376"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 135,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 301,
+											"character": 13,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L301"
+										}
+									],
+									"signatures": [
+										{
+											"id": 136,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 301,
+													"character": 13,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L301"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "number"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 85,
+							"name": "cosine",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Cosine - generate a cosine wave pattern from min to max over one cycle"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\ncosine(0, 1) // generates a cosine wave from 0 to 1 over the course of 1 cycle\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 372,
+									"character": 28,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L372"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 86,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 228,
+											"character": 15,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L228"
+										}
+									],
+									"signatures": [
+										{
+											"id": 87,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 228,
+													"character": 15,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L228"
+												}
+											],
+											"parameters": [
+												{
+													"id": 88,
+													"name": "min",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "minimum value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "0"
+												},
+												{
+													"id": 89,
+													"name": "max",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "maximum value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "1"
+												},
+												{
+													"id": 90,
+													"name": "q",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform."
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "48"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 126,
+							"name": "degrade",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Degrade - randomly replace values with 0 based on a given probability"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nsine().degrade(0.3) // randomly replaces 30% of sine wave values with 0\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 375,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L375"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 127,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 128,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 129,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 31,
+							"name": "div",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Div - divide the current pattern by a value or pattern"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(2,4,6).div(2) // results in 1,2,3 over successive cycles\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(2,4,6).div(saw(1,3,3)) // results in 2/1, 4/2, 6/3 over successive cycles\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 364,
+									"character": 19,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L364"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 32,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 33,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 34,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 51,
+							"name": "fast",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Fast - speed up a pattern by a given factor"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq('A', 'B', 'C').fast(3) // A for 1/3 cycle, B for 1/3 cycle, C for 1/3 cycle.\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 369,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L369"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 52,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 133,
+											"character": 13,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L133"
+										}
+									],
+									"signatures": [
+										{
+											"id": 53,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 133,
+													"character": 13,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L133"
+												}
+											],
+											"parameters": [
+												{
+													"id": 54,
+													"name": "factor",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "the factor by which to speed up the pattern"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													}
+												},
+												{
+													"id": 55,
+													"name": "pattern",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"target": 158,
+														"typeArguments": [
+															{
+																"type": "intrinsic",
+																"name": "any"
+															}
+														],
+														"name": "Pattern",
+														"package": "sartori"
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 122,
+							"name": "interp",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Interp - interpolate values"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nsine().interp(saw()) // interpolates between sine and saw waveforms over time\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 374,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L374"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 123,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 124,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 125,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 35,
+							"name": "mod",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Mod - modulo the current pattern by a value or pattern"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(5,6,7).mod(4) // results in 1,2,3 over successive cycles\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(5,6,7).mod(saw(1,4,3)) // results in 5%1, 6%2, 7%3 over successive cycles\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 365,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L365"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 36,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 37,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 38,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 110,
+							"name": "mtr",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Map to Range - map pattern values from one range to another"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nrandom().mtr(50, 100) // maps random() values from 0-1 to 50-100\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 373,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L373"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 111,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 112,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 113,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 27,
+							"name": "mul",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Mul - multiply the current pattern by a value or pattern"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(1,2,3).mul(2) // results in 2,4,6 over successive cycles\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(1,2,3).mul(saw(1,3,3)) // results in 1*1, 2*2, 3*3 over successive cycles\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 364,
+									"character": 14,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L364"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 28,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 29,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 30,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 143,
+							"name": "often",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Often - return mostly 1s, occasionally 0s"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\noften()\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 376,
+									"character": 37,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L376"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 144,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 318,
+											"character": 14,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L318"
+										}
+									],
+									"signatures": [
+										{
+											"id": 145,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 318,
+													"character": 14,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L318"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "number"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 150,
+							"name": "or",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Compare with a value. If one of them is truth, return 1, else 0."
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\ncoin().or(coin()) // returns 1 when either coin() is truthy\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 377,
+									"character": 9,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L377"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 151,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 152,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 153,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 97,
+							"name": "pulse",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Pulse - same as square but you can set the duty cycle"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\npulse(0, 1, 0.25) // generates a pulse wave from 0 to 1 with a duty cycle of 25% over the course of 1 cycle\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 372,
+									"character": 41,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L372"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 98,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 257,
+											"character": 14,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L257"
+										}
+									],
+									"signatures": [
+										{
+											"id": 99,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 257,
+													"character": 14,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L257"
+												}
+											],
+											"parameters": [
+												{
+													"id": 100,
+													"name": "min",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "minimum value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "0"
+												},
+												{
+													"id": 101,
+													"name": "max",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "maximum value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "1"
+												},
+												{
+													"id": 102,
+													"name": "duty",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "duty cycle (0 to 1)"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "0.5"
+												},
+												{
+													"id": 103,
+													"name": "q",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform."
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "48"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 75,
+							"name": "ramp",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Ramp - alias for saw"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 372,
+									"character": 16,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L372"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 76,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 204,
+											"character": 13,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L204"
+										}
+									],
+									"signatures": [
+										{
+											"id": 77,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 204,
+													"character": 13,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L204"
+												}
+											],
+											"parameters": [
+												{
+													"id": 78,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "tuple",
+														"elements": [
+															{
+																"type": "namedTupleMember",
+																"name": "min",
+																"isOptional": false,
+																"element": {
+																	"type": "intrinsic",
+																	"name": "number"
+																}
+															},
+															{
+																"type": "namedTupleMember",
+																"name": "max",
+																"isOptional": false,
+																"element": {
+																	"type": "intrinsic",
+																	"name": "number"
+																}
+															},
+															{
+																"type": "namedTupleMember",
+																"name": "q",
+																"isOptional": false,
+																"element": {
+																	"type": "intrinsic",
+																	"name": "number"
+																}
+															}
+														]
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 71,
+							"name": "range",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Alias for saw"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 372,
+									"character": 9,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L372"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 72,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 200,
+											"character": 14,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L200"
+										}
+									],
+									"signatures": [
+										{
+											"id": 73,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 200,
+													"character": 14,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L200"
+												}
+											],
+											"parameters": [
+												{
+													"id": 74,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "tuple",
+														"elements": [
+															{
+																"type": "namedTupleMember",
+																"name": "min",
+																"isOptional": false,
+																"element": {
+																	"type": "intrinsic",
+																	"name": "number"
+																}
+															},
+															{
+																"type": "namedTupleMember",
+																"name": "max",
+																"isOptional": false,
+																"element": {
+																	"type": "intrinsic",
+																	"name": "number"
+																}
+															},
+															{
+																"type": "namedTupleMember",
+																"name": "q",
+																"isOptional": false,
+																"element": {
+																	"type": "intrinsic",
+																	"name": "number"
+																}
+															}
+														]
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 137,
+							"name": "rarely",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Rarely - return mostly 0s, occasionally 1s"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nrarely()\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 376,
+									"character": 18,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L376"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 138,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 312,
+											"character": 15,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L312"
+										}
+									],
+									"signatures": [
+										{
+											"id": 139,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 312,
+													"character": 15,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L312"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "number"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 65,
+							"name": "saw",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Saw - generate a ramp of values from min to max, once per cycle"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nsaw(0, 4) // generates a ramp from 0 to 1 over the course of 1 cycle\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nsaw(0,1,96).slow(2) // generates a ramp from 0 to 1 over the course of 2 cycles, with finer steps to mitigate the slow pattern\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 372,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L372"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 66,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 191,
+											"character": 12,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L191"
+										}
+									],
+									"signatures": [
+										{
+											"id": 67,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 191,
+													"character": 12,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L191"
+												}
+											],
+											"parameters": [
+												{
+													"id": 68,
+													"name": "min",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "start value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "0"
+												},
+												{
+													"id": 69,
+													"name": "max",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "end value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "1"
+												},
+												{
+													"id": 70,
+													"name": "q",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform."
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "48"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 114,
+							"name": "scale",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Scale - alias for mtr"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 373,
+									"character": 9,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L373"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 115,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 112,
+											"character": 14,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L112"
+										}
+									],
+									"signatures": [
+										{
+											"id": 116,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 112,
+													"character": 14,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L112"
+												}
+											],
+											"parameters": [
+												{
+													"id": 117,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 47,
+							"name": "seq",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Seq - sequence values into a single cycle"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq('A', 'B', 'C', 'D') // A for .25 cycle, B for .25 cycle ... D for .25 cycle\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 368,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L368"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 48,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 165,
+											"character": 12,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L165"
+										}
+									],
+									"signatures": [
+										{
+											"id": 49,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 165,
+													"character": 12,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L165"
+												}
+											],
+											"parameters": [
+												{
+													"id": 50,
+													"name": "values",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "values to sequence. Can be patterns or raw values."
+															}
+														]
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "intrinsic",
+															"name": "any"
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 39,
+							"name": "set",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Set - just an alias for cat, as it reads better when you're setting a single value"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 366,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L366"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 40,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 158,
+											"character": 12,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L158"
+										}
+									],
+									"signatures": [
+										{
+											"id": 41,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 158,
+													"character": 12,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L158"
+												}
+											],
+											"parameters": [
+												{
+													"id": 42,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "intrinsic",
+															"name": "any"
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 79,
+							"name": "sine",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Sine - generate a sine wave pattern from min to max over one cycle"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nsine(0, 1) // generates a sine wave from 0 to 1 over the course of 1 cycle\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nsine(-1, 1, 96).slow(2) // generates a sine wave from -1 to 1 over the course of 2 cycles, with finer steps to mitigate the slow pattern\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 372,
+									"character": 22,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L372"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 80,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 214,
+											"character": 13,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L214"
+										}
+									],
+									"signatures": [
+										{
+											"id": 81,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 214,
+													"character": 13,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L214"
+												}
+											],
+											"parameters": [
+												{
+													"id": 82,
+													"name": "min",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "minimum value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "0"
+												},
+												{
+													"id": 83,
+													"name": "max",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "maximum value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "1"
+												},
+												{
+													"id": 84,
+													"name": "q",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform."
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "48"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 56,
+							"name": "slow",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Slow - slow down a pattern by a given factor"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq('A', 'B', 'C').slow(2) // A for 2 cycles, B for 2 cycles, C for 2 cycles.\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 370,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L370"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 57,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 145,
+											"character": 13,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L145"
+										}
+									],
+									"signatures": [
+										{
+											"id": 58,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 145,
+													"character": 13,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L145"
+												}
+											],
+											"parameters": [
+												{
+													"id": 59,
+													"name": "factor",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													}
+												},
+												{
+													"id": 60,
+													"name": "pattern",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"type": {
+														"type": "reference",
+														"target": 158,
+														"typeArguments": [
+															{
+																"type": "intrinsic",
+																"name": "any"
+															}
+														],
+														"name": "Pattern",
+														"package": "sartori"
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 140,
+							"name": "sometimes",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Sometimes - alias for coin"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 376,
+									"character": 26,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L376"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 141,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 301,
+											"character": 13,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L301"
+										}
+									],
+									"signatures": [
+										{
+											"id": 142,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "Coin - return an equal distribution of 1s and 0s"
+													}
+												],
+												"blockTags": [
+													{
+														"tag": "@example",
+														"content": [
+															{
+																"kind": "code",
+																"text": "```ts\ncoin()\n```"
+															}
+														]
+													}
+												]
+											},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 301,
+													"character": 13,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L301"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "number"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 104,
+							"name": "square",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Square - generate a square wave pattern from min to max over one cycle"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nsquare(0, 4) // generates a square wave from 0 to 4 over the course of 1 cycle\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 372,
+									"character": 48,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L372"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 105,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 270,
+											"character": 15,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L270"
+										}
+									],
+									"signatures": [
+										{
+											"id": 106,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 270,
+													"character": 15,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L270"
+												}
+											],
+											"parameters": [
+												{
+													"id": 107,
+													"name": "min",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "minimum value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "0"
+												},
+												{
+													"id": 108,
+													"name": "max",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "maximum value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "1"
+												},
+												{
+													"id": 109,
+													"name": "q",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "48"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 61,
+							"name": "stack",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Stack - layer given set of values over the same time range"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nstack(0, sine(), square()) // layers a sine wave and square wave over a constant 0 value.\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 371,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L371"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 62,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 277,
+											"character": 14,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L277"
+										}
+									],
+									"signatures": [
+										{
+											"id": 63,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 277,
+													"character": 14,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L277"
+												}
+											],
+											"parameters": [
+												{
+													"id": 64,
+													"name": "values",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "values to layer. Can be patterns or raw values."
+															}
+														]
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "intrinsic",
+															"name": "any"
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 23,
+							"name": "sub",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Sub - subtract a value or pattern from the current pattern"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(5,6,7).sub(2) // results in 3,4,5 over successive cycles\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(5,6,7).sub(saw(0,3,3)) // results in 5-0, 6-1, 7-2 over successive cycles\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 364,
+									"character": 9,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L364"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 24,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 25,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 26,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 91,
+							"name": "tri",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Tri - generate a triangle wave pattern from min to max over one cycle"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\ntri(0, 1) // generates a triangle wave from 0 to 1 over the course of 1 cycle\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 372,
+									"character": 36,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L372"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 92,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 242,
+											"character": 12,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L242"
+										}
+									],
+									"signatures": [
+										{
+											"id": 93,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 242,
+													"character": 12,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L242"
+												}
+											],
+											"parameters": [
+												{
+													"id": 94,
+													"name": "min",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "minimum value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "0"
+												},
+												{
+													"id": 95,
+													"name": "max",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "maximum value"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "1"
+												},
+												{
+													"id": 96,
+													"name": "q",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform."
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"defaultValue": "48"
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 154,
+							"name": "xor",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Use XOR to compare values."
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nset(1).xor(1) // returns 0\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Pattern.ts",
+									"line": 377,
+									"character": 13,
+									"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L377"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 155,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "Pattern.ts",
+											"line": 44,
+											"character": 4,
+											"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+										}
+									],
+									"signatures": [
+										{
+											"id": 156,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Pattern.ts",
+													"line": 44,
+													"character": 4,
+													"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L44"
+												}
+											],
+											"parameters": [
+												{
+													"id": 157,
+													"name": "args",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isRest": true
+													},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "union",
+															"types": [
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																{
+																	"type": "reference",
+																	"target": 158,
+																	"typeArguments": [
+																		{
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	],
+																	"name": "Pattern",
+																	"package": "sartori"
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": 158,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Pattern",
+												"package": "sartori"
+											}
+										}
+									]
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								19,
+								146,
+								43,
+								130,
+								118,
+								134,
+								85,
+								126,
+								31,
+								51,
+								122,
+								35,
+								110,
+								27,
+								143,
+								150,
+								97,
+								75,
+								71,
+								137,
+								65,
+								114,
+								47,
+								39,
+								79,
+								56,
+								140,
+								104,
+								61,
+								23,
+								91,
+								154
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Pattern.ts",
+							"line": 362,
+							"character": 23,
+							"url": "https://github.com/cephasteom/sartori/blob/42e8ecc81f1635824cc8d51aba51c0754a597dd8/src/core/Pattern.ts#L362"
+						}
+					]
+				}
+			},
+			"defaultValue": "..."
+		}
+	],
+	"groups": [
+		{
+			"title": "Classes",
+			"children": [
+				158
+			]
+		},
+		{
+			"title": "Variables",
+			"children": [
+				7
+			]
+		}
+	],
+	"packageName": "sartori",
+	"readme": [
+		{
+			"kind": "text",
+			"text": "# Sartori\nA live coding language for unlimited pattern interference. Supercedes [Zen](https://github.com/cephasteom/zen).\n\n# Credits\n* Huge thanks to this series of blog posts by Froos for helping me understand how to manage time: [garten.salat.dev](https://garten.salat.dev/idlecycles/)."
+		}
+	],
+	"symbolIdMap": {
+		"0": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": ""
+		},
+		"7": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "methods"
+		},
+		"8": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object"
+		},
+		"19": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.add"
+		},
+		"20": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"21": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"22": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"23": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.sub"
+		},
+		"24": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"25": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"26": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"27": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.mul"
+		},
+		"28": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"29": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"30": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"31": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.div"
+		},
+		"32": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"33": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"34": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"35": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.mod"
+		},
+		"36": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"37": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"38": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"39": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.set"
+		},
+		"40": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"41": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"42": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"43": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.cat"
+		},
+		"44": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"45": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"46": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "values"
+		},
+		"47": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.seq"
+		},
+		"48": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"49": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"50": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "values"
+		},
+		"51": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.fast"
+		},
+		"52": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"53": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"54": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "factor"
+		},
+		"55": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "pattern"
+		},
+		"56": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.slow"
+		},
+		"57": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"58": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"59": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "factor"
+		},
+		"60": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "pattern"
+		},
+		"61": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.stack"
+		},
+		"62": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"63": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"64": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "values"
+		},
+		"65": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.saw"
+		},
+		"66": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"67": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"68": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "min"
+		},
+		"69": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "max"
+		},
+		"70": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "q"
+		},
+		"71": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.range"
+		},
+		"72": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"73": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"74": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"75": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.ramp"
+		},
+		"76": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"77": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"78": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"79": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.sine"
+		},
+		"80": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"81": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"82": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "min"
+		},
+		"83": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "max"
+		},
+		"84": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "q"
+		},
+		"85": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.cosine"
+		},
+		"86": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"87": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"88": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "min"
+		},
+		"89": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "max"
+		},
+		"90": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "q"
+		},
+		"91": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.tri"
+		},
+		"92": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"93": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"94": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "min"
+		},
+		"95": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "max"
+		},
+		"96": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "q"
+		},
+		"97": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.pulse"
+		},
+		"98": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"99": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"100": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "min"
+		},
+		"101": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "max"
+		},
+		"102": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "duty"
+		},
+		"103": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "q"
+		},
+		"104": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.square"
+		},
+		"105": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"106": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"107": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "min"
+		},
+		"108": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "max"
+		},
+		"109": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "q"
+		},
+		"110": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.mtr"
+		},
+		"111": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"112": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"113": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"114": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.scale"
+		},
+		"115": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"116": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"117": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"118": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.clamp"
+		},
+		"119": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"120": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"121": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"122": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.interp"
+		},
+		"123": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"124": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"125": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"126": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.degrade"
+		},
+		"127": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"128": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"129": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"130": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.choose"
+		},
+		"131": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"132": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"133": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "values"
+		},
+		"134": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.coin"
+		},
+		"135": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"136": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"137": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.rarely"
+		},
+		"138": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"139": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"140": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.sometimes"
+		},
+		"141": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"142": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"143": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.often"
+		},
+		"144": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"145": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"146": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.and"
+		},
+		"147": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"148": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"149": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"150": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.or"
+		},
+		"151": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"152": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"153": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"154": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__object.xor"
+		},
+		"155": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"156": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "__function"
+		},
+		"157": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "args"
+		},
+		"158": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "Pattern"
+		},
+		"172": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Pattern.ts",
+			"qualifiedName": "Pattern.T"
+		}
+	},
+	"files": {
+		"entries": {
+			"1": "src/core/Pattern.ts",
+			"2": "README.md",
+			"3": ""
+		},
+		"reflections": {
+			"1": 0,
+			"2": 0,
+			"3": 0
+		}
+	}
+}

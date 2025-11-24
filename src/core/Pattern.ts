@@ -3,7 +3,10 @@
 // Credit: the main architecture of this was adapted from https://garten.salat.dev/idlecycles/, by Froos
 // This outlines the underlying concepts of how Tidal was ported to Strudel. Very many thanks.
 
-// Happening type, representing a value occurring over a time range.
+/**
+ * Hap type - represents a single event in a Pattern
+ * @ignore - internal use only
+ */
 export declare type Hap<T> = { from: number; to: number; value: T };
 
 // Util: Pattern creation shortcut
@@ -381,10 +384,26 @@ export const methods = {
 
 /**
  * Pattern class.
- * Holds a query function and binds all methods to the instance.
+ * The core building block of Sartori. Patterns represent time-varying values over cycles.
+ * @example s0.set({
+ *  freq: sine(100,1000) // use a Pattern to set frequency
+ *  e: seq(1,1,0,1) // use a Pattern to trigger events
+ * })
  */
 export class Pattern<T> {
+    /**
+     * Query function - returns Haps for a given time range
+     * @param from - start time
+     * @param to - end time
+     * @ignore - internal use only
+     */
     query: (from: number, to: number) => Hap<T>[];
+
+    /**
+     * Create a new Pattern instance
+     * @param query - function that returns Haps for a given time range
+     * @ignore - internal use only
+     */
     constructor(query: (from: number, to: number) => Hap<T>[] = () => []) {
         this.query = query;
 
