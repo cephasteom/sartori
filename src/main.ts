@@ -4,29 +4,20 @@ import './editor';
 import './normalize.css'
 import './style.css'
 
-// console.log(compile(0, 2));
-// console.log(compile(2, 4));
-
+// Listen for 'executeCode' events from the editor and evaluate the code
 window.addEventListener("executeCode", (e) => {
     const customEvent = e as CustomEvent<{ code: string }>;
     evaluate(customEvent.detail.code);
 });
 
+// Set up AudioContext and Scheduler -
 const ac = new AudioContext();
-const scheduler = new Scheduler(ac, (hap: any) => {
-    console.log(hap);
+const scheduler = new Scheduler(ac, (hap: any, time: number) => {
+    console.log(hap, time); // handle the hap (event) here
 });
 
-let isPlaying = false;
+// Play / stop on Ctrl+Enter / Escape
 window.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && e.ctrlKey) {
-        if(isPlaying) return;
-        scheduler.play();
-        isPlaying = true;
-    }
-
-    if (e.key === 'Escape') {
-        scheduler.stop();
-        isPlaying = false;
-    }
+    if(e.key === 'Enter' && e.ctrlKey) scheduler.play();
+    if(e.key === 'Escape') scheduler.stop();
 });

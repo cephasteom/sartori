@@ -5,7 +5,7 @@ import { methods, type Hap } from './Pattern';
 let lastCode: string = '';
 
 // create 16 streams: s0, s1, s2, ... s15
-const streams = Array(1).fill(0).map((_, i) => new Stream('s' + i))
+const streams = Array(16).fill(0).map((_, i) => new Stream('s' + i))
 
 // Util: reset all streams to initial state
 export const reset = () => streams.forEach(stream => stream.__reset());

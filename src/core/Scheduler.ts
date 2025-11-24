@@ -1,7 +1,7 @@
 import { compile } from "./compile";
 
 /**
- * A simple clock class to drive the scheduler. Lifted from https://garten.salat.dev/webaudio/clock.html. Ta!
+ * A Clock class to drive the scheduler. Lifted from https://garten.salat.dev/webaudio/clock.html. Ta!
  */
 class Clock {
     ac: AudioContext;
@@ -55,6 +55,7 @@ class Clock {
 
 /**
  * Scheduler class to manage timing and event dispatching. Adapted from https://garten.salat.dev/idlecycles/chapter6.html. Ta!
+ * TODO: handle cps
  */
 export class Scheduler {
     duration = 0.125; // how many cycles / seconds we're querying per tick
@@ -63,6 +64,7 @@ export class Scheduler {
     ac: AudioContext; // audio context
     clock: Clock; // clock to drive the scheduler
     handler: Function; // function to call for each hap
+    isPlaying: boolean = false;
     constructor(ac: AudioContext, handler: Function) {
         this.ac = ac; // audio context
         this.handler = handler; // will be called for each hap
@@ -71,18 +73,21 @@ export class Scheduler {
             const to = Math.round((this.phase + this.duration) * 1000) / 1000;
             compile(from, to)
                 .forEach((hap) => {
-                    const time = this.origin + hap.from;
+                    const time = this.origin + hap.time;
                     this.handler(hap, time)
                 });
             this.phase = to;
         });
     }
     play() {
+        if (this.isPlaying) return;
         this.phase = 0;
         this.origin = this.ac.currentTime;
         this.clock.start(undefined, this.duration);
+        this.isPlaying = true;
     }
     stop() {
         this.clock.stop();
+        this.isPlaying = false;
     }
 }
