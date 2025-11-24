@@ -1,5 +1,8 @@
 import { compile } from "./compile";
 
+/**
+ * A simple clock class to drive the scheduler. Lifted from https://garten.salat.dev/webaudio/clock.html. Ta!
+ */
 class Clock {
     ac: AudioContext;
     runs: boolean;
@@ -16,7 +19,7 @@ class Clock {
         this.dummyGain.connect(this.ac.destination);
         return this;
     }
-    timeout(onComplete, startTime, stopTime) {
+    timeout(onComplete: Function, startTime: number, stopTime: number) {
         const constantNode = this.ac.createConstantSource();
         constantNode.connect(this.dummyGain);
         constantNode.start(startTime);
@@ -36,7 +39,7 @@ class Clock {
         this.runs = true;
         this.tick(begin, duration);
     }
-    tick(begin, duration) {
+    tick(begin: number, duration: number) {
         this.runs = true;
         this.onTick(begin);
         const end = begin + duration;
@@ -50,6 +53,9 @@ class Clock {
     }
 }
 
+/**
+ * Scheduler class to manage timing and event dispatching. Adapted from https://garten.salat.dev/idlecycles/chapter6.html. Ta!
+ */
 export class Scheduler {
     duration = 0.125; // how many cycles / seconds we're querying per tick
     origin: number = 0; // absolute time of first cycle (phase 0)
@@ -63,10 +69,11 @@ export class Scheduler {
         this.clock = new Clock(ac, () => {
             const from = this.phase;
             const to = Math.round((this.phase + this.duration) * 1000) / 1000;
-            compile(from, to).forEach((hap) => {
-                const time = this.origin + hap.from;
-                this.handler(hap, time)
-            });
+            compile(from, to)
+                .forEach((hap) => {
+                    const time = this.origin + hap.from;
+                    this.handler(hap, time)
+                });
             this.phase = to;
         });
     }

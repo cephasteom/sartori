@@ -34,6 +34,8 @@ export const editor = editorFromPlaceholder(
     {
         language: 'typescript',
         lineNumbers: false,
+        // content
+        value: `s0.set({ e:seq(1) })`,
     },
     indentGuides(),
     matchBrackets(),

@@ -17,14 +17,16 @@ const scheduler = new Scheduler(ac, (hap: any) => {
     console.log(hap);
 });
 
+let isPlaying = false;
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && e.ctrlKey) {
+        if(isPlaying) return;
         scheduler.play();
-        return false;
+        isPlaying = true;
     }
 
     if (e.key === 'Escape') {
         scheduler.stop();
-        return false;
+        isPlaying = false;
     }
 });

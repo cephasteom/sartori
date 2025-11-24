@@ -48,19 +48,19 @@ export class Stream {
         // gather the events from .e pattern
         const events = this.e?.query(from, to) || [];
         return events
-            // only keep events with a value
-            .filter((e: Hap<any>) => !!e.value)
+            // only keep events with a value, and where the from time falls within the range
+            .filter((e: Hap<any>) => !!e.value && e.from >= from && e.from < to)
             // iterate over events and build param sets
-            .map((e: Hap<any>) => ({
-                time: e.from,
+            .map((hap: Hap<any>) => ({
+                time: hap.from,
                 params: Object.fromEntries(Object.entries(this)
                     // only keep Patterns
                     .filter(([_, value]) => value instanceof Pattern)
                     // query each Pattern and...
                     .map(([key, pattern]) => [key, (pattern as Pattern<any>)
-                        .query(e.from, e.to)
+                        .query(hap.from, hap.to)
                         // ...find the hap in which the event starts
-                        .find(hap => e.from >= hap.from && e.from < hap.to) 
+                        .find(hap => hap.from >= hap.from && hap.from < hap.to) 
                         // ...and get its value
                         ?.value
                     ])
