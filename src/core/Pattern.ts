@@ -1,4 +1,4 @@
-// TODO: is it possible for fast and slow to accept a patern?
+// TODO: is it possible for fast and slow to accept a pattern?
 
 // Credit: the main architecture of this was adapted from https://garten.salat.dev/idlecycles/, by Froos
 // This outlines the underlying concepts of how Tidal was ported to Strudel. Very many thanks.
@@ -395,12 +395,3 @@ export class Pattern<T> {
         } );
     }
 }
-
-
-// const code = "seq(0,1,0).add(1)";
-// const result = new Function(...Object.keys(methods), `return ${code}`)(...Object.values(methods));
-// // @ts-ignore
-// console.log(result.query(0.5, 1)
-//     .map(h=> h.value)
-// );
-// // console.log(set(1).add(4).query(0,10).map(h=> h.value));

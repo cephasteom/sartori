@@ -1,6 +1,5 @@
-// TODO: everything!
-import { Pattern, methods, type Hap } from '../Pattern/Pattern';
-const {sine, seq, set} = methods;
+import { Pattern, methods, type Hap } from './Pattern';
+
 export interface Stream extends Record<string, any> {
     id: string;
 }
@@ -31,11 +30,11 @@ export class Stream {
      */
     set(params: Record<string, any>) {
         Object.entries(params)
-            .filter(([key]) => !['id', 'set', 'query'].includes(key))
+            .filter(([key]) => !['id', 'set', 'query', '__reset'].includes(key))
             // @ts-ignore
             .forEach(([key, value]) => this[key] = (value instanceof Pattern 
                 ? value 
-                : set(value)));
+                : methods.set(value)));
     }
     
     /**
@@ -68,23 +67,15 @@ export class Stream {
                 )
             }));
     }
+
+    /**
+     * Reset the Stream to its initial state.
+     * @ignore - internal use only
+     */
+    __reset() {
+        Object.keys(this).forEach(key => {
+            if (['id', 'set', 'query', '__reset'].includes(key)) return;
+            delete this[key];
+        });
+    }
 }
-
-// const s0 = new Stream('s0');
-// const s1 = new Stream('s1');
-
-// s0.set({
-//     // inst: 0,
-//     // reverb: sine().mul(10),
-//     e: seq(1,0,1,1).degrade(1) })
-    
-// // nice! because everything is immutable, we can reference patterns from other streams
-// s1.set({
-//     e: s0.e
-// })
-
-// console.log(
-//     s0.query(0,1).map(h => h.params), 
-//     // s1.query(0,1)
-// );
-// We should be able to do something like this s0.e.coin().repeat(8), or repeat(8, coin()). Or even better, do(8, coin()) to create a pattern that repeats 8 times with coin flips each time.
