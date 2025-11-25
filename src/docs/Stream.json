@@ -1,0 +1,432 @@
+{
+	"schemaVersion": "2.0",
+	"id": 0,
+	"name": "sartori",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 1,
+			"name": "Stream",
+			"variant": "declaration",
+			"kind": 128,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "A Stream is a musical layer. You can think of it as a track in a DAW, or a channel in a mixer.\nIt can be used to control multiple instruments, effects, and routing.\nStream instances are stored as "
+					},
+					{
+						"kind": "code",
+						"text": "`s0`"
+					},
+					{
+						"kind": "text",
+						"text": ", "
+					},
+					{
+						"kind": "code",
+						"text": "`s1`"
+					},
+					{
+						"kind": "text",
+						"text": ", "
+					},
+					{
+						"kind": "code",
+						"text": "`s2`"
+					},
+					{
+						"kind": "text",
+						"text": ", "
+					},
+					{
+						"kind": "code",
+						"text": "`s3`"
+					},
+					{
+						"kind": "text",
+						"text": ", "
+					},
+					{
+						"kind": "code",
+						"text": "`s4`"
+					},
+					{
+						"kind": "text",
+						"text": ", "
+					},
+					{
+						"kind": "code",
+						"text": "`s5`"
+					},
+					{
+						"kind": "text",
+						"text": ", "
+					},
+					{
+						"kind": "code",
+						"text": "`s6`"
+					},
+					{
+						"kind": "text",
+						"text": ", "
+					},
+					{
+						"kind": "code",
+						"text": "`s7`"
+					},
+					{
+						"kind": "text",
+						"text": " etc."
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@example",
+						"content": [
+							{
+								"kind": "code",
+								"text": "```ts\ns0.set({\n   inst: 0, \n   reverb: sine(),\n   e: seq(1,0,1) })\n```"
+							}
+						]
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 2,
+					"name": "constructor",
+					"variant": "declaration",
+					"kind": 512,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Stream.ts",
+							"line": 18,
+							"character": 4,
+							"url": "https://github.com/cephasteom/sartori/blob/f4417d05d4f7fa309f4dc298ae8067d277bf1149/src/core/Stream.ts#L18"
+						}
+					],
+					"signatures": [
+						{
+							"id": 3,
+							"name": "Stream",
+							"variant": "signature",
+							"kind": 16384,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Stream.ts",
+									"line": 18,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/f4417d05d4f7fa309f4dc298ae8067d277bf1149/src/core/Stream.ts#L18"
+								}
+							],
+							"parameters": [
+								{
+									"id": 4,
+									"name": "id",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 1,
+								"name": "Stream",
+								"package": "sartori"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"target": -1,
+								"name": "Record<string, any>.constructor",
+								"package": "typescript"
+							}
+						}
+					],
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "Record<string, any>.constructor",
+						"package": "typescript"
+					}
+				},
+				{
+					"id": 5,
+					"name": "id",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Stream.ts",
+							"line": 4,
+							"character": 4,
+							"url": "https://github.com/cephasteom/sartori/blob/f4417d05d4f7fa309f4dc298ae8067d277bf1149/src/core/Stream.ts#L4"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 6,
+					"name": "set",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Stream.ts",
+							"line": 31,
+							"character": 4,
+							"url": "https://github.com/cephasteom/sartori/blob/f4417d05d4f7fa309f4dc298ae8067d277bf1149/src/core/Stream.ts#L31"
+						}
+					],
+					"signatures": [
+						{
+							"id": 7,
+							"name": "set",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Set parameters on the Stream."
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\ns0.set({\n   inst: 0, \n   reverb: sine(),\n   e: seq(1,0,1) })\n```"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "Stream.ts",
+									"line": 31,
+									"character": 4,
+									"url": "https://github.com/cephasteom/sartori/blob/f4417d05d4f7fa309f4dc298ae8067d277bf1149/src/core/Stream.ts#L31"
+								}
+							],
+							"parameters": [
+								{
+									"id": 8,
+									"name": "params",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "A record of parameter names and their values (Patterns or static values)."
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"target": {
+											"packageName": "typescript",
+											"packagePath": "lib/lib.es5.d.ts",
+											"qualifiedName": "Record"
+										},
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "any"
+											}
+										],
+										"name": "Record",
+										"package": "typescript"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"children": [
+						2
+					]
+				},
+				{
+					"title": "Properties",
+					"children": [
+						5
+					]
+				},
+				{
+					"title": "Methods",
+					"children": [
+						6
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Stream.ts",
+					"line": 3,
+					"character": 17,
+					"url": "https://github.com/cephasteom/sartori/blob/f4417d05d4f7fa309f4dc298ae8067d277bf1149/src/core/Stream.ts#L3"
+				},
+				{
+					"fileName": "Stream.ts",
+					"line": 17,
+					"character": 13,
+					"url": "https://github.com/cephasteom/sartori/blob/f4417d05d4f7fa309f4dc298ae8067d277bf1149/src/core/Stream.ts#L17"
+				}
+			],
+			"indexSignatures": [
+				{
+					"id": 15,
+					"name": "__index",
+					"variant": "signature",
+					"kind": 8192,
+					"flags": {},
+					"parameters": [
+						{
+							"id": 16,
+							"name": "key",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"target": {
+						"packageName": "typescript",
+						"packagePath": "lib/lib.es5.d.ts",
+						"qualifiedName": "Record"
+					},
+					"typeArguments": [
+						{
+							"type": "intrinsic",
+							"name": "string"
+						},
+						{
+							"type": "intrinsic",
+							"name": "any"
+						}
+					],
+					"name": "Record",
+					"package": "typescript"
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Classes",
+			"children": [
+				1
+			]
+		}
+	],
+	"packageName": "sartori",
+	"readme": [
+		{
+			"kind": "text",
+			"text": "# Sartori\nA live coding language for unlimited pattern interference. Supercedes [Zen](https://github.com/cephasteom/zen).\n\n# Credits\n* Huge thanks to this series of blog posts by Froos for helping me understand how to manage time: [garten.salat.dev](https://garten.salat.dev/idlecycles/)."
+		}
+	],
+	"symbolIdMap": {
+		"0": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": ""
+		},
+		"1": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "Stream"
+		},
+		"2": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "Stream.__constructor"
+		},
+		"3": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "Stream"
+		},
+		"4": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "id"
+		},
+		"5": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "Stream.id"
+		},
+		"6": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "Stream.set"
+		},
+		"7": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "Stream.set"
+		},
+		"8": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "params"
+		}
+	},
+	"files": {
+		"entries": {
+			"1": "src/core/Stream.ts",
+			"2": "README.md",
+			"3": ""
+		},
+		"reflections": {
+			"1": 0,
+			"2": 0,
+			"3": 0
+		}
+	}
+}

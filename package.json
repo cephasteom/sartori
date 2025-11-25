@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "docs": "npx typedoc src/core/Pattern.ts --json src/docs/Pattern.json"
+    "docs:pattern": "npx typedoc src/core/Pattern.ts --json src/docs/Pattern.json",
+    "docs:stream": "npx typedoc src/core/Stream.ts --json src/docs/Stream.json"
   },
   "devDependencies": {
     "typedoc": "^0.28.14",
