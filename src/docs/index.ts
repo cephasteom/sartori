@@ -52,11 +52,12 @@ const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<s
     // fill with pattern methods
     if (helpElement) {
         helpElement.innerHTML = `
-            <h2>Stream</h2>
+            <h2>Docs</h2>
+            <h3>Stream</h3>
             <ul class="help__list">
                 ${Object.entries(streamMethods).map(([name, info]) => `
                     <li>
-                        <h3>${name}</h3>
+                        <h4>${name}</h4>
                         <p>${info.description}</p>
                         ${info.examples.length > 0 ? `
                             ${marked(info.examples.join('\n'))}
@@ -64,11 +65,11 @@ const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<s
                     </li>
                 `).join('')}
             </ul>
-            <h2>Pattern</h2>
+            <h3>Pattern</h3>
             <ul class="help__list">
                 ${Object.entries(patternMethods).map(([name, info]) => `
                     <li>
-                        <h3>${name}</h3>
+                        <h4>${name}</h4>
                         <p>${info.description}</p>
                         ${info.examples.length > 0 ? `
                             ${marked(info.examples.join('\n'))}
@@ -82,5 +83,3 @@ const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<s
 };
 
 renderDocs(streamMethods, patternMethods);
-
-// TODO: search box to filter methods

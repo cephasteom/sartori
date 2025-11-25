@@ -22,3 +22,15 @@
 .help__list li {
     margin-bottom: 3rem;
 }
+
+#help h2 { 
+    color: var(--theme-yellow);
+}
+
+#help h3 { 
+    color: var(--theme-orange);
+}
+
+#help h4 { 
+    color: var(--theme-mauve);
+}
