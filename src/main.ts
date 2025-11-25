@@ -1,3 +1,11 @@
+// TODO: more accurate scheduling
+// TODO: mutations
+// TODO: test language - are we getting back what we expect?
+// TODO: mini lang
+// TODO: more pattern functions
+// TODO: fx and fx busses
+// TODO: docs - instruments, fx
+
 import { evaluate } from './core/compile';
 import { Scheduler } from './core/Scheduler';
 import { handler } from './oto';
