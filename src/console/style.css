@@ -6,6 +6,10 @@
 .console__message {
     margin: 0 0 1rem 0;
 }
+.console__message--title {
+    color: var(--theme-yellow);
+    font-size: 1.5rem;
+}
 .console__message--success {
     color: var(--theme-yellow);
 }

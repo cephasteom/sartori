@@ -6,7 +6,7 @@ channel.addEventListener('message', (e) => log(e.data.type, e.data.message));
 let errors: {type: string, message: string}[] = []
 
 const initialMessages = [
-    {type: 'success', message: 'Welcome to Sartori!'},
+    {type: 'title', message: 'Sartori'},
     {type: 'info', message: '`ctrl + return` to play.'},
     {type: 'info', message: '`ctrl + .` to stop.'},
     {type: 'credit', message: `© Cephas Teom ${new Date().getFullYear()}`},

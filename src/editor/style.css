@@ -1,5 +1,8 @@
-/* Reset padding and margin so that the editor is agnostic to surrounding styles */
+.prism-code-editor {
+    height: 100%;
+}
 
+/* Reset padding and margin so that the editor is agnostic to surrounding styles */
 .prism-code-editor > .pce-wrapper {
     margin: 0;
 }

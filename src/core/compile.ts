@@ -17,7 +17,7 @@ const scope = {
     streams,
     ...streams.reduce((obj, stream) => ({
         ...obj,
-        [stream.id]: stream
+        [stream.id]: (params: Record<string, any>) => stream.set(params)
     }), {}),
     ...methods
 }
