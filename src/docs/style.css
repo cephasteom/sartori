@@ -1,7 +1,5 @@
 #help {
     overflow-y: scroll;
-    /* background-color: var(--theme-blue-dark); */
-    /* var(--theme-blue-dark); in rgba */
     background-color: rgba(13, 17, 23, 0.4);
     padding: 1rem;
 }
