@@ -1,5 +1,7 @@
 import { Gain, Split, Merge, getDestination } from 'tone'
+import Synth from './ct-synths/tone/Synth'
 
+const console = new BroadcastChannel('sartori');
 
 const destination = getDestination() // system audio output
 destination.channelCount = destination.maxChannelCount // set to max channels
@@ -7,14 +9,13 @@ destination.channelCount = destination.maxChannelCount // set to max channels
 const output = new Merge({channels: destination.maxChannelCount}) // create output merger
 output.connect(destination) // connect to system audio output
 
-const synthTypes = [
-    'synth', 'sampler', 'granular', 'additive', 'acid', 'drone', 'sub', 'superfm', 'wavetable', 
-    'zmod', 
-    'tone.synth', 'tone.mono', 'tone.fm', 'tone.am'
-];
+const instMap: Record<string, typeof Synth> = {
+    'tone.synth': Synth,
+}
 
-const console = new BroadcastChannel('sartori');
-
+/**
+ * Represents an audio channel with its own instruments and effects.
+ */
 export class Channel {
     out: number // output channel index
     input: Gain // input gain
@@ -36,14 +37,29 @@ export class Channel {
         this.output.connect(output, 1, out+1)
     }
 
+    /**
+     * Plays an instrument with given params at given time
+     * @param params - e.g. {inst: 'tone.synth', n: 60, dur: 1000}
+     * @param time 
+     */
     play(params: any, time: number) {
         const { inst } = params;
-        
-        if(!synthTypes.includes(inst)) {
+
+        // check that instrument is valid
+        if(!Object.keys(instMap).includes(inst)) {
             return console.postMessage({ 
                 type: 'error', 
-                message: `Instrument type "${inst}" not recognized.` 
+                message: `Instrument type "${inst}" not recognised.` 
             });
         }
+
+        // initialize instrument if it doesn't exist on this channel yet
+        if(!this.instruments[inst]) {
+            this.instruments[inst] = new instMap[inst]();
+            this.instruments[inst].connect(this.input);
+        }
+
+        // play instrument with given params
+        this.instruments[inst].play(params, time);
     }
 }
