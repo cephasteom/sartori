@@ -1,5 +1,7 @@
 import { compile } from "./compile";
 
+// TODO: typing of Haps
+
 /**
  * A Clock class to drive the scheduler. Lifted from https://garten.salat.dev/webaudio/clock.html. Ta!
  */
@@ -44,9 +46,7 @@ class Clock {
         this.onTick(begin);
         const end = begin + duration;
         this.timeout(
-            () => {
-                this.runs && this.tick(end, duration);
-            },
+            () => this.runs && this.tick(end, duration),
             begin,
             end
         );

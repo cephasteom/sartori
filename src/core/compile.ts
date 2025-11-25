@@ -48,7 +48,7 @@ export const compile = (from: number, to: number) => {
         if (events.length === 0) return compiled;
         return [
             ...compiled,
-            ...events.map((event: Hap<any>) => ({...event, stream: stream.id }))
+            ...events.map((event: Hap<any>) => ({...event, id: stream.id }))
         ]
-    }, [] as Array<Hap<any> & { stream: string }>);
+    }, [] as Array<Hap<any> & { id: string }>);
 }
