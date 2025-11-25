@@ -8,15 +8,7 @@ import 'prism-code-editor/prism/languages/typescript';
 
 import { editorFromPlaceholder } from 'prism-code-editor';
 import { matchBrackets } from 'prism-code-editor/match-brackets';
-import { indentGuides } from 'prism-code-editor/guides';
-import {
-  searchWidget,
-  highlightSelectionMatches,
-  showInvisibles,
-} from 'prism-code-editor/search';
 import { defaultCommands, editHistory } from 'prism-code-editor/commands';
-import { cursorPosition } from 'prism-code-editor/cursor';
-import { highlightBracketPairs } from 'prism-code-editor/highlight-brackets';
 import 'prism-code-editor/languages/clike';
 
 import 'prism-code-editor/layout.css';
@@ -36,20 +28,14 @@ export const editor = editorFromPlaceholder(
     {
         language: 'typescript',
         lineNumbers: false,
-        // content
+        highlightActiveLine: false,
         value: `s0({ 
   inst: 'sampler', n: 60, cut: 's0', bank: '808bd',
   e:seq(1,1,1).fast(2) })`,
     },
-    indentGuides(),
     matchBrackets(),
-    highlightSelectionMatches(),
-    searchWidget(),
     defaultCommands(),
     editHistory(),
-    highlightBracketPairs(),
-    cursorPosition(),
-    showInvisibles()
 );
 
 /**
