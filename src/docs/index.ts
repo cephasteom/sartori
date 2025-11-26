@@ -54,9 +54,12 @@ const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<s
     // fill with pattern methods
     if (helpElement) {
         helpElement.innerHTML = `
-            <h2>Docs</h2>`
+            <h2>Docs</h2>
+            `
 
-            + `<h3>Quick Start</h3>
+            + `
+            <article id="docs__quick-start">
+            <h3>Quick Start</h3>
             <p>Streams are musical layers, represented by <code>s0({...})</code>, <code>s1({...})</code>, ... <code>s15({...})</code>. Parameters are determined by the object passed.</p>
             <p>Parameter values can be raw:</p>
             ${marked(`\`\`\`typescript
@@ -73,34 +76,42 @@ s2({ note: 'Ddor%16..' })
             <p>Trigger an event using <code>.e</code>:</p>
             ${marked(`\`\`\`typescript
 s3({ ..., e: seq(1,0,1) })
-\`\`\``)}`
+\`\`\``)}
+            </article>
+            `
             
-            + `<h3>Stream</h3>
-            <p>A Stream represents a musical layer. In Sartori, you can create up to 16 streams (s0 to s15). </p>
-            <ul class="help__list">
-                ${Object.entries(streamMethods).map(([name, info]) => `
-                    <li>
-                        <h4>${name}</h4>
-                        <p>${info.description}</p>
-                        ${info.examples.length > 0 ? `
-                            ${marked(info.examples.join('\n'))}
-                        ` : ''}
-                    </li>
-                `).join('')}
-            </ul>`
+            + `
+            <article id="docs__stream">
+                <h3>Stream</h3>
+                <p>A Stream represents a musical layer. In Sartori, you can create up to 16 streams (s0 to s15). </p>
+                <ul class="help__list">
+                    ${Object.entries(streamMethods).map(([name, info]) => `
+                        <li>
+                            <h4>${name}</h4>
+                            <p>${info.description}</p>
+                            ${info.examples.length > 0 ? `
+                                ${marked(info.examples.join('\n'))}
+                            ` : ''}
+                        </li>
+                    `).join('')}
+                </ul>
+            </article>`
             
-            + `<h3>Pattern</h3>
-            <ul class="help__list">
-                ${Object.entries(patternMethods).map(([name, info]) => `
-                    <li>
-                        <h4>${name}</h4>
-                        <p>${info.description}</p>
-                        ${info.examples.length > 0 ? `
-                            ${marked(info.examples.join('\n'))}
-                        ` : ''}
-                    </li>
-                `).join('')}
-            </ul>
+            + `
+            <article id="docs__pattern">
+                <h3>Pattern</h3>
+                <ul class="help__list">
+                    ${Object.entries(patternMethods).map(([name, info]) => `
+                        <li>
+                            <h4>${name}</h4>
+                            <p>${info.description}</p>
+                            ${info.examples.length > 0 ? `
+                                ${marked(info.examples.join('\n'))}
+                            ` : ''}
+                        </li>
+                    `).join('')}
+                </ul>
+            </article>
         `;
     }
     hljs.highlightAll();
