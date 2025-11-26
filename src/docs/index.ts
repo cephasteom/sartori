@@ -54,8 +54,27 @@ const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<s
     // fill with pattern methods
     if (helpElement) {
         helpElement.innerHTML = `
-            <h2>Docs</h2>
-            <h3>Stream</h3>
+            <h2>Docs</h2>`
+
+            + `<h3>Quick Start</h3>
+            <p>Streams are musical layers, represented by <code>s0()</code>, <code>s1()</code>, etc. Pass an object of parameters to control the stream.</p>
+            ${marked(`\`\`\`typescript
+s0({ inst: 'synth', note: 60, dur: 0.5 })
+\`\`\``)}
+            <p>Parameter values can be raw values, Patterns...</p>
+            ${marked(`\`\`\`typescript
+s1({ inst: 'synth', note: seq(60,62,64,65), dur: sine().add(.25) })
+\`\`\``)}   
+            <p>...or mini-notation:</p>
+            ${marked(`\`\`\`typescript
+s2({ note: 'Ddor%16..' })
+\`\`\``)}   
+            <p>Streams are triggered using the <code>e</code> parameter.</p>
+            ${marked(`\`\`\`typescript
+s3({ ..., e: seq(1,0,1) })
+\`\`\``)}`
+            
+            + `<h3>Stream</h3>
             <ul class="help__list">
                 ${Object.entries(streamMethods).map(([name, info]) => `
                     <li>
@@ -66,8 +85,9 @@ const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<s
                         ` : ''}
                     </li>
                 `).join('')}
-            </ul>
-            <h3>Pattern</h3>
+            </ul>`
+            
+            + `<h3>Pattern</h3>
             <ul class="help__list">
                 ${Object.entries(patternMethods).map(([name, info]) => `
                     <li>
