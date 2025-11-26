@@ -4,6 +4,19 @@
     padding: 1rem;
 }
 
+#help button {
+    background: transparent;
+    border: none;
+    color: var(--theme-yellow);
+    padding: 0;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.active > h3 {
+    color: var(--theme-yellow)!important;
+}
+
 #help article {
     display: none;
 }

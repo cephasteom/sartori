@@ -56,14 +56,13 @@ const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<s
     if (helpElement) {
         helpElement.innerHTML = `
             <h2>Docs</h2>
-            <button>Quick Start</button>
-            <button>Stream</button>
-            <button>Pattern</button>
+            <button class="active"><h3>Quick Start</h3></button>
+            <button><h3>Stream</h3></button>
+            <button><h3>Pattern</h3></button>
             `
 
             + `
             <article id="docs__quick-start">
-            <h3>Quick Start</h3>
             <p>Streams are musical layers, represented by <code>s0({...})</code>, <code>s1({...})</code>, ... <code>s15({...})</code>. Parameters are determined by the object passed.</p>
             <p>Parameter values can be raw:</p>
             ${marked(`\`\`\`typescript
@@ -86,7 +85,6 @@ s3({ ..., e: seq(1,0,1) })
             
             + `
             <article id="docs__stream">
-                <h3>Stream</h3>
                 <p>A Stream represents a musical layer. In Sartori, you can create up to 16 streams (s0 to s15). </p>
                 <ul class="help__list">
                     ${Object.entries(streamMethods).map(([name, info]) => `
@@ -103,7 +101,6 @@ s3({ ..., e: seq(1,0,1) })
             
             + `
             <article id="docs__pattern">
-                <h3>Pattern</h3>
                 <ul class="help__list">
                     ${Object.entries(patternMethods).map(([name, info]) => `
                         <li>
@@ -132,5 +129,10 @@ document.querySelectorAll('#help button').forEach((button) => {
         if (previousArticle) previousArticle.style.display = 'none';
         if (nextArticle) nextArticle.style.display = 'block';
         currentArticle = articleId;
+        // update button styles
+        document.querySelectorAll('#help button').forEach((btn) => {
+            btn.classList.remove('active');
+        });
+        button.classList.add('active');
     });
 });
