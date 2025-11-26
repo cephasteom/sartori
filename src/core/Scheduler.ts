@@ -51,7 +51,6 @@ class Clock {
 
 /**
  * Scheduler class to manage timing and event dispatching. Adapted from https://garten.salat.dev/idlecycles/chapter6.html. Ta!
- * TODO: handle cps
  */
 export class Scheduler {
     duration = 0.125; // how many cycles / seconds we're querying per tick
@@ -67,11 +66,10 @@ export class Scheduler {
         this.clock = new Clock(ac, () => {
             const from = this.phase;
             const to = Math.round((this.phase + this.duration) * 1000) / 1000;
-            compile(from, to)
-                .forEach((hap) => {
-                    const time = this.origin + (hap.time / this.cps) + this.latency;
-                    handler(hap, time)
-                });
+            compile(from, to).forEach((hap) => handler(
+                hap, 
+                this.origin + (hap.time / this.cps) + this.latency
+            ));
             this.phase = to;
         });
     }
