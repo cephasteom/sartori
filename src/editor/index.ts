@@ -30,7 +30,7 @@ export const editor = editorFromPlaceholder(
     {
         language: 'typescript',
         lineNumbers: false,
-        value: preset,
+        value: localStorage.getItem("sartori.code") || preset,
     },
     matchBrackets(),
     defaultCommands(),
@@ -41,6 +41,8 @@ export const editor = editorFromPlaceholder(
  * If a user presses Shift+Enter, fire a custom 'evaluateCode' event
  */
 editor.textarea.addEventListener('keydown', (e) => {
+    localStorage.setItem("sartori.code", editor.value);
+
     if (e.key === 'Enter' && e.ctrlKey) {
         e.preventDefault();
         window.dispatchEvent(new CustomEvent("evaluateCode", { detail: { code: editor.value } }));
