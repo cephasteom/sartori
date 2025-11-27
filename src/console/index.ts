@@ -25,7 +25,8 @@ function render() {
         </div>
     `;
 
-    messages.length > 6 && (console.scrollTop = console.scrollHeight);
+    const container = console.querySelector('.console__messages');
+    container && messages.length > 6 && (container.scrollTop = container.scrollHeight);
 }
 
 render();

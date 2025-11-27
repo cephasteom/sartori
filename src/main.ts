@@ -8,7 +8,6 @@
 // TODO: docs - instruments, fx
 // TODO: better typing throughout
 // TODO: documentation on all modules
-// Store last executed code
 
 import { evaluate } from './core/compile';
 import { Scheduler } from './core/Scheduler';

@@ -41,14 +41,15 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
  * @ignore - internal use only
  */
 const withValue = (callback: (...args: any[]) => any) => 
-    (...args: (number|Pattern<any>)[]) => cycle((from, to) => {
+    (...args: (number|Pattern<any>)[]) => {
+        console.log(args)
         const pattern = args[args.length - 1] as Pattern<any>;
-        return pattern.query(from, to).map((hap) => ({
+        return P((from, to) => pattern.query(from, to).map((hap) => ({
             ...hap,
             // args to the callback are all args except the last (pattern), unwrapped, plus hap.value, hap.from, hap.to
             value: callback(...args.slice(0, -1).map(v => unwrap(v, hap.from, hap.to)), hap.value, hap.from, hap.to)
-        }))
-    })
+        })))
+    }
 
 /**
  * Add a value or pattern.
@@ -162,7 +163,7 @@ const set = (...args: Parameters<typeof cat>) => cat(...args);
  * @param values
  * @example seq('A', 'B', 'C', 'D') // A for .25 cycle, B for .25 cycle ... D for .25 cycle
  */
-const seq = (...values: any[]) => fast(values.length, cat(...values));
+const seq = (...values: any[]) => fast(values.length, cat(...values));    
 
 /**
  * Randomly choose from a set of values.
@@ -175,10 +176,7 @@ const choose = (...values: (any[])) =>
 // base function for generating continuous waveform patterns
 const waveform = (callback: (i: number, ...args: number[]) => number) => 
     (...args: number[]) =>
-        fast(
-            args[args.length - 1], 
-            cat(...Array.from({ length: args[args.length - 1] }, (_, i) => callback(i, ...args)))
-        );
+        seq(...Array.from({ length: args[args.length - 1] }, (_, i) => callback(i, ...args)));
 
 /**
  * Generate a ramp of values from min to max, once per cycle.
