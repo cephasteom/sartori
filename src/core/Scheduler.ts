@@ -2,15 +2,13 @@ import { getTransport, immediate, Loop } from 'tone'
 import { compile } from "./compile";
 
 export class Scheduler {
-    ac: AudioContext;
     cps: number = 0.5;
     transport;
     divisions: number = 4; // how many times / cycle to query
     t: number = 0; // time pointer in cycles
     loop: Loop;
 
-    constructor(ac: AudioContext, handler: Function) {
-        this.ac = ac;
+    constructor(handler: Function) {
         this.transport = getTransport()
         this.loop = new Loop(time => {
             const from = this.t;

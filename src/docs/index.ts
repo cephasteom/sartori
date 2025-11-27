@@ -54,7 +54,7 @@ let currentArticle = 'docs__quick-start';
 const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<string, any>) => {
     // fill with pattern methods
     if (helpElement) {
-        helpElement.innerHTML = `
+        helpElement.innerHTML = `<div>
             <h2>Docs</h2>
             <button class="active"><h3>Quick Start</h3></button>
             <button><h3>Stream</h3></button>
@@ -113,7 +113,7 @@ s3.set({ ..., e: seq(1,0,1) })
                     `).join('')}
                 </ul>
             </article>
-        `;
+        </div>`;
     }
     hljs.highlightAll();
 };

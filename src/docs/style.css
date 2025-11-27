@@ -1,7 +1,12 @@
 #help {
-    overflow-y: scroll;
     background: var(--theme-blue-dark);
     padding: 1rem;
+    overflow: hidden;
+}
+
+#help > div {
+    overflow-y: scroll;
+    height: 100%;
 }
 
 #help button {

@@ -1,10 +1,13 @@
-// TODO: fix dynamic cps - still requires a restart to prevent odd timing issues
-// TODO: mutations
-// TODO: test language - are we getting back what we expect?
+// TODO: test language - are we getting back what we expect? Particularly sine, saw etc.
+// TODO: refactor instruments so that they don't take bpm, but rather just time values
+// TODO: language to use seconds not ms
 // TODO: mini lang
 // TODO: more pattern functions
+// TODO: mutations
 // TODO: fx and fx busses
 // TODO: docs - instruments, fx
+// TODO: better typing throughout
+// TODO: documentation on all modules
 
 import { evaluate } from './core/compile';
 import { Scheduler } from './core/Scheduler';
@@ -23,7 +26,6 @@ window.addEventListener("evaluateCode", (e) => {
 
 // Init Scheduler
 const scheduler = new Scheduler(
-    new AudioContext(), // requires an AudioContext
     (event: any, time: number) => handler(event, time) // handle scheduled events here.
 );
 
