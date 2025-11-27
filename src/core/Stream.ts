@@ -21,8 +21,6 @@ export class Stream {
      * @param params - A record of parameter names and their values (Patterns or static values).
      * @example
      * s0.set({ ... }) // pass an object to set parameters
-     * @example
-     * s0({ ... }) // use this shorthand in Sartori
      */
     set(params: Record<string, any>) {
         Object.entries(params)
