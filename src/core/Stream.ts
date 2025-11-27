@@ -9,9 +9,7 @@ export interface Stream extends Record<string, any> {
  * It can be used to control multiple instruments, effects, and routing.
  * Stream instances are stored as `s0`, `s1`, `s2`, `s3`, `s4`, `s5`, `s6`, `s7` etc.
  * @example
- * s0.set({ ... })
- * @example
- * s0({ ... }) // shorthand for s0.set({ ... })
+ * s0.set({ ... }) // pass an object to set parameters
  */
 export class Stream {
     constructor(id: string) {

@@ -51,7 +51,7 @@ const streamMethods: Record<string, any> = (Stream.children[0]?.children?.filter
 const helpElement = document.getElementById('help');
 let currentArticle = 'docs__quick-start';
 
-const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<string, any>, currentArticle: string) => {
+const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<string, any>) => {
     // fill with pattern methods
     if (helpElement) {
         helpElement.innerHTML = `
@@ -63,22 +63,22 @@ const renderDocs = (streamMethods: Record<string, any>, patternMethods: Record<s
 
             + `
             <article id="docs__quick-start">
-            <p>Streams are musical layers, represented by <code>s0({...})</code>, <code>s1({...})</code>, ... <code>s15({...})</code>. Parameters are determined by the object passed.</p>
+            <p>Streams are musical layers, represented by <code>s0</code>, <code>s1</code>, ... <code>s15</code>. Parameters are determined by an object passed to the <code>.set()</code> method.</p>
             <p>Parameter values can be raw:</p>
             ${marked(`\`\`\`typescript
-s0({ inst: 'synth', note: 60, dur: 0.5 })
+s0.set({ inst: 'synth', note: 60, dur: 0.5 })
 \`\`\``)}
             <p>patterns:</p>
             ${marked(`\`\`\`typescript
-s1({ note: seq(60,62,64,65), dur: sine().add(.25) })
+s1.set({ note: seq(60,62,64,65), dur: sine().add(.25) })
 \`\`\``)}   
             <p>or mini-notation:</p>
             ${marked(`\`\`\`typescript
-s2({ note: 'Ddor%16..' })
+s2.set({ note: 'Ddor%16..' })
 \`\`\``)}   
             <p>Trigger an event using <code>.e</code>:</p>
             ${marked(`\`\`\`typescript
-s3({ ..., e: seq(1,0,1) })
+s3.set({ ..., e: seq(1,0,1) })
 \`\`\``)}
             </article>
             `
@@ -118,7 +118,7 @@ s3({ ..., e: seq(1,0,1) })
     hljs.highlightAll();
 };
 
-renderDocs(streamMethods, patternMethods, currentArticle);
+renderDocs(streamMethods, patternMethods);
 
 // add event listeners to buttons
 document.querySelectorAll('#help button').forEach((button) => {

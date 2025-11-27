@@ -89,16 +89,7 @@
 						"content": [
 							{
 								"kind": "code",
-								"text": "```ts\ns0.set({ ... })\n```"
-							}
-						]
-					},
-					{
-						"tag": "@example",
-						"content": [
-							{
-								"kind": "code",
-								"text": "```ts\ns0({ ... }) // shorthand for s0.set({ ... })\n```"
+								"text": "```ts\ns0.set({ ... }) // pass an object to set parameters\n```"
 							}
 						]
 					}
@@ -114,9 +105,9 @@
 					"sources": [
 						{
 							"fileName": "Stream.ts",
-							"line": 17,
+							"line": 15,
 							"character": 4,
-							"url": "https://github.com/cephasteom/sartori/blob/497c14b547ce117c5234ef4b05710700b36fd170/src/core/Stream.ts#L17"
+							"url": "https://github.com/cephasteom/sartori/blob/389d9084e9f704a9e9516a0f66bd4c66e4be25fe/src/core/Stream.ts#L15"
 						}
 					],
 					"signatures": [
@@ -129,9 +120,9 @@
 							"sources": [
 								{
 									"fileName": "Stream.ts",
-									"line": 17,
+									"line": 15,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/497c14b547ce117c5234ef4b05710700b36fd170/src/core/Stream.ts#L17"
+									"url": "https://github.com/cephasteom/sartori/blob/389d9084e9f704a9e9516a0f66bd4c66e4be25fe/src/core/Stream.ts#L15"
 								}
 							],
 							"parameters": [
@@ -179,7 +170,7 @@
 							"fileName": "Stream.ts",
 							"line": 4,
 							"character": 4,
-							"url": "https://github.com/cephasteom/sartori/blob/497c14b547ce117c5234ef4b05710700b36fd170/src/core/Stream.ts#L4"
+							"url": "https://github.com/cephasteom/sartori/blob/389d9084e9f704a9e9516a0f66bd4c66e4be25fe/src/core/Stream.ts#L4"
 						}
 					],
 					"type": {
@@ -196,9 +187,9 @@
 					"sources": [
 						{
 							"fileName": "Stream.ts",
-							"line": 29,
+							"line": 27,
 							"character": 4,
-							"url": "https://github.com/cephasteom/sartori/blob/497c14b547ce117c5234ef4b05710700b36fd170/src/core/Stream.ts#L29"
+							"url": "https://github.com/cephasteom/sartori/blob/389d9084e9f704a9e9516a0f66bd4c66e4be25fe/src/core/Stream.ts#L27"
 						}
 					],
 					"signatures": [
@@ -239,9 +230,9 @@
 							"sources": [
 								{
 									"fileName": "Stream.ts",
-									"line": 29,
+									"line": 27,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/497c14b547ce117c5234ef4b05710700b36fd170/src/core/Stream.ts#L29"
+									"url": "https://github.com/cephasteom/sartori/blob/389d9084e9f704a9e9516a0f66bd4c66e4be25fe/src/core/Stream.ts#L27"
 								}
 							],
 							"parameters": [
@@ -314,13 +305,13 @@
 					"fileName": "Stream.ts",
 					"line": 3,
 					"character": 17,
-					"url": "https://github.com/cephasteom/sartori/blob/497c14b547ce117c5234ef4b05710700b36fd170/src/core/Stream.ts#L3"
+					"url": "https://github.com/cephasteom/sartori/blob/389d9084e9f704a9e9516a0f66bd4c66e4be25fe/src/core/Stream.ts#L3"
 				},
 				{
 					"fileName": "Stream.ts",
-					"line": 16,
+					"line": 14,
 					"character": 13,
-					"url": "https://github.com/cephasteom/sartori/blob/497c14b547ce117c5234ef4b05710700b36fd170/src/core/Stream.ts#L16"
+					"url": "https://github.com/cephasteom/sartori/blob/389d9084e9f704a9e9516a0f66bd4c66e4be25fe/src/core/Stream.ts#L14"
 				}
 			],
 			"indexSignatures": [
