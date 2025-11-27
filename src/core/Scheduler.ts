@@ -41,9 +41,9 @@ class Clock {
     tick(begin: number, duration: number) {
         this.runs = true;
         this.onTick(begin);
-        const end = begin + duration;
+        const end = begin + (duration / tempo.cps);
         this.timeout(
-            () => this.runs && this.tick(end, duration),
+            () => this.runs && this.tick(end, (duration / tempo.cps)),
             begin,
             end
         );
@@ -68,9 +68,16 @@ export class Scheduler {
             const from = this.phase;
             const to = Math.round((this.phase + this.duration) * 1000) / 1000;
             const { 
-                // global, 
+                global, 
                 streams 
             } = compile(from, to);
+
+            // update cps from global settings if present
+            this.cps = global.find((hap: any) => 
+                Object.keys(hap.params).includes('cps'))?.params.cps 
+                || this.cps;
+            tempo.cps = this.cps;
+
             // TODO: handle global settings
             streams.forEach((hap) => handler(
                 hap, 
@@ -88,7 +95,7 @@ export class Scheduler {
         if (this.isPlaying) return;
         this.phase = 0;
         this.origin = this.ac.currentTime;
-        this.clock.start(undefined, (this.duration / this.cps));
+        this.clock.start(undefined, this.duration);
         this.isPlaying = true;
     }
     stop() {
