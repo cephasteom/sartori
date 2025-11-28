@@ -1,3 +1,4 @@
+import { mini as parse } from './mini';
 // TODO: is it possible for fast and slow to accept a pattern?
 
 // Credit: the main architecture of this was adapted from https://garten.salat.dev/idlecycles/, by Froos
@@ -15,6 +16,36 @@ const P = <T>(q: (from: number, to: number) => Hap<T>[]) => new Pattern(q);
 // Util: unwrap function to handle raw values and nested patterns
 const unwrap = <T>(value: Pattern<T>|any, from: number, to: number) => 
     value instanceof Pattern ? value.query(from, to)[0].value : value
+
+// base cycle function, returning a Pattern instance
+const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to) => {
+    const cycleFrom = Math.floor(from);
+    const cycleTo = Math.ceil(to);
+    let bag: Hap<any>[] = [];
+    
+    for (let f = cycleFrom; f < cycleTo; f++) {
+        const haps = callback(f, f + 1);
+        for (let hap of haps) {
+            const sub = hap.value instanceof Pattern
+                ? hap.value.query(hap.from, hap.to)
+                : [hap];
+            bag = bag.concat(sub);
+        }
+    }
+
+    return bag;
+
+    // this solves the issue, but breaks our e:seq(1,1)
+
+    // clip to from/to
+    return bag
+        .map(h => ({
+            from: Math.max(h.from, from),
+            to: Math.min(h.to, to),
+            value: h.value,
+        }))
+        .filter(h => h.to > h.from);
+})
 
 /**
  * Speed up a pattern by a given factor.
@@ -55,24 +86,19 @@ const set = (...args: Parameters<typeof cat>) => cat(...args);
  */
 const seq = (...values: any[]) => fast(values.length, cat(...values));
 
-// base cycle function, returning a Pattern instance
-const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to) => {
-    from = Math.floor(from);
-    to = Math.ceil(to);
-    let bag: Hap<any>[] = [];
-    while (from < to) {
-        const haps = callback(from, from + 1);
-        // handle raw values and nested patterns
-        for(let hap of haps) {
-            bag = bag.concat(hap.value instanceof Pattern 
-                ? hap.value.query(hap.from, hap.to) 
-                : [hap]
-            );
-        }
-        from++;
-    }
-    return bag;
-})
+/**
+ * Parse a mini pattern string into a Pattern instance.
+ * @param value - mini pattern string
+ * @example mini('Cmaj7..?*16') // parses the mini pattern string into a Pattern
+ */
+const mini = (value: string) => {
+    const parsed = parse(value);
+    const result = typeof parsed === 'string'
+        ? set(parsed)
+        // TODO: this doesn't work because cat can't handle nested patterns
+        : cat(...parsed.map((sequence: any[]) => seq(...sequence)));
+    return result;
+}
 
 /**
  * Edit the Hap values in a pattern using a callback function
@@ -81,7 +107,6 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
  */
 const withValue = (callback: (...args: any[]) => any) => 
     (...args: (number|Pattern<any>)[]) => {
-        console.log(args)
         const pattern = args[args.length - 1] as Pattern<any>;
         return P((from, to) => pattern.query(from, to).map((hap) => ({
             ...hap,
@@ -367,6 +392,7 @@ export const methods = {
     seq,
     fast,
     slow,
+    mini,
     stack,
     saw, range, ramp, sine, cosine, tri, pulse, square,
     mtr, scale, clamp,
@@ -413,3 +439,6 @@ export class Pattern<T> {
         } );
     }
 }
+
+console.log(seq(60,62).query(0.5,1)) // should return 62
+console.log(seq(seq(60,62),seq(72,74)).query(0.75,1)) // 74, but returns 72 and 74
