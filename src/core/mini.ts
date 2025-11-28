@@ -280,8 +280,8 @@ export const mini = (pattern: string): any[][] => {
 export const isMini = (pattern: any): boolean => {
     if(typeof pattern !== 'string') return false
     try {
-        parse(pattern)
-        return true
+        const parsed = parse(pattern)
+        return !(parsed.flat().length === 1 && parsed.flat()[0] === pattern)
     } catch (error) {
         return false
     }

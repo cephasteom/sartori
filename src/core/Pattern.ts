@@ -13,7 +13,7 @@ const P = <T>(q: (from: number, to: number) => Hap<T>[]) => new Pattern(q);
 
 // Util: unwrap function to handle raw values and nested patterns
 const unwrap = <T>(value: Pattern<T>|any, from: number, to: number) => {
-    value = typeof value === 'string' ? mini(value as string) : value;
+    value = isMini(value) ? mini(value as string) : value;
     return value instanceof Pattern 
         ? value.query(from, to)[0].value 
         : value;
@@ -28,8 +28,9 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
     for (let f = cycleFrom; f < cycleTo; f++) {
         const haps = callback(f, f + 1);
         for (let hap of haps) {
-            const sub = hap.value instanceof Pattern
-                ? hap.value.query(hap.from, hap.to)
+            const value = isMini(hap.value) ? mini(hap.value as string) : hap.value;
+            const sub = value instanceof Pattern
+                ? value.query(hap.from, hap.to)
                 : [hap];
             bag = bag.concat(sub);
         }
