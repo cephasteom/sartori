@@ -1,6 +1,4 @@
 import { mini as parse } from './mini';
-// TODO: is it possible for fast and slow to accept a pattern?
-
 // Credit: the main architecture of this was adapted from https://garten.salat.dev/idlecycles/, by Froos
 // This outlines the underlying concepts of how Tidal was ported to Strudel. Very many thanks.
 
@@ -43,12 +41,15 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
  * @param factor
  * @example seq('A', 'B', 'C').fast(3) // A for 1/3 cycle, B for 1/3 cycle, C for 1/3 cycle.
  */
-const fast = (factor: number, pattern: Pattern<any>) => 
-    P((from, to) => pattern.query(from * factor, to * factor).map(hap => ({
-        from: hap.from / factor,
-        to: hap.to / factor,
-        value: hap.value
-    })));
+const fast = (factor: number|Pattern<number>, pattern: Pattern<any>) => 
+    P((from, to) => {
+        const factorValue = unwrap(factor, from, to);
+        return pattern.query(from * factorValue, to * factorValue).map(hap => ({
+            from: hap.from / factorValue,
+            to: hap.to / factorValue,
+            value: hap.value
+        }))
+    });
 
 /**
  * Slow down a pattern by a given factor
@@ -433,4 +434,4 @@ export class Pattern<T> {
 
 // console.log(seq(60,62).query(0.5,1)) // should return 62
 // console.log(seq(seq(60,62),seq(72,74)).query(0.75,1)) // 74, but returns 72 and 74
-console.log(seq(1,1,1,1).query(0.125,1))
+console.log(cat(1,2).query(1,2)) // should return 1 and 4
