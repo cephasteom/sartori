@@ -273,7 +273,6 @@ let parse = memoize((pattern: string): string|number|[][] => parser.parse(patter
 
 export const mini = (pattern: string): any[][] => {
     try {
-        console.log(parse(pattern))
         return parse(pattern)
     } catch (error) {
         // if we can't parse the pattern, return the original string, so it can be handled elsewhere

@@ -1,4 +1,4 @@
-import { mini as parse, isMini } from './mini';
+import { parse, evalNode } from './mini2';
 import { getTransport } from 'tone';
 // Credit: the main architecture of this was adapted from https://garten.salat.dev/idlecycles/, by Froos
 // This outlines the underlying concepts of how Tidal was ported to Strudel. Very many thanks.
@@ -12,14 +12,6 @@ export declare type Hap<T> = { from: number; to: number; value: T };
 // Util: Pattern creation shortcut
 const P = <T>(q: (from: number, to: number) => Hap<T>[]) => new Pattern(q);
 
-// Util: unwrap function to handle raw values and nested patterns
-const unwrap = <T>(value: Pattern<T>|any, from: number, to: number) => {
-    value = isMini(value) ? mini(value as string) : value;
-    return value instanceof Pattern 
-        ? value.query(from, to)[0].value 
-        : value;
-}
-
 // base cycle function, returning a Pattern instance
 const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to) => {
     const cycleFrom = Math.floor(from);
@@ -29,7 +21,7 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
     for (let f = cycleFrom; f < cycleTo; f++) {
         const haps = callback(f, f + 1);
         for (let hap of haps) {
-            const value = isMini(hap.value) ? mini(hap.value as string) : hap.value;
+            const value = typeof hap.value === "string" ? mini(hap.value as string) : hap.value;
             const sub = value instanceof Pattern
                 ? value.query(hap.from, hap.to)
                 : [hap];
@@ -100,18 +92,6 @@ const seq = (...values: any[]) => fast(values.length, cat(...values));
  */
 const choose = (...values: (any[])) => 
     cycle((from, to) => ([{ from, to, value: values[Math.floor(Math.random() * values.length)]}]))
-
-/**
- * Parse a mini pattern string into a Pattern instance.
- * @param value - mini pattern string
- * @example mini('Cmaj7..?*16') // parses the mini pattern string into a Pattern
- */
-function mini(value: string) {
-    return cat(
-        ...parse(value)
-            .map((values: any[]) => seq(...values))
-        );
-}
 
 /**
  * Edit the Hap values in a pattern using a callback function
@@ -457,6 +437,23 @@ export const methods = {
         [name]: operate(name)
     }), {})
 };
+
+// Util: unwrap function to handle raw values and nested patterns
+function unwrap<T>(value: Pattern<T>|any, from: number, to: number) {
+    value = typeof value === "string" ? mini(value as string) : value;
+    return value instanceof Pattern 
+        ? value.query(from, to)[0].value 
+        : value;
+}
+
+/**
+ * Parse a mini pattern string into a Pattern instance.
+ * @param value - mini pattern string
+ * @example mini('Cmaj7..?*16') // parses the mini pattern string into a Pattern
+ */
+function mini(value: string) {
+    return evalNode(parse(value), methods);
+}
 
 /**
  * Pattern class.
