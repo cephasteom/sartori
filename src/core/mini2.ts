@@ -2,6 +2,23 @@ import { triads } from './chords';
 import { modes } from './scales'
 import peg from 'pegjs';
 
+// '1 1 1 1' => seq(1,1,1,1) 
+// '1 2*3 1' => seq(1, repeat(2,3), 1) 
+// '1 . 1 2 3 . 1' => seq(1, seq(1,2,3), 1) 
+// '1 1 1 | 1 2 3' => cat(seq(1,1,1), seq(1,2,3)) 
+// '1?2?3?4' => choose(1,2,3,4) 
+// '1 1?2?3?4 1' => seq(1, choose(1,2,3,4), 1) 
+// 'hello world' => seq('hello', 'world') 
+// '808bd 808sd 808bd 808sd' => seq('808bd', '808sd', '808bd', '808sd') 
+// '080.wav 090.wav' => seq('080.wav', '090.wav') - string with numbers valid 
+// '[1,2,3] [4,5,6]' => seq([1,2,3], [4,5,6]) 
+// 'C4 D4 E4 F4' => seq(60, 62, 64, 65) - notes to MIDI
+// 'Cma' => seq([60,64,67]) - chord to MIDI 
+// 'Cma7' => seq([60,64,67,71]) - chord with extension to MIDI - extensions: 6,7,#7,b9,9,11,#11,13,#13 
+// 'Clyd' => seq([60,62,64,66,67,69,71,73]) - scale to MIDI
+// 'Clyd%8' => seq([60,62,64,66,67,69,71,73]) - scale to MIDI, with 8 notes
+// 'Clyd..' => seq(60,62,64,66,67,69,71,73) - spread out scale or chord over time
+
 const channel = new BroadcastChannel('sartori');
 
 // Extensions
@@ -185,39 +202,40 @@ const parser = peg.generate(grammar);
 
 export const parse = (input: string) => {
     try {
-        const result = parser.parse(input);
-        return result;
+        return parser.parse(input);
     } catch (e: any) {
         channel.postMessage({ type: 'error', message: e.message } );
     }
 }
 
-export function evalNode(node, methods: Record<string, Function>): any {
-  if (node == null) return null;
+export function evalNode(node: {type: string, items: any[], value: any, count: number, name: string}, methods: Record<string, Function>): any {
+    if (node == null) return null;
+    
+    // If it's a primitive (number or string), return as-is
+    if (['number', 'string'].includes(typeof node)) return node
 
-  // If it's a primitive (number or string), return as-is
-  if (typeof node === "number" || typeof node === "string") {
-    return node;
-  }
+    // If it’s an array (shouldn’t happen at top-level), map recursively
+    if (Array.isArray(node)) return node.map(n => evalNode(n, methods));
 
-  // If it’s an array (shouldn’t happen at top-level), map recursively
-  if (Array.isArray(node)) return node.map(n => evalNode(n, methods));
+    // Otherwise, it’s an object with `type` and `items` or other fields
+    const fn = methods[node.type];
+    if (!fn) throw new Error("Unknown type: " + node.type);
 
-  // Otherwise, it’s an object with `type` and `items` or other fields
-  const fn = methods[node.type];
-  if (!fn) throw new Error("Unknown type: " + node.type);
-
-  // Determine arguments
-  let args;
-  if (node.items) {
-    args = node.items.map(n => evalNode(n, methods));
-  } else if (node.value !== undefined && node.count !== undefined) {
-    args = [evalNode(node.value, methods), node.count];
-  } else if (node.name && node.items) {
-    args = node.items.map(n => evalNode(n, methods));
-  } else {
-    args = [];
-  }
-
-  return fn(...args);
+    // Determine arguments
+    let args;
+    if (node.items) {
+        // has children, so evaluate them recursively
+        args = node.items.map(n => evalNode(n, methods));
+    } else if (node.value !== undefined && node.count !== undefined) {
+        // has value and count (for seq with repetition)
+        args = [evalNode(node.value, methods), node.count];
+    // } else if (node.name && node.items) {
+    //     // has name and items (for stack with name)
+    //     args = node.items.map(n => evalNode(n, methods));
+    } else {
+        args = [];
+    }
+    
+    // Call the function with the evaluated arguments
+    return fn(...args);
 }

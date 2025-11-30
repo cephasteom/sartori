@@ -53,10 +53,10 @@ export class Stream {
                     // query each Pattern and...
                     .map(([key, pattern]) => [key, (pattern as Pattern<any>)
                         .query(hap.from, hap.to)
-                        // ...find the hap in which the event starts
-                        .find(hap => hap.from >= hap.from && hap.from < hap.to) 
+                        // ...find the haps in which the event starts
+                        .filter(hap => hap.from >= hap.from && hap.from < hap.to) 
                         // ...and get its value
-                        ?.value
+                        .map(hap => hap.value)
                     ])
                 )
             }));
