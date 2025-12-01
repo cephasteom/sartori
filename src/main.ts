@@ -1,9 +1,11 @@
-// TODO: mutations
-// TODO: more pattern functions
 // TODO: fx and fx busses
+// TODO: more pattern functions
 // TODO: docs - instruments, fx
 // TODO: better typing throughout
 // TODO: documentation on all modules
+// MIDI integration
+// Utility functions scales etc
+// Tone synths aren't working well
 
 import { evaluate } from './core/compile';
 import { Scheduler } from './core/Scheduler';

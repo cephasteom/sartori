@@ -34,14 +34,13 @@ const instMap: Record<string, Instrument> = {
  * Represents an audio channel with its own instruments and effects.
  */
 export class Channel {
-    out: number // output channel index
+    out: number| null = null  // output channel index
     input: Gain // input gain
     output: Split // output splitter
     fader: Gain // volume control
     instruments: Record<string, any> = {}
     
     constructor(out: number = 0) {
-        this.out = out
 
         this.input = new Gain(1)
         this.fader = new Gain(1)
@@ -50,9 +49,35 @@ export class Channel {
         this.fader.connect(this.output)
         this.input.fan(this.fader)
         
-        this.output.connect(output, 0, out)
-        this.output.connect(output, 1, out+1)
+        this.routeOutput(out)
     }
+
+    /**
+     * Routes channel output to given output index
+     * @param out 
+     */
+    routeOutput(out: number) {
+        if(out === this.out) return
+
+        this.output.disconnect()
+
+        try {
+            this.output.connect(output, 0, out)
+            this.output.connect(output, 1, out+1)
+            this.out = out
+        } catch (e) {
+            sartori.postMessage({ 
+                type: 'error', 
+                message: `Output channel ${out} is not available on this system.` 
+            });
+            // revert to previous output
+            this.output.connect(output, 0, 0)
+            this.output.connect(output, 1, 1)
+            this.out = 0
+        }
+        
+
+    };
 
     /**
      * Plays an instrument with given params at given time
@@ -61,6 +86,7 @@ export class Channel {
      */
     play(params: any, time: number) {
         const { inst } = params;
+        params.out && this.routeOutput(params.out);
 
         // check that instrument is valid
         if(!Object.keys(instMap).includes(inst)) {
