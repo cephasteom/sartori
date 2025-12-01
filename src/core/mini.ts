@@ -2,11 +2,12 @@ import { triads } from './chords';
 import { modes } from './scales'
 import peg from 'pegjs';
 
-// '1 1 1 1' => seq(1,1,1,1) 
-// '1 2*3 1' => seq(1, repeat(2,3), 1) 
+// '1 1 1 1' => seq(1,1,1,1)
+// '1 2*3 1' => seq(1, seq(2,3), 1) 
 // '1 . 1 2 3 . 1' => seq(1, seq(1,2,3), 1) 
 // '1 1 1 | 1 2 3' => cat(seq(1,1,1), seq(1,2,3)) 
 // '1?2?3?4' => choose(1,2,3,4) 
+// '1?2?3?4*4' => seq(choose(1,2,3,4), choose(1,2,3,4), choose(1,2,3,4), choose(1,2,3,4))
 // '1 1?2?3?4 1' => seq(1, choose(1,2,3,4), 1) 
 // 'hello world' => seq('hello', 'world') 
 // '808bd 808sd 808bd 808sd' => seq('808bd', '808sd', '808bd', '808sd') 
@@ -43,31 +44,25 @@ export const noteMap: Record<string, number> = {
 
 const grammar = `
 {
-  // Inject data
   const triads = ${JSON.stringify(triads)};
   const modes = ${JSON.stringify(modes)};
   const extensions = ${JSON.stringify(extensions)};
   const noteMap = ${JSON.stringify(noteMap)};
-  function flat(xs) { return xs.filter(Boolean); }
 
   function expandNotesLinear(notes, length) {
     const originalLen = notes.length;
     const result = [];
-
     for (let i = 0; i < length; i++) {
-        // Determine which note in original
-        const note = notes[i % originalLen];
-        // Determine which octave increment
-        const octaveShift = Math.floor(i / originalLen) * 12;
-        result.push(note + octaveShift);
+      const note = notes[i % originalLen];
+      const octaveShift = Math.floor(i / originalLen) * 12;
+      result.push(note + octaveShift);
     }
-
     return result;
   }
 
   function buildStack(root, type, ext) {
     const rootMidi = noteMap[root];
-    if (rootMidi === undefined) throw new Error("Invalid root note: " + root);
+    if (rootMidi === undefined) throw new Error("Invalid root: " + root);
 
     let intervals = [];
     if (triads[type]) intervals = triads[type];
@@ -87,15 +82,13 @@ const grammar = `
     "A":9,"A#":10,"Bb":10,"B":11
   };
 
-  function noteToMidi(noteName, octave) {
-    if (!(noteName in noteSimpleMap)) throw new Error("Invalid note: " + noteName);
-    return 12 + octave*12 + noteSimpleMap[noteName];
+  function noteToMidi(name, octave) {
+    if (!(name in noteSimpleMap)) throw new Error("Invalid note: " + name);
+    return 12 + octave*12 + noteSimpleMap[name];
   }
 }
 
-Start
-  = _ expr:Expression _ { return expr; }
-
+Start = _ expr:Expression _ { return expr; }
 Expression = Choice
 
 Choice
@@ -111,18 +104,18 @@ Sequence
     }
 
 Term
-  = Fast
+  = Repeat
   / Choose
   / Primary
 
-Fast
-  = t:Primary _ "*" _ c:Number {
-      return { type: "seq", items: Array(c).fill(t) };
+Repeat
+  = base:(Choose / Primary) _ "*" _ count:Number {
+      return { type: "seq", items: Array(count).fill(base) };
     }
 
 Choose
   = first:Primary rest:(_ "?" _ Primary)+ {
-      return { type: "choose", items: [first].concat(rest.map(r => r[3])) };
+      return { type: "choose", items:[first].concat(rest.map(r => r[3])) };
     }
 
 Primary
@@ -142,7 +135,7 @@ Spread
 
 StackArray
   = "[" _ elems:NumberList _ "]" {
-      return { type: "stack", items: elems };
+      return { type:"stack", items: elems };
     }
 
 NumberList
@@ -151,63 +144,49 @@ NumberList
     }
 
 StackMusic
-  = root:[A-G] type:[a-z]+ ext:Extension? mod:ModLength? spread:SpreadModifier? random:RandomModifier? {
+  = root:[A-G]
+    type:[a-z]+
+    ext:Extension?
+    mod:ModLength?
+    spread:SpreadModifier?
+    random:RandomModifier? {
+
       let notes = buildStack(root, type.join(""), ext ? ext.join("") : null);
 
-      // Apply % length modifier
       if (mod) {
-        const len = parseInt(mod, 10);
-        if (isNaN(len) || len <= 0) throw new Error("Invalid length modifier: " + mod);
-        notes = expandNotesLinear(notes, len);
+        const n = parseInt(mod,10);
+        if (!n || n <= 0) throw new Error("Invalid % length: " + mod);
+        notes = expandNotesLinear(notes,n);
       }
 
-      // Apply spread (flatten)
-      if (spread) notes = notes.slice(); // keep as array
+      if (random) return { type:"choose", items: notes.slice() };
+      if (spread) return { type:"seq", items: notes.slice() };
 
-      // Apply randomisation
-      if (random) {
-        return { type: "choose", items: notes.slice() }; // return as choose
-      }
-
-      // Decide whether to return seq (spread) or stack
-      if (spread) return { type: "seq", items: notes };
-
-      return { type: "stack", name: root + type.join("") + (ext ? ext.join("") : ""), items: notes };
+      return { type:"stack", items: notes };
     }
 
-RandomModifier
-  = "?"
-
-Extension
-  = [0-9#b]+
-
-ModLength
-  = "%" digits:[0-9]+ { return digits.join(""); }
-
-SpreadModifier
-  = ".."
+RandomModifier = "?"
+Extension = [0-9#b]+
+ModLength = "%" ds:[0-9]+ { return ds.join("") }
+SpreadModifier = ".."
 
 MidiNote
-  = n:NoteName o:Octave {
-      return noteToMidi(n, o);
-    }
+  = n:NoteName o:Octave { return noteToMidi(n,o); }
 
 NoteName
-  = n:[A-G] acc:("#" / "b")? {
-      return n + (acc !== null ? acc : "");
-    }
+  = n:[A-G] acc:("#"/"b")? { return n + (acc || ""); }
 
 Octave
   = n:[0-9]+ { return parseInt(n.join(""),10); }
 
 Identifier
-  = s:[a-zA-Z_./-]+ { return s.join(""); }
+  = s:[a-zA-Z_./-]+ { return s.join("") }
 
 StringToken
-  = s:[a-zA-Z0-9_./-]+ { return s.join(""); }
+  = s:[a-zA-Z0-9_./-]+ { return s.join("") }
 
 Number
-  = n:[0-9]+ { return parseInt(n.join(""), 10); }
+  = n:[0-9]+ { return parseInt(n.join(""),10); }
 
 _ = [ \\t\\n\\r]*
 `;

@@ -41,9 +41,10 @@ export class Stream {
     query(from: number, to: number) {
         // gather the events from .e pattern
         const events = this.e?.query(from, to) || [];
+        
         return events
             // only keep events with a value, and where the from time falls within the range
-            .filter((e: Hap<any>) => !!e.value && e.from >= from && e.from < to)
+            .filter((e: Hap<any>) => !!+e.value && e.from >= from && e.from < to)
             // iterate over events and build param sets
             .map((hap: Hap<any>) => ({
                 time: hap.from,
