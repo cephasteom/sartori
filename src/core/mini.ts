@@ -272,11 +272,18 @@ Octave
 Identifier
   = s:[a-zA-Z_./-]+ { return s.join("") }
 
-StringToken
-  = s:[a-zA-Z0-9_./-]+ { return s.join("") }
-
 Number
-  = n:[0-9]+ ![a-zA-Z] { return parseInt(n.join(""), 10); }
+  = n:[0-9]+ frac:("." [0-9]+)? ![a-zA-Z_./-] {
+      return parseFloat(text());
+    }
+
+StringToken
+  = s:(
+      [a-zA-Z_./-] [a-zA-Z0-9_./-]*       /* starts with letter or dot/underscore/hyphen */
+    / [0-9]+ [a-zA-Z_./-] [a-zA-Z0-9_./-]* /* starts with digits then a letter/dot/hyphen */
+    ) {
+      return s.join("");
+    }
 
 _ = [ \\t\\n\\r]*
 `;

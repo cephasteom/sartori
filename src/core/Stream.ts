@@ -63,6 +63,8 @@ export class Stream {
                             return acc;
                         }, [])
                         .map(hap => hap.value)
+                        // if there's only one closest hap, return its value directly
+                        .reduce((acc, _, __, array) => array.length === 1 ? acc[0] : array)
                     ])
                 )
             }));

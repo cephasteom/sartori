@@ -6,7 +6,8 @@ declare type oEvent = {id: string, params: Record<string, any>, time: number};
 
 export function handler(event: oEvent, time: number) {
     const { id, params } = event;
-    const { out = 0, cut = [], n } = params;
+    const { e, m, out = 0, cut = [], n } = params;
+    console.log(event);
 
     // cut specified channels, or all if 'all' is specified
     [cut].flat()
