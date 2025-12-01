@@ -1,6 +1,6 @@
 import { triads } from './chords';
 import { modes } from './scales'
-import { memoize, euclidean } from './utils';
+import { memoize } from './utils';
 import peg from 'pegjs';
 
 // '1 1 1 1' => seq(1,1,1,1)

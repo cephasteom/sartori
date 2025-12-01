@@ -7,7 +7,7 @@
 	"flags": {},
 	"children": [
 		{
-			"id": 1,
+			"id": 6,
 			"name": "Stream",
 			"variant": "declaration",
 			"kind": 128,
@@ -97,7 +97,7 @@
 			},
 			"children": [
 				{
-					"id": 2,
+					"id": 7,
 					"name": "constructor",
 					"variant": "declaration",
 					"kind": 512,
@@ -105,14 +105,14 @@
 					"sources": [
 						{
 							"fileName": "Stream.ts",
-							"line": 15,
+							"line": 16,
 							"character": 4,
-							"url": "https://github.com/cephasteom/sartori/blob/58d6e137f017b4c61ab43e0b51ebc57bcd322fc5/src/core/Stream.ts#L15"
+							"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L16"
 						}
 					],
 					"signatures": [
 						{
-							"id": 3,
+							"id": 8,
 							"name": "Stream",
 							"variant": "signature",
 							"kind": 16384,
@@ -120,14 +120,14 @@
 							"sources": [
 								{
 									"fileName": "Stream.ts",
-									"line": 15,
+									"line": 16,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/58d6e137f017b4c61ab43e0b51ebc57bcd322fc5/src/core/Stream.ts#L15"
+									"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L16"
 								}
 							],
 							"parameters": [
 								{
-									"id": 4,
+									"id": 9,
 									"name": "id",
 									"variant": "param",
 									"kind": 32768,
@@ -140,7 +140,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"target": 1,
+								"target": 6,
 								"name": "Stream",
 								"package": "sartori"
 							},
@@ -160,7 +160,7 @@
 					}
 				},
 				{
-					"id": 5,
+					"id": 10,
 					"name": "id",
 					"variant": "declaration",
 					"kind": 1024,
@@ -168,9 +168,9 @@
 					"sources": [
 						{
 							"fileName": "Stream.ts",
-							"line": 4,
+							"line": 5,
 							"character": 4,
-							"url": "https://github.com/cephasteom/sartori/blob/58d6e137f017b4c61ab43e0b51ebc57bcd322fc5/src/core/Stream.ts#L4"
+							"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L5"
 						}
 					],
 					"type": {
@@ -179,7 +179,7 @@
 					}
 				},
 				{
-					"id": 6,
+					"id": 11,
 					"name": "set",
 					"variant": "declaration",
 					"kind": 2048,
@@ -187,14 +187,14 @@
 					"sources": [
 						{
 							"fileName": "Stream.ts",
-							"line": 25,
+							"line": 31,
 							"character": 4,
-							"url": "https://github.com/cephasteom/sartori/blob/58d6e137f017b4c61ab43e0b51ebc57bcd322fc5/src/core/Stream.ts#L25"
+							"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L31"
 						}
 					],
 					"signatures": [
 						{
-							"id": 7,
+							"id": 12,
 							"name": "set",
 							"variant": "signature",
 							"kind": 4096,
@@ -212,7 +212,7 @@
 										"content": [
 											{
 												"kind": "code",
-												"text": "```ts\ns0.set({ ... }) // pass an object to set parameters\n```"
+												"text": "```ts\ns0.set({ \n  inst: 'synth',\n  _n: '60 62 64 65', // prefix with _ to indicate it's a mutation parameter\n  e: seq(1,0,1,0), // use e to trigger events\n  m: seq(0,1,0,1) // use m to trigger mutations\n})\n```"
 											}
 										]
 									}
@@ -221,14 +221,14 @@
 							"sources": [
 								{
 									"fileName": "Stream.ts",
-									"line": 25,
+									"line": 31,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/58d6e137f017b4c61ab43e0b51ebc57bcd322fc5/src/core/Stream.ts#L25"
+									"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L31"
 								}
 							],
 							"parameters": [
 								{
-									"id": 8,
+									"id": 13,
 									"name": "params",
 									"variant": "param",
 									"kind": 32768,
@@ -275,46 +275,46 @@
 				{
 					"title": "Constructors",
 					"children": [
-						2
+						7
 					]
 				},
 				{
 					"title": "Properties",
 					"children": [
-						5
+						10
 					]
 				},
 				{
 					"title": "Methods",
 					"children": [
-						6
+						11
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "Stream.ts",
-					"line": 3,
+					"line": 4,
 					"character": 17,
-					"url": "https://github.com/cephasteom/sartori/blob/58d6e137f017b4c61ab43e0b51ebc57bcd322fc5/src/core/Stream.ts#L3"
+					"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L4"
 				},
 				{
 					"fileName": "Stream.ts",
-					"line": 14,
+					"line": 15,
 					"character": 13,
-					"url": "https://github.com/cephasteom/sartori/blob/58d6e137f017b4c61ab43e0b51ebc57bcd322fc5/src/core/Stream.ts#L14"
+					"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L15"
 				}
 			],
 			"indexSignatures": [
 				{
-					"id": 15,
+					"id": 28,
 					"name": "__index",
 					"variant": "signature",
 					"kind": 8192,
 					"flags": {},
 					"parameters": [
 						{
-							"id": 16,
+							"id": 29,
 							"name": "key",
 							"variant": "param",
 							"kind": 32768,
@@ -353,11 +353,126 @@
 					"package": "typescript"
 				}
 			]
+		},
+		{
+			"id": 1,
+			"name": "Event",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"children": [
+				{
+					"id": 5,
+					"name": "id",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Stream.ts",
+							"line": 2,
+							"character": 73,
+							"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L2"
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "string"
+							},
+							{
+								"type": "literal",
+								"value": null
+							}
+						]
+					}
+				},
+				{
+					"id": 4,
+					"name": "params",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Stream.ts",
+							"line": 2,
+							"character": 44,
+							"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L2"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "typescript",
+							"packagePath": "lib/lib.es5.d.ts",
+							"qualifiedName": "Record"
+						},
+						"typeArguments": [
+							{
+								"type": "intrinsic",
+								"name": "string"
+							},
+							{
+								"type": "intrinsic",
+								"name": "any"
+							}
+						],
+						"name": "Record",
+						"package": "typescript"
+					}
+				},
+				{
+					"id": 3,
+					"name": "time",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Stream.ts",
+							"line": 2,
+							"character": 30,
+							"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L2"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						5,
+						4,
+						3
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Stream.ts",
+					"line": 2,
+					"character": 20,
+					"url": "https://github.com/cephasteom/sartori/blob/ea4947c5ed4982010538cafc4d4ab5cd9c241f57/src/core/Stream.ts#L2"
+				}
+			]
 		}
 	],
 	"groups": [
 		{
 			"title": "Classes",
+			"children": [
+				6
+			]
+		},
+		{
+			"title": "Type Aliases",
 			"children": [
 				1
 			]
@@ -379,39 +494,59 @@
 		"1": {
 			"packageName": "sartori",
 			"packagePath": "src/core/Stream.ts",
-			"qualifiedName": "Stream"
-		},
-		"2": {
-			"packageName": "sartori",
-			"packagePath": "src/core/Stream.ts",
-			"qualifiedName": "Stream.__constructor"
+			"qualifiedName": "Event"
 		},
 		"3": {
 			"packageName": "sartori",
 			"packagePath": "src/core/Stream.ts",
-			"qualifiedName": "Stream"
+			"qualifiedName": "__type.time"
 		},
 		"4": {
 			"packageName": "sartori",
 			"packagePath": "src/core/Stream.ts",
-			"qualifiedName": "id"
+			"qualifiedName": "__type.params"
 		},
 		"5": {
 			"packageName": "sartori",
 			"packagePath": "src/core/Stream.ts",
-			"qualifiedName": "Stream.id"
+			"qualifiedName": "__type.id"
 		},
 		"6": {
 			"packageName": "sartori",
 			"packagePath": "src/core/Stream.ts",
-			"qualifiedName": "Stream.set"
+			"qualifiedName": "Stream"
 		},
 		"7": {
 			"packageName": "sartori",
 			"packagePath": "src/core/Stream.ts",
-			"qualifiedName": "Stream.set"
+			"qualifiedName": "Stream.__constructor"
 		},
 		"8": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "Stream"
+		},
+		"9": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "id"
+		},
+		"10": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "Stream.id"
+		},
+		"11": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "Stream.set"
+		},
+		"12": {
+			"packageName": "sartori",
+			"packagePath": "src/core/Stream.ts",
+			"qualifiedName": "Stream.set"
+		},
+		"13": {
 			"packageName": "sartori",
 			"packagePath": "src/core/Stream.ts",
 			"qualifiedName": "params"

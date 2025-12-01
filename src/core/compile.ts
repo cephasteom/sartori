@@ -1,6 +1,5 @@
-// TODO: better typing of the events
 import { Stream, type Event } from './Stream';
-import { methods, type Hap } from './Pattern';
+import { methods } from './Pattern';
 
 // keep track of the last successfully evaluated code
 let lastCode: string = '';

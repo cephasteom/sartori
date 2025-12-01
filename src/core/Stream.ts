@@ -21,7 +21,12 @@ export class Stream {
      * Set parameters on the Stream.
      * @param params - A record of parameter names and their values (Patterns or static values).
      * @example
-     * s0.set({ ... }) // pass an object to set parameters
+     * s0.set({ 
+     *   inst: 'synth',
+     *   _n: '60 62 64 65', // prefix with _ to indicate it's a mutation parameter
+     *   e: seq(1,0,1,0), // use e to trigger events
+     *   m: seq(0,1,0,1) // use m to trigger mutations
+     * })
      */
     set(params: Record<string, any>) {
         Object.entries(params)
