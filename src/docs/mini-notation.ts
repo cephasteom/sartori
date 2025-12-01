@@ -1,37 +1,28 @@
 export default `
-Sartori parses mini-notation strings into arrays of values to be used as sequences. They can be used for any parameter.
+Sartori parses mini-notation strings into pattern methods. The syntax is similar to TidalCycles. They can be used for any parameter.
 
 #### Basic syntax
 \`\`\`js
-s0.set({ e: '1*16' }) // trigger on 16ths
+s0.set({ e: '1*4' }) // seq(1,1,1,1)
 \`\`\`
 
 \`\`\`js
-s0.set({ e: '1*3' }) // trigger on triplets
+s0.set({ e: '1 1*4 1 1' }) // seq(1,seq(1,1,1,1),1,1)
 \`\`\`
 
 \`\`\`js
-s0.set({ e: '1?0*16' }) // choose randomly between 1 and 0 on 16ths
+s0.set({ 
+    n: '60?72', // choose(60, 72)
+    e: '1*8' // seq(1,1,1,1,1,1,1,1)
+}) 
 \`\`\`
 
 \`\`\`js
-s0.set({ n: '60..72*16' }) // from 60 to 72 on 16ths
+s0.set({ x: '1 2 3 4 | 5 6 7 8 |' }) // cat(seq(1,2,3,4), seq(5,6,7,8))
 \`\`\`
 
 \`\`\`js
-s0.set({ n: '60..72?*16' }) // as above, but choose randomly between values
-\`\`\`
-
-\`\`\`js
-s0.set({ e: '0,1*4' }) // alternate between 0 and 1 on quarter notes - 0, 1, 0, 1, ...
-\`\`\`
-
-\`\`\`js
-s0.set({ x: '0..15*16 | 15..0*16 |' }) // bars are separated by |
-\`\`\`
-
-\`\`\`js
-s0.set({ x: '0..15*16 |*2 15..0*16 |*3' }) // repeat bars using |*<num>
+s0.set({ x: '1 2 3 4 |*2 5 6 7 8 |' }) // cat(seq(1,2,3,4), seq(1,2,3,4), seq(5,6,7,8))
 \`\`\`
 
 #### Euclidean rhythms
@@ -50,14 +41,14 @@ s0.set({ e: '3:8*2' }) // 3 pulses over 8 divisions, twice per bar
 
 #### Note values
 \`\`\`js
-s0.set({ n: 'C4 E4 G4 B4' }) // notated as <Root><octave>
+s0.set({ n: 'C4 E4 G4 B4' }) // notated as <Root><octave> - seq(60,64,67,71)
 \`\`\`
 
 #### Chords and scales
 Chords and [scales](https://github.com/tidalcycles/Tidal/blob/fcc4c5d53a72dcf2b8f4c00cc1c1b3c75eef172d/src/Sound/Tidal/Scales.hs#L4) both return an array of note values. Execute \`scales()\` in the editor to show all scales in the console.
 
 \`\`\`js
-s0.set({ n: 'Cmi7' }) // Notate chords using \`<Root><triad><extension?>\`
+s0.set({ n: 'Cmi7' }) // Notate chords using \`<Root><triad><extension?>\` - stack(60,63,67,70)
 \`\`\`
 
 \`\`\`js
@@ -69,30 +60,30 @@ s0.set({ n: 'Cma#7 Ami7 Ddi7 Gma7b9' }) // Extensions are \`6\`, \`7\`, \`#7\`, 
 \`\`\`
 
 \`\`\`js
-s0.set({ n: 'Cmi7..*8' }) // Turn the chord into a sequence
+s0.set({ n: 'Cmi7..' }) // Turn the chord into a sequence - seq(60,63,67,70)
 \`\`\`
 
 \`\`\`js
-s0.set({ n: 'Cmi7..?*16' }) // Randomly choose from the chord
+s0.set({ n: 'Cmi7..?' }) // Randomly choose from the chord - choose(60,63,67,70)
 \`\`\`
 
 \`\`\`js
-s0.set({ n: 'Cmi7%16..?*16' }) // % specifies the length of the chord
+s0.set({ n: 'Cmi7%8..' }) // % is the length of the chord, continues up the octave - seq(60,63,67,70,72,75,79,82)
 \`\`\`
 
 \`\`\`js
-s0.set({ n: 'Clyd*16' }) // Notate scales <Root><scale>
+s0.set({ n: 'Clyd' }) // Notate scales <Root><scale> - stack(60,62,64,66,67,69,71,73)
 \`\`\`
 
 \`\`\`js
-s0.set({ n: 'Clyd..*16' }) // scale as a sequence
+s0.set({ n: 'Clyd..' }) // scale as a sequence - seq(60,62,64,66,67,69,71,73)
 \`\`\`
 
 \`\`\`js
-s0.set({n: 'Clyd..?*16' }) // randomly choose from the scale
+s0.set({n: 'Clyd..?' }) // randomly choose from the scale - choose(60,62,64,66,67,69,71,73)
 \`\`\`
 
 \`\`\`js
-s0.set({ n: 'Clyd%16..?*16' }) // % specifies the length of the scale
+s0.set({ n: 'Clyd%16..' }) // % specifies the length of the scale - seq(60,62,64,66,67,69,71,73,72,74,76,78,79,81,83,85)
 \`\`\`
 `
