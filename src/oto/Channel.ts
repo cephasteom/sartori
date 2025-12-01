@@ -81,6 +81,16 @@ export class Channel {
         this.instruments[inst].play(params, time);
     }
 
+    /**
+     * Mutate all instruments on this channel with given params
+     * @param params - e.g {n: 72, modi: 10}
+     */
+    mutate(params: Record<string, any>, time: number) {
+        Object.values(this.instruments).forEach(inst => {
+            inst.mutate(params, time, params.lag || 100);
+        });
+    }
+
     /** 
      * Cut all instruments on this channel
      */

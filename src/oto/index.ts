@@ -1,33 +1,72 @@
 import { Channel } from './Channel';
+import { formatParamKey } from './utils';
 
 let channels: Record<string, Channel> = {};
 
-declare type oEvent = {id: string, params: Record<string, any>, time: number};
+declare type Event = {id: string, params: Record<string, any>, time: number};
 
-export function handler(event: oEvent, time: number) {
+export function handler(event: Event, time: number) {
+    const { e, m } = event.params;
+    if (e) return handleEvent(event, time);
+    if (m) return handleMutation(event, time);
+}
+
+/**
+ * Handle event to play notes
+ * @param event 
+ * @param time 
+ */
+function handleEvent(event: Event, time: number) {
     const { id, params } = event;
-    const { e, m, out = 0, cut = [], n } = params;
-    console.log(event);
+    const { out = 0 } = params;
+    
+    // remove the _ prefix from all param keys
+    const formatted: Record<string, any> = Object.entries(params)
+        .reduce((obj, [key, val]) => ({
+            ...obj,
+            [formatParamKey(key)]: val
+        }), {});
 
     // cut specified channels, or all if 'all' is specified
-    [cut].flat()
+    [formatted.cut || []].flat()
         .flatMap(c => c === 'all' ? Object.keys(channels) : c)
         .forEach((id: string) => channels[id]?.cut(time));
     
     // initialize channel if it doesn't exist
     channels[id] = channels[id] || new Channel(out);
     
-    // handle polyphony
-    [n].flat()
+    // play notes - handle polyphony if n is an array
+    [formatted.n || 60].flat()
         .filter(Boolean)
         .forEach((n: number, noteIndex: number) => {
             channels[id].play({
-                ...Object.entries(params)
+                ...Object.entries(formatted)
                     .reduce((obj, [key, val]) => ({
                         ...obj,
+                        // handle polyphonic params
                         [key]: Array.isArray(val) ? val[noteIndex%val.length] : val
                     }), {}),
                 n
             }, time);
         })
 }
+
+/**
+ * Handle mutation event, mutating any params that are prefixed with '_'
+ * @param mutation 
+ * @param time 
+ */
+function handleMutation(mutation: Event, time: number) {
+    const { params, id } = mutation;
+    channels[id]?.mutate(
+        Object.entries(params)
+            // only mutate params that are prefixed with '_'
+            .filter(([key, _]) => key.startsWith('_'))
+            // remove the _ prefix from all param keys as that's what the instruments expect
+            .reduce((obj, [key, val]) => ({
+                ...obj,
+                [formatParamKey(key)]: Array.isArray(val) ? val[0] : val
+            }), {}),
+        time
+    );
+}   
