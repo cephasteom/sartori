@@ -1749,7 +1749,7 @@
 										"summary": [
 											{
 												"kind": "text",
-												"text": "Filter gain amount"
+												"text": "Filter gain amount, 0 is no filter, 1 is max filter."
 											}
 										]
 									},
@@ -3335,7 +3335,7 @@
 										"summary": [
 											{
 												"kind": "text",
-												"text": "The oscillator type"
+												"text": "The oscillator type. Sine wave is 0, sawtooth is 1."
 											}
 										]
 									},
@@ -3866,7 +3866,7 @@
 										"summary": [
 											{
 												"kind": "text",
-												"text": "Portamento time"
+												"text": "Portamento time, in ms."
 											}
 										]
 									},
@@ -3943,7 +3943,7 @@
 										"summary": [
 											{
 												"kind": "text",
-												"text": "Sub oscillator gain amount"
+												"text": "Sub oscillator gain amount. 0 is no sub, 1 is max sub."
 											}
 										]
 									},
