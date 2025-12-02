@@ -35,7 +35,7 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
 })
 
 /**
- * Speed up a pattern by a given factor.
+ * Speed up a pattern.
  * @param factor - speed-up factor. Can be a number or a Pattern.
  * @example seq('A', 'B', 'C').fast(3) // A for 1/3 cycle, B for 1/3 cycle, C for 1/3 cycle.
  * @example set(1,1).fast(cat(1,2,4,8))
@@ -51,7 +51,7 @@ const fast = (factor: number|Pattern<number>, pattern: Pattern<any>) =>
     });
 
 /**
- * Slow down a pattern by a given factor
+ * Slow down a pattern.
  * @param factor 
  * @example seq('A', 'B', 'C').slow(2) // A for 2 cycles, B for 2 cycles, C for 2 cycles.
  */
@@ -66,7 +66,7 @@ const slow = (factor: number|Pattern<number>, pattern: Pattern<any>) =>
     });
 
 /**
- * Concatenate values, one per cycle.
+ * Concat values, one per cycle.
  * @param values
  * @example cat('A', 'B', 'C') // A for 1 cycle, B for 1 cycle, C for 1 cycle.
  */
@@ -120,7 +120,7 @@ const withValue = (callback: (...args: any[]) => any) =>
 const add = withValue((next, prev) => next + prev);
 
 /** 
- * Subtract a value or pattern from the current pattern.
+ * Subtract a value or pattern.
  * @param value - value or pattern to subtract.
  * @example seq(5,6,7).sub(2) // 3,4,5
  * @example seq(5,6,7).sub(saw(0,3,3)) // 5, 5, 5
@@ -128,7 +128,7 @@ const add = withValue((next, prev) => next + prev);
 const sub = withValue((next, prev) => prev - next);
 
 /** 
- * Multiply the current pattern by a value or pattern.
+ * Multiply a value or pattern.
  * @param value - value or pattern to multiply by.
  * @example seq(1,2,3).mul(2) // 2,4,6
  * @example seq(1,2,3).mul(saw(1,3,3)) // 1, 4, 9
@@ -136,7 +136,7 @@ const sub = withValue((next, prev) => prev - next);
 const mul = withValue((next, prev) => next * prev);
    
 /** 
- * Divide the current pattern by a value or pattern.
+ * Divide a value or pattern.
  * @param value - value or pattern to divide by.
  * @example seq(2,4,6).div(2) // 1,2,3
  * @example seq(2,4,6).div(saw(1,3,3)) // 2, 2, 2
@@ -144,7 +144,7 @@ const mul = withValue((next, prev) => next * prev);
 const div = withValue((next, prev) => prev / next);
 
 /**
- * Modulo the current pattern by a value or pattern.
+ * Modulo by a value or pattern.
  * @param value - value or pattern to modulo by.
  * @example seq(5,6,7).mod(4) // 1,2,3
  * @example seq(5,6,7).mod(saw(1,4,3)) // 5%1, 6%2, 7%3
@@ -187,9 +187,9 @@ const clamp = withValue((...args) => {
 }); 
 
 /**
- * Cycles to seconds conversion pattern.
+ * Cycles to seconds.
  * @param cycles - number of cycles
- * @example set(4).cts() // converts 4 cycles to seconds based on the current Transport BPM
+ * @example set(4).cts() // converts 4 cycles to seconds based on the current tempo.
  */
 const cts = withValue((...args) => {
     const cycles = args[0] ?? 1; // default 1
@@ -203,9 +203,9 @@ const cts = withValue((...args) => {
 });
 
 /**
- * Cycles to milliseconds conversion pattern.
+ * Cycles to milliseconds.
  * @param cycles - number of cycles
- * @example set(4).ctms() // converts 4 cycles to seconds based on the current Transport BPM
+ * @example set(4).ctms() // converts 4 cycles to milliseconds based on the current tempo.
  */
 const ctms = withValue((...args) => {
     const cycles = args[0] ?? 1; // default 1
@@ -239,7 +239,7 @@ const waveform = (callback: (i: number, ...args: number[]) => number) =>
         });
 
 /**
- * Generate a ramp of values from min to max, once per cycle.
+ * Generate a ramp from min to max, once per cycle.
  * @param min - start value
  * @param max - end value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
@@ -262,7 +262,7 @@ const range = (...args: Parameters<typeof saw>) => saw(...args);
 const ramp = (...args: Parameters<typeof saw>) => saw(...args);
 
 /**
- * Generate a sine wave pattern from min to max over one cycle/
+ * Generate a sine wave from min to max over one cycle.
  * @param min - minimum value
  * @param max - maximum value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
@@ -277,7 +277,7 @@ const sine = (min: number = 0, max: number = 1, q: number = 48) =>
     })(min, max, q);
 
 /**
- * Generate a cosine wave pattern from min to max over one cycle
+ * Generate a cosine wave from min to max over one cycle
  * @param min - minimum value
  * @param max - maximum value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
@@ -291,7 +291,7 @@ const cosine = (min: number = 0, max: number = 1, q: number = 48) =>
     })(min, max, q);
 
 /**
- * Generate a triangle wave pattern from min to max over one cycle
+ * Generate a triangle wave from min to max over one cycle
  * @param min - minimum value
  * @param max - maximum value
  * @param q - quantization: steps/cycle. Default 48. Increase for a more fine-grained waveform.
@@ -305,7 +305,7 @@ const tri = (min: number = 0, max: number = 1, q: number = 48) =>
     })(min, max, q);
 
 /**
- * Generate a pulse wave pattern from min to max over one cycle.
+ * Generate a pulse wave from min to max over one cycle.
  * @param min - minimum value
  * @param max - maximum value
  * @param duty - duty cycle (0 to 1)
@@ -342,7 +342,7 @@ const stack = (...values: any[]) => cycle((from, to) => values.map((value) => ({
 const interp = withValue((v, w, from, to) => v + (w - v) * ((from + to) / 2 % 1));
 
 /**
- * Randomly replace values with 0 based on a given probability.
+ * Randomly replace values with 0.
  * @param probability
  * @example sine().degrade(0.3) // randomly replaces 30% of sine wave values with 0
  */
@@ -376,21 +376,21 @@ const rarely = () => weightedCoin(0.25)
 const often = () => weightedCoin(0.75)
 
 /**
- * Compare values. If both are truthy, return 1, else 0.
+ * Compare values. If both are true, return 1, else 0.
  * @param value
- * @example coin().and(coin()) // returns 1 when both coins() are truthy
+ * @example coin().and(coin()) // returns 1 when both coins() are true
  */
 const and = withValue((v, w) => v && w);
 
 /**
- * Compare values. If one of them is truthy, return 1, else 0.
+ * Compare values. If one of them is true, return 1, else 0.
  * @param value
- * @example coin().or(coin()) // returns 1 when either coin() is truthy
+ * @example coin().or(coin()) // returns 1 when either coin() is true
  */
 const or = withValue((v, w) => v || w);
 
 /**
- * Compare values. If one is truthy and the other is falsy, return 1, else 0.
+ * Compare values. If one is true and the other is false, return 1, else 0.
  * @param value
  * @example set(1).xor(1) // returns 0
  */

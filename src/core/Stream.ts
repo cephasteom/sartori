@@ -23,15 +23,14 @@ export class Stream {
      * @example
      * s0.set({ 
      *   inst: 'synth',
-     *   _n: '60 62 64 65', // prefix with _ to indicate it's a mutation parameter
-     *   e: seq(1,0,1,0), // use e to trigger events
-     *   m: seq(0,1,0,1) // use m to trigger mutations
+     *   _n: '60 62 64 65', // prefix with _ to indicate it's a mutable parameter
+     *   e: seq(1,0,1,0), // use e to trigger an event
+     *   m: seq(0,1,0,1) // use m to trigger a mutation (modulate all active voices)
      * })
      */
     set(params: Record<string, any>) {
         Object.entries(params)
             .filter(([key]) => !['id', 'set', 'query', '__reset'].includes(key))
-            // @ts-ignore
             .forEach(([key, value]) => this[key] = (value instanceof Pattern 
                 ? value 
                 : methods.set(value)));

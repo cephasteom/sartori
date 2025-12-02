@@ -83,28 +83,57 @@ s2.set({ note: 'Ddor%16..' })
             ${marked(`\`\`\`typescript
 s3.set({ ..., e: seq(1,0,1) })
 \`\`\``)}
+            <p>Mutations modulate all active voices on a Stream, with parameters prefixed by <code>_</code>. Trigger a mutation using <code>.m</code>:</p>
+            ${marked(`\`\`\`typescript
+s4.set({ 
+    n: 'Cmi..', // doesn't mutate
+    _pan: sine(), // does mutate
+    e: seq(1,0,1,0), // use e to trigger an event
+    m: 1*8 // use m to trigger a mutation every 8 steps
+})
+\`\`\``)}
             </article>
             `
             
             + `
             <article id="docs__stream">
-                <p>A Stream represents a musical layer. In Sartori, there are 16 instrument streams (s0 to s15) and 4 fx streams (fx0 to fx3).</p>
+                <p>A Stream represents a musical layer. There are 16 instrument streams (s0 to s15) and 4 fx streams (fx0 to fx3).</p>
                 <ul class="help__list">
-                    ${Object.entries(streamMethods).map(([name, info]) => `
-                        <li>
-                            <h4>${name}</h4>
-                            <p>${info.description}</p>
-                            ${info.examples.length > 0 ? `
-                                ${marked(info.examples.join('\n'))}
-                            ` : ''}
-                        </li>
-                    `).join('')}
+                    <li>
+                        <h4>set</h4>
+                        <p>Set parameters on the Stream.</p>
+                        ${marked(streamMethods['set'].examples.join('\n'))}
+                        <p>Send signal to an fx stream:</p>
+                        ${marked(`\`\`\`typescript
+s0.set({  
+    inst: 'synth',
+    n: 'Ddor%16..',
+    fx0: 0.5, // send 50% of signal to fx0
+    e: '1*2',
+})
+
+fx0.set({
+    reverb: 1, // set reverb on the fx stream
+    delay: 0.5, // set delay
+    e: '1*8', // fx streams are regular streams, so need to be triggered
+})
+\`\`\``)}
+                    </li>
                 </ul>
             </article>`
             
             + `
             <article id="docs__pattern">
                 <ul class="help__list">
+                    <p>Patterns are the building blocks of Sartori. They can be used to control any parameter on a Stream.</p>
+                    ${marked(`\`\`\`typescript
+s0.set({  
+    inst: 'synth',
+    n: seq(60,62,64,65),
+    fx0: sine().fast(2),
+    e: seq(1,seq(1,1,1,1),1,1)
+})
+\`\`\``)}
                     ${Object.entries(patternMethods).map(([name, info]) => `
                         <li>
                             <h4>${name}</h4>
@@ -114,6 +143,18 @@ s3.set({ ..., e: seq(1,0,1) })
                             ` : ''}
                         </li>
                     `).join('')}
+                    <li>
+                        <h4>Operators</h4>
+                        <p>Every operator from the JS <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math" target="_blank">Math object</a> is a Pattern method.</p>
+                        ${marked(`\`\`\`typescript
+s0.set({  
+    inst: 'synth',
+    n: seq(60,62,64,65).add(12), // transposes up an octave
+    amp: random().mul(0.5).add(0.5), // random amplitude between 0.5 and 1
+    e: seq(1,1,1,1)
+})
+\`\`\``)}
+                    </li>
                 </ul>
             </article>`
 
