@@ -203,8 +203,8 @@ Primary
   / Spread
   / StackMusic
   / MidiNote
-  / Number
   / StringToken
+  / Number
   / Group
 
 EuclidRhythm
@@ -260,17 +260,33 @@ Extension = [0-9#b]+
 ModLength = "%" ds:[0-9]+ { return ds.join("") }
 SpreadModifier = ".."
 
+NoteToken
+  = first:[A-G] acc:("#"/"b")? oct:[0-9]+ {
+      return first + (acc || "") + oct.join("");
+    }
+
 MidiNote
-  = n:NoteName o:Octave { return noteToMidi(n,o); }
+  = nt:NoteToken {
+      // nt is a string like "C4" or "D#3"
+      // split into name and octave
+      var m = nt.match(/^([A-G](?:#|b)?)([0-9]+)$/);
+      if (!m) throw new Error("Invalid note token: " + nt);
+      var name = m[1], octave = parseInt(m[2], 10);
+      return noteToMidi(name, octave);
+    }
 
 NoteName
-  = n:[A-G] acc:("#"/"b")? { return n + (acc || ""); }
+  = n:[A-G] acc:("#"/"b")? { 
+  return n + (acc || ""); 
+}
 
 Octave
   = n:[0-9]+ { return parseInt(n.join(""),10); }
 
 Identifier
-  = s:[a-zA-Z_./-]+ { return s.join("") }
+  = !NoteToken chars:([a-zA-Z_./-] [a-zA-Z0-9_./-]*) {
+      return chars[0] + chars[1].join("");
+    }
 
 Number
   = n:[0-9]+ frac:("." [0-9]+)? ![a-zA-Z_./-] {
@@ -278,11 +294,23 @@ Number
     }
 
 StringToken
-  = s:(
-      [a-zA-Z_./-] [a-zA-Z0-9_./-]*       /* starts with letter or dot/underscore/hyphen */
-    / [0-9]+ [a-zA-Z_./-] [a-zA-Z0-9_./-]* /* starts with digits then a letter/dot/hyphen */
+  = !NoteToken chars:(
+        [a-zA-Z_./-] [a-zA-Z0-9_./-]*        // starts with letter/dot/underscore/hyphen
+      / [0-9]+ [a-zA-Z_./-] [a-zA-Z0-9_./-]* // digits then a non-digit so not a number
     ) {
-      return s.join("");
+      if (Array.isArray(chars)) {
+        // case 1: chars is ['a', ['b','c']]
+        if (Array.isArray(chars[0]) === false && Array.isArray(chars[1])) {
+          return chars[0] + chars[1].join("");
+        }
+      }
+
+      // case 2: second alternative produces structure like: [ ['1','2'], 'a', ['b','c'] ]
+      if (Array.isArray(chars[0]) && typeof chars[1] === 'string') {
+        return chars[0].join("") + chars[1] + chars[2].join("");
+      }
+
+      return chars.toString(); // fallback
     }
 
 _ = [ \\t\\n\\r]*

@@ -24,7 +24,7 @@ const cycle = (callback: (from: number, to: number) => Hap<any>[]) => P((from,to
             const value = typeof hap.value === "string" ? mini(hap.value as string) : hap.value;
             const sub = value instanceof Pattern
                 ? value.query(hap.from, hap.to)
-                : [hap];
+                : [{from: hap.from, to: hap.to, value}];
             bag = bag.concat(sub);
         }
     }
