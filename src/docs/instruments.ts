@@ -37,10 +37,15 @@ const sections = {
     AcidSynth: acidSynthMethods
 }
 
-console.log(synthMethods, samplerMethods, granularMethods, acidSynthMethods);
-
 export default `
-Sartori includes the following instruments:
+Sartori includes a default Synth, Sampler, Granular, and AcidSynth instrument. You can set the instrument on a stream using the <code>inst</code> parameter:
+${marked(`\`\`\`typescript
+s0.set({ inst: 'synth' }) // set synth instrument
+s1.set({ inst: 'sampler' }) // set sampler instrument
+s2.set({ inst: 'granular' }) // set granular instrument
+s3.set({ inst: 'acid' }) // set acid synth instrument
+\`\`\``)}
+Each instrument has the following methods:
 ${Object.entries(sections).map(([instrumentName, methods]) => `
     <h3>${instrumentName}</h3>
     <ul class="help__list">
