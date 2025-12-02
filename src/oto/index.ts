@@ -1,7 +1,5 @@
-import { Channel } from './Channel';
+import { Channel, channels } from './Channel';
 import { formatParamKey } from './utils';
-
-let channels: Record<string, Channel> = {};
 
 declare type Event = {id: string, params: Record<string, any>, time: number};
 
@@ -33,7 +31,7 @@ function handleEvent(event: Event, time: number) {
         .forEach((id: string) => channels[id]?.cut(time));
     
     // initialize channel if it doesn't exist
-    channels[id] = channels[id] || new Channel(out);
+    channels[id] = channels[id] || new Channel(id, out);
     
     // play notes - handle polyphony if n is an array
     [formatted.n || 60].flat()

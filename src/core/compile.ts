@@ -7,6 +7,9 @@ let lastCode: string = '';
 // create 16 streams: s0, s1, s2, ... s15
 const streams = Array(16).fill(0).map((_, i) => new Stream('s' + i))
 
+// create 4 fxStreams: fx0, fx1, fx2, fx3
+const fxStreams = Array(4).fill(0).map((_, i) => new Stream('fx' + i))
+
 const global = new Stream('global');
 
 // Util: reset all streams to initial state
@@ -17,7 +20,12 @@ const channel = new BroadcastChannel('sartori');
 // everything the user should be able to access in their code
 const scope = {
     streams,
-    ...[...streams, global].reduce((obj, stream) => ({
+    fxStreams,
+    ...[
+        ...streams, 
+        ...fxStreams, 
+        global
+    ].reduce((obj, stream) => ({
         ...obj,
         [stream.id]: stream
     }), {}),
@@ -49,7 +57,7 @@ export const compile = (from: number, to: number) => ({
     // at the global level, we are only interested in events (at least for now)
     global: global.query(from, to).events,
     // at the stream level, we want events and mutations
-    streams: streams.reduce((compiled, stream) => {
+    streams: [...streams, ...fxStreams].reduce((compiled, stream) => {
         const { events, mutations } = stream.query(from, to);
         return [
             ...compiled,

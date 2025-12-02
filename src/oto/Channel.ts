@@ -21,6 +21,8 @@ destination.channelCount = destination.maxChannelCount // set to max channels
 const output = new Merge({channels: destination.maxChannelCount}) // create output merger
 output.connect(destination) // connect to system audio output
 
+const busses = Array.from({length: 4}, () => new Gain(1))
+
 declare type Instrument = typeof Synth | typeof Sampler | typeof Granular | typeof AcidSynth | typeof TSynth | typeof TMono | typeof TFM | typeof TAM
 
 const instMap: Record<string, Instrument> = {
@@ -35,11 +37,17 @@ const instMap: Record<string, Instrument> = {
 }
 
 /**
+ * All channels.
+ */
+export const channels: Record<string, Channel> = {};
+
+/**
  * Represents an audio channel with its own instruments and effects.
  */
 export class Channel {
+    id: string;
     out: number| null = null  // output channel index
-    _input: Gain // input gain
+    input: Gain // input gain
     _output: Split // output splitter
     _limiter: Limiter
     _instruments: Record<string, any> = {}
@@ -47,17 +55,34 @@ export class Channel {
     _reverb: any
     _delay: any
     _fader: Gain // volume control
-    
-    constructor(out: number = 0) {
 
-        this._input = new Gain(1)
+    _busses: Gain[] // fx busses
+    _fxBusses: Gain[]
+    
+    constructor(id: string, out: number = 0) {
+        this.id = id
+        this.input = new Gain(1)
         this._fader = new Gain(1)
         this._output = new Split({channels: 2})
         this._limiter = new Limiter(-10)
         
         this._limiter.connect(this._output)
         this._fader.connect(this._limiter)
-        this._input.fan(this._fader)
+
+        // create 4 internal bus nodes
+        this._busses = Array.from({length: 4}, () => new Gain(0))
+        // and connect them to the global busses
+        this._busses.forEach((_, i) => this.routeBus(i, busses[i]))
+        
+        // create 4 fx bus nodes
+        this._fxBusses = Array.from({length: 4}, () => new Gain(0))
+        
+        // and connect them to the global fx channels, but don't connect to self
+        this._fxBusses.forEach((_, i) => `fx${i}` !== this.id 
+            && this.routeFxBus(i, channels[`fx${i}`]?.input || destination))
+
+        // connect input to fader, busses, fx busses
+        this.input.fan(this._fader, ...this._busses, ...this._fxBusses)
         
         this.routeOutput(out)
     }
@@ -88,6 +113,46 @@ export class Channel {
     };
 
     /**
+     * Route a bus to a destination
+     * @param bus 
+     * @param destination 
+     */
+    routeBus(bus: number, destination: any) {
+        this._busses[bus].connect(destination)
+    }
+
+    /**
+     * Sets gain for a given bus
+     * @param bus 
+     * @param gain 
+     * @param time 
+     * @param lag 
+     */
+    send(bus: number, gain: number, time: number = 0, lag: number = 10) {
+        this._busses[bus].gain.rampTo(gain, lag/1000, time)
+    }
+
+    /**
+     * Route an FX bus to a destination
+     * @param bus 
+     * @param destination 
+     */
+    routeFxBus(bus: number, destination: any) {
+        this._fxBusses[bus].connect(destination)
+    }
+
+    /**
+     * Sets gain for a given FX bus
+     * @param bus 
+     * @param gain 
+     * @param time 
+     * @param lag 
+     */
+    sendFx(bus: number, gain: number, time: number = 0, lag: number = 10) {
+        this._fxBusses[bus].gain.rampTo(gain, lag/1000, time)
+    }
+
+    /**
      * Initializes FX channel on this channel. Then handles internal routing.
      */
     initFX() {
@@ -115,18 +180,18 @@ export class Channel {
      * Handles internal routing of input -> fx -> _fader
      */
     _handleInternalRouting() {
-        const { _fx, _reverb, _delay, _input, _fader } = this
+        const { _fx, _reverb, _delay, input, _fader } = this
         const fx = [_fx, _delay, _reverb]
         
         // disconnect chain
         fx.forEach(fx => fx && fx.disconnect())
-        _input.disconnect()
-        // this._input.fan(...this._busses, ...this._fxBusses)
+        input.disconnect()
+        this.input.fan(...this._busses, ...this._fxBusses)
 
         const first = fx.find(Boolean)
         const last = [...fx].reverse().find(Boolean)
         
-        _input.connect(first?.input || _fader)
+        input.connect(first?.input || _fader)
         last?.connect(_fader)
 
         fx.filter(Boolean).reduce((prev, curr) => {
@@ -142,8 +207,27 @@ export class Channel {
      */
     play(params: any, time: number) {
         const { inst, level = 1 } = params;
+        
+        // handle output routing
         params.out && this.routeOutput(params.out);
+        
+        // handle bus sends
+        this._busses.forEach((_, i) => params[`bus${i}`] !== undefined
+            && this.send(i, params[`bus${i}`], time));
 
+        // handle fxBus sends
+        this._fxBusses.forEach((_, i) => params[`fx${i}`] !== undefined
+            && this.sendFx(i, params[`fx${i}`], time));
+
+        // handle fx params
+        this.handleFx(params, time);
+
+        // set channel level
+        this._fader.gain.rampTo(level, 0.1, time)
+
+        // exit if this is an FX channel
+        if(['fx0', 'fx1', 'fx2', 'fx3'].includes(this.id)) return;
+        
         // check that instrument is valid
         if(!Object.keys(instMap).includes(inst)) {
             return sartori.postMessage({ 
@@ -155,18 +239,12 @@ export class Channel {
         // initialize instrument if it doesn't exist on this channel yet
         if(!this._instruments[inst]) {
             this._instruments[inst] = new instMap[inst]();
-            this._instruments[inst].connect(this._input);
+            this._instruments[inst].connect(this.input);
             this._instruments[inst].banks = samples; // provide samples if applicable
         }
 
         // play instrument with given params
         this._instruments[inst].play(params, time);
-
-        // handle fx params
-        this.handleFx(params, time);
-
-        // set channel level
-        this._fader.gain.rampTo(level, 0.1, time)
     }
 
     /**
@@ -201,6 +279,14 @@ export class Channel {
         Object.values(this._instruments).forEach(inst => {
             inst.mutate(params, time, params.lag || 100);
         });
+
+        // handle bus sends
+        this._busses.forEach((_, i) => params[`bus${i}`] 
+            && this.send(i, params[`bus${i}`], time, params.lag || 10));
+
+        // handle fxBus sends
+        this._fxBusses.forEach((_, i) => params[`fx${i}`] 
+            && this.sendFx(i, params[`fx${i}`], time, params.lag || 10));
     }
 
     /** 
@@ -212,3 +298,7 @@ export class Channel {
         });
     }
 }
+
+['fx0', 'fx1', 'fx2', 'fx3'].forEach(id => {
+    channels[id] = new Channel(id, 0)
+})
