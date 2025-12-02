@@ -1,4 +1,3 @@
-// TODO: Note values not working C4 D4 etc
 // TODO: more pattern functions
 // TODO: docs - instruments, fx, routing
 // TODO: better typing throughout
@@ -6,6 +5,7 @@
 // MIDI integration
 // Utility functions scales etc
 // Tone synths aren't working well
+// customise display (sidebar)
 
 import { evaluate } from './core/compile';
 import { Scheduler } from './core/Scheduler';
