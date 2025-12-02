@@ -7,6 +7,7 @@
 // Tone synths aren't working well
 // customise display (sidebar)
 // solo and mute
+// check Granular2 looks like other params referenced bpm
 
 import { evaluate } from './core/compile';
 import { Scheduler } from './core/Scheduler';

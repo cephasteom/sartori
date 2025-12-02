@@ -24,7 +24,7 @@ const getMethods = (json: any[]): Record<string, any> => {
             }
         }), {} as Record<string, any>);
 }
-
+console.log(instruments);
 const synthMethods = getMethods(instruments.children[0].children[0]?.children || [])
 const samplerMethods = getMethods(instruments.children[1].children[0]?.children || [])
 const granularMethods = getMethods(instruments.children[2].children[0]?.children || [])
