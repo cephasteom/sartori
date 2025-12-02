@@ -6,6 +6,7 @@
 // Utility functions scales etc
 // Tone synths aren't working well
 // customise display (sidebar)
+// solo and mute
 
 import { evaluate } from './core/compile';
 import { Scheduler } from './core/Scheduler';

@@ -20,6 +20,8 @@ help && (help.innerHTML = `
     <button><h3>Stream</h3></button>
     <button><h3>Pattern</h3></button>
     <button><h3>Mini-Notation</h3></button>
+    <button><h3>Instruments</h3></button>
+    <button><h3>Effects</h3></button>
 
     <article id="docs__quick-start">
         ${quickStart}

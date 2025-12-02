@@ -18,6 +18,10 @@
     cursor: pointer;
 }
 
+#help button > h3 {
+    margin-top: 0;
+}
+
 #help .active > h3 {
     color: var(--theme-yellow)!important;
 }

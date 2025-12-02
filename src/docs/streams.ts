@@ -28,6 +28,9 @@ export default `
             <h4>set</h4>
             <p>Set parameters on the Stream.</p>
             ${marked(streamMethods['set'].examples.join('\n'))}
+        </li>
+        <li>
+            <h4>Fx streams</h4>
             <p>Send signal to an fx stream:</p>
             ${marked(`\`\`\`typescript
 s0.set({  
@@ -42,6 +45,25 @@ fx0.set({
     delay: 0.5, // set delay
     e: '1*8', // fx streams are regular streams, so need to be triggered
 })
+\`\`\``)}
+        </li>
+        <li>
+            <h4>Special Parameters</h4>
+            <p>Some parameters effect the behaviour of the stream:</p>
+            ${marked(`\`\`\`typescript
+s0.set({ solo: '1 0 1 0' )} // solo stream
+\`\`\``)}
+${marked(`\`\`\`typescript
+s0.set({ mute: '0 1 0 1' )} // mute stream
+\`\`\``)}
+${marked(`\`\`\`typescript
+s0.set({ cut: 's0' )} // cut self when an event is triggered
+\`\`\``)}
+${marked(`\`\`\`typescript
+s0.set({ cut: ['s0', 's1', 's2'] )} // cut self and other streams
+\`\`\``)}
+${marked(`\`\`\`typescript
+s0.set({ cut: 'all' )} // cut all other streams
 \`\`\``)}
         </li>
     </ul>`
