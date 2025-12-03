@@ -4,24 +4,17 @@ import { marked } from 'marked';
 
 const getMethods = (json: any[]): Record<string, any> => {
     return json
-        // remove items where the name starts with an underscore
         .filter((item) => !item.name.startsWith('_'))
         .reduce((obj, item) => ({
             ...obj,
             [item.name]:
             {
-                // @ts-ignore
                 description: (item.signatures[0]?.comment?.summary || [])
-                    // @ts-ignore
-                    .filter((comment) => comment.kind === 'text')
-                    // @ts-ignore
-                    .reduce((desc, comment) => desc + comment.text, ''),
-                // @ts-ignore
+                    .filter((comment: Record<string, string>) => comment.kind === 'text')
+                    .reduce((desc: string, comment: Record<string, string>) => desc + comment.text, ''),
                 examples: (item.signatures[0]?.comment?.blockTags || [])
-                    // @ts-ignore
-                    .filter((example) => example.tag === '@example')
-                    // @ts-ignore
-                    .map((example) => example.content[0]?.text || '')
+                    .filter((example: Record<string, string>) => example.tag === '@example')
+                    .map((example: Record<string, string[]>) => example.content[0]?.text || '')
             }
         }), {} as Record<string, any>);
 }

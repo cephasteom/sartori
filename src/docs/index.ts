@@ -46,7 +46,7 @@ help && (help.innerHTML = `
     </article>
 
     <article id="docs__effects">
-        ${marked(effects)}
+        ${effects}
     </article>
 
 </div>`)

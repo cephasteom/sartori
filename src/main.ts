@@ -1,7 +1,5 @@
 // TODO: docs - fx
 // TODO: more pattern functions
-// TODO: can we add methods to numbers
-// check Granular2 looks like other params referenced bpm
 // MIDI integration
 // Utility functions scales etc
 // Tone synths aren't working well

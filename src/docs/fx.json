@@ -1,0 +1,5837 @@
+{
+	"schemaVersion": "2.0",
+	"id": 0,
+	"name": "sartori",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 1,
+			"name": "Delay",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 4,
+					"name": "default",
+					"variant": "declaration",
+					"kind": 128,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The delay chained to the end of each stream. Is initialised only when delay parameter is greater than 0."
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@example",
+								"content": [
+									{
+										"kind": "code",
+										"text": "```ts\ns0.delay.set(0.5)\n```"
+									}
+								]
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 59,
+							"name": "defaults",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isInherited": true
+							},
+							"sources": [
+								{
+									"fileName": "RNBODevice.ts",
+									"line": 10,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/RNBODevice.ts#L10"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "sartori",
+									"packagePath": "src/oto/ct-synths/types.ts",
+									"qualifiedName": "Dictionary"
+								},
+								"name": "Dictionary",
+								"package": "sartori"
+							},
+							"defaultValue": "{}",
+							"inheritedFrom": {
+								"type": "reference",
+								"target": -1,
+								"name": "RNBODevice.defaults"
+							}
+						},
+						{
+							"id": 47,
+							"name": "_dcolour",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 106,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L106"
+								}
+							],
+							"signatures": [
+								{
+									"id": 48,
+									"name": "_dcolour",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the delay colour"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 106,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L106"
+										}
+									],
+									"parameters": [
+										{
+											"id": 49,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 50,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 15,
+							"name": "_delay",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 58,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L58"
+								}
+							],
+							"signatures": [
+								{
+									"id": 16,
+									"name": "_delay",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the delay amount"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 58,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L58"
+										}
+									],
+									"parameters": [
+										{
+											"id": 17,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 18,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 31,
+							"name": "_dfb",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 82,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L82"
+								}
+							],
+							"signatures": [
+								{
+									"id": 32,
+									"name": "_dfb",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the delay feedback"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 82,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L82"
+										}
+									],
+									"parameters": [
+										{
+											"id": 33,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.5"
+										},
+										{
+											"id": 34,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 55,
+							"name": "_dfilter",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 119,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L119"
+								}
+							],
+							"signatures": [
+								{
+									"id": 56,
+									"name": "_dfilter",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the delay filter"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 119,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L119"
+										}
+									],
+									"parameters": [
+										{
+											"id": 57,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 58,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 39,
+							"name": "_dspread",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 94,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L94"
+								}
+							],
+							"signatures": [
+								{
+									"id": 40,
+									"name": "_dspread",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the delay spread"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 94,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L94"
+										}
+									],
+									"parameters": [
+										{
+											"id": 41,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 42,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 23,
+							"name": "_dtime",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 70,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L70"
+								}
+							],
+							"signatures": [
+								{
+									"id": 24,
+									"name": "_dtime",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the delay time - may cause clicks"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 70,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L70"
+										}
+									],
+									"parameters": [
+										{
+											"id": 25,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "in ms"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "500"
+										},
+										{
+											"id": 26,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 43,
+							"name": "dcolour",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 100,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L100"
+								}
+							],
+							"signatures": [
+								{
+									"id": 44,
+									"name": "dcolour",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Delay colour. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 100,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L100"
+										}
+									],
+									"parameters": [
+										{
+											"id": 45,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 46,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 11,
+							"name": "delay",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 52,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L52"
+								}
+							],
+							"signatures": [
+								{
+									"id": 12,
+									"name": "delay",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Wet/dry delay amount. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 52,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L52"
+										}
+									],
+									"parameters": [
+										{
+											"id": 13,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 14,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 27,
+							"name": "dfb",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 76,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L76"
+								}
+							],
+							"signatures": [
+								{
+									"id": 28,
+									"name": "dfb",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Delay feedback. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 76,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L76"
+										}
+									],
+									"parameters": [
+										{
+											"id": 29,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.5"
+										},
+										{
+											"id": 30,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 51,
+							"name": "dfilter",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 113,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L113"
+								}
+							],
+							"signatures": [
+								{
+									"id": 52,
+									"name": "dfilter",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Delay filter. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 113,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L113"
+										}
+									],
+									"parameters": [
+										{
+											"id": 53,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 54,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 35,
+							"name": "dspread",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 88,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L88"
+								}
+							],
+							"signatures": [
+								{
+									"id": 36,
+									"name": "dspread",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Delay spread. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 88,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L88"
+										}
+									],
+									"parameters": [
+										{
+											"id": 37,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 38,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 19,
+							"name": "dtime",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Delay.ts",
+									"line": 64,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L64"
+								}
+							],
+							"signatures": [
+								{
+									"id": 20,
+									"name": "dtime",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Delay time in ms."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "Delay.ts",
+											"line": 64,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L64"
+										}
+									],
+									"parameters": [
+										{
+											"id": 21,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "in ms"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "500"
+										},
+										{
+											"id": 22,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								59
+							]
+						},
+						{
+							"title": "Methods",
+							"children": [
+								47,
+								15,
+								31,
+								55,
+								39,
+								23,
+								43,
+								11,
+								27,
+								51,
+								35,
+								19
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Delay.ts",
+							"line": 14,
+							"character": 6,
+							"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L14"
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"target": {
+								"packageName": "sartori",
+								"packagePath": "src/oto/ct-synths/rnbo/RNBODevice.ts",
+								"qualifiedName": "RNBODevice"
+							},
+							"name": "RNBODevice",
+							"package": "sartori"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"children": [
+						4
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Delay.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/Delay.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 3,
+			"name": "FXChannel",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 188,
+					"name": "default",
+					"variant": "declaration",
+					"kind": 128,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The chain of effect applied to the output of each stream. Each effect remains inactive until the amount is set to a value greater than 0."
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@example",
+								"content": [
+									{
+										"kind": "code",
+										"text": "```ts\ns0.reverb.set(0.5)\n```"
+									}
+								]
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 307,
+							"name": "defaults",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isInherited": true
+							},
+							"sources": [
+								{
+									"fileName": "RNBODevice.ts",
+									"line": 10,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/RNBODevice.ts#L10"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "sartori",
+									"packagePath": "src/oto/ct-synths/types.ts",
+									"qualifiedName": "Dictionary"
+								},
+								"name": "Dictionary",
+								"package": "sartori"
+							},
+							"defaultValue": "{}",
+							"inheritedFrom": {
+								"type": "reference",
+								"target": -1,
+								"name": "RNBODevice.defaults"
+							}
+						},
+						{
+							"id": 255,
+							"name": "_chdepth",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 165,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L165"
+								}
+							],
+							"signatures": [
+								{
+									"id": 256,
+									"name": "_chdepth",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the chorus depth"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 165,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L165"
+										}
+									],
+									"parameters": [
+										{
+											"id": 257,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 258,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 263,
+							"name": "_chlfo",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 177,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L177"
+								}
+							],
+							"signatures": [
+								{
+									"id": 264,
+									"name": "_chlfo",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the chorus LFO"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 177,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L177"
+										}
+									],
+									"parameters": [
+										{
+											"id": 265,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 266,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 247,
+							"name": "_chorus",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 153,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L153"
+								}
+							],
+							"signatures": [
+								{
+									"id": 248,
+									"name": "_chorus",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the chorus amount"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 153,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L153"
+										}
+									],
+									"parameters": [
+										{
+											"id": 249,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 250,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 271,
+							"name": "_chspread",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 189,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L189"
+								}
+							],
+							"signatures": [
+								{
+									"id": 272,
+									"name": "_chspread",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the chorus spread"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 189,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L189"
+										}
+									],
+									"parameters": [
+										{
+											"id": 273,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 274,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 199,
+							"name": "_dist",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 80,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L80"
+								}
+							],
+							"signatures": [
+								{
+									"id": 200,
+									"name": "_dist",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the distortion amount"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 80,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L80"
+										}
+									],
+									"parameters": [
+										{
+											"id": 201,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 202,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 207,
+							"name": "_drive",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 92,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L92"
+								}
+							],
+							"signatures": [
+								{
+									"id": 208,
+									"name": "_drive",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the distortion drive"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 92,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L92"
+										}
+									],
+									"parameters": [
+										{
+											"id": 209,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.5"
+										},
+										{
+											"id": 210,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 295,
+							"name": "_gain",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 226,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L226"
+								}
+							],
+							"signatures": [
+								{
+									"id": 296,
+									"name": "_gain",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the gain of channel"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 226,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L226"
+										}
+									],
+									"parameters": [
+										{
+											"id": 297,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "1"
+										},
+										{
+											"id": 298,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 287,
+							"name": "_hpf",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 213,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L213"
+								}
+							],
+							"signatures": [
+								{
+									"id": 288,
+									"name": "_hpf",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "mutate the HPF filter - alias for _locut"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 213,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L213"
+										}
+									],
+									"parameters": [
+										{
+											"id": 289,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 290,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 279,
+							"name": "_lpf",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 201,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L201"
+								}
+							],
+							"signatures": [
+								{
+									"id": 280,
+									"name": "_lpf",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "mutate the LPF filter - alias for _hicut"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 201,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L201"
+										}
+									],
+									"parameters": [
+										{
+											"id": 281,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 282,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 303,
+							"name": "_lthresh",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 238,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L238"
+								}
+							],
+							"signatures": [
+								{
+									"id": 304,
+									"name": "_lthresh",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the limiter threshold"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 238,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L238"
+										}
+									],
+									"parameters": [
+										{
+											"id": 305,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "1"
+										},
+										{
+											"id": 306,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 215,
+							"name": "_ring",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 105,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L105"
+								}
+							],
+							"signatures": [
+								{
+									"id": 216,
+									"name": "_ring",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the ring modulator amount"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 105,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L105"
+										}
+									],
+									"parameters": [
+										{
+											"id": 217,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 218,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 223,
+							"name": "_ringf",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 117,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L117"
+								}
+							],
+							"signatures": [
+								{
+									"id": 224,
+									"name": "_ringf",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the ring modulator pitch"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 117,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L117"
+										}
+									],
+									"parameters": [
+										{
+											"id": 225,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 226,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 239,
+							"name": "_ringmode",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 141,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L141"
+								}
+							],
+							"signatures": [
+								{
+									"id": 240,
+									"name": "_ringmode",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the ring modulator mode"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 141,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L141"
+										}
+									],
+									"parameters": [
+										{
+											"id": 241,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 242,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 231,
+							"name": "_ringspread",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 129,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L129"
+								}
+							],
+							"signatures": [
+								{
+									"id": 232,
+									"name": "_ringspread",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the ring modulator spread"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 129,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L129"
+										}
+									],
+									"parameters": [
+										{
+											"id": 233,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 234,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 251,
+							"name": "chdepth",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 159,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L159"
+								}
+							],
+							"signatures": [
+								{
+									"id": 252,
+									"name": "chdepth",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Chorus depth. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 159,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L159"
+										}
+									],
+									"parameters": [
+										{
+											"id": 253,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 254,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 259,
+							"name": "chlfo",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 171,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L171"
+								}
+							],
+							"signatures": [
+								{
+									"id": 260,
+									"name": "chlfo",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Chorus LFO. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 171,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L171"
+										}
+									],
+									"parameters": [
+										{
+											"id": 261,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 262,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 243,
+							"name": "chorus",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 147,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L147"
+								}
+							],
+							"signatures": [
+								{
+									"id": 244,
+									"name": "chorus",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Wet/dry chorus amount. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 147,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L147"
+										}
+									],
+									"parameters": [
+										{
+											"id": 245,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 246,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 267,
+							"name": "chspread",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 183,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L183"
+								}
+							],
+							"signatures": [
+								{
+									"id": 268,
+									"name": "chspread",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Chorus spread. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 183,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L183"
+										}
+									],
+									"parameters": [
+										{
+											"id": 269,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 270,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 195,
+							"name": "dist",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 74,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L74"
+								}
+							],
+							"signatures": [
+								{
+									"id": 196,
+									"name": "dist",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Wet/dry distortion amount. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 74,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L74"
+										}
+									],
+									"parameters": [
+										{
+											"id": 197,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 198,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 203,
+							"name": "drive",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 86,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L86"
+								}
+							],
+							"signatures": [
+								{
+									"id": 204,
+									"name": "drive",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Distortion drive. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 86,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L86"
+										}
+									],
+									"parameters": [
+										{
+											"id": 205,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.5"
+										},
+										{
+											"id": 206,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 283,
+							"name": "hpf",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 207,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L207"
+								}
+							],
+							"signatures": [
+								{
+									"id": 284,
+									"name": "hpf",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "High Pass Filter. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 207,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L207"
+										}
+									],
+									"parameters": [
+										{
+											"id": 285,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 286,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 275,
+							"name": "lpf",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 195,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L195"
+								}
+							],
+							"signatures": [
+								{
+									"id": 276,
+									"name": "lpf",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Low Pass Filter. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 195,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L195"
+										}
+									],
+									"parameters": [
+										{
+											"id": 277,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 278,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 299,
+							"name": "lthresh",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 232,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L232"
+								}
+							],
+							"signatures": [
+								{
+									"id": 300,
+									"name": "lthresh",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Limiter threshold. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 232,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L232"
+										}
+									],
+									"parameters": [
+										{
+											"id": 301,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "1"
+										},
+										{
+											"id": 302,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 211,
+							"name": "ring",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 99,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L99"
+								}
+							],
+							"signatures": [
+								{
+									"id": 212,
+									"name": "ring",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Wet/dry ring modulator amount. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 99,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L99"
+										}
+									],
+									"parameters": [
+										{
+											"id": 213,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 214,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 219,
+							"name": "ringf",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 111,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L111"
+								}
+							],
+							"signatures": [
+								{
+									"id": 220,
+									"name": "ringf",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Ring modulator pitch. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 111,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L111"
+										}
+									],
+									"parameters": [
+										{
+											"id": 221,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 222,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 235,
+							"name": "ringmode",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 135,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L135"
+								}
+							],
+							"signatures": [
+								{
+									"id": 236,
+									"name": "ringmode",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Ring modulator mode. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 135,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L135"
+										}
+									],
+									"parameters": [
+										{
+											"id": 237,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 238,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 227,
+							"name": "ringspread",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "FXChannel.ts",
+									"line": 123,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L123"
+								}
+							],
+							"signatures": [
+								{
+									"id": 228,
+									"name": "ringspread",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Ring modulator spread. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "FXChannel.ts",
+											"line": 123,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L123"
+										}
+									],
+									"parameters": [
+										{
+											"id": 229,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 230,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								307
+							]
+						},
+						{
+							"title": "Methods",
+							"children": [
+								255,
+								263,
+								247,
+								271,
+								199,
+								207,
+								295,
+								287,
+								279,
+								303,
+								215,
+								223,
+								239,
+								231,
+								251,
+								259,
+								243,
+								267,
+								195,
+								203,
+								283,
+								275,
+								299,
+								211,
+								219,
+								235,
+								227
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "FXChannel.ts",
+							"line": 14,
+							"character": 6,
+							"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L14"
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"target": {
+								"packageName": "sartori",
+								"packagePath": "src/oto/ct-synths/rnbo/RNBODevice.ts",
+								"qualifiedName": "RNBODevice"
+							},
+							"name": "RNBODevice",
+							"package": "sartori"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"children": [
+						188
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "FXChannel.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/FXChannel.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "ReverbGen",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 88,
+					"name": "default",
+					"variant": "declaration",
+					"kind": 128,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The Reverb chained to the end of each stream. Is initialised only when reverb parameter is greater than 0."
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@example",
+								"content": [
+									{
+										"kind": "code",
+										"text": "```ts\ns0.reverb.set(0.5)\n```"
+									}
+								]
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 159,
+							"name": "defaults",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isInherited": true
+							},
+							"sources": [
+								{
+									"fileName": "RNBODevice.ts",
+									"line": 10,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/RNBODevice.ts#L10"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "sartori",
+									"packagePath": "src/oto/ct-synths/types.ts",
+									"qualifiedName": "Dictionary"
+								},
+								"name": "Dictionary",
+								"package": "sartori"
+							},
+							"defaultValue": "{}",
+							"inheritedFrom": {
+								"type": "reference",
+								"target": -1,
+								"name": "RNBODevice.defaults"
+							}
+						},
+						{
+							"id": 123,
+							"name": "_rdamp",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 101,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L101"
+								}
+							],
+							"signatures": [
+								{
+									"id": 124,
+									"name": "_rdamp",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the reverb dampening"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 101,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L101"
+										}
+									],
+									"parameters": [
+										{
+											"id": 125,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 126,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 147,
+							"name": "_rearly",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 137,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L137"
+								}
+							],
+							"signatures": [
+								{
+									"id": 148,
+									"name": "_rearly",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the reverb early"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 137,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L137"
+										}
+									],
+									"parameters": [
+										{
+											"id": 149,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 150,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 99,
+							"name": "_reverb",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 63,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L63"
+								}
+							],
+							"signatures": [
+								{
+									"id": 100,
+									"name": "_reverb",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the reverb amount"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 63,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L63"
+										}
+									],
+									"parameters": [
+										{
+											"id": 101,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 102,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 107,
+							"name": "_rsize",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 77,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L77"
+								}
+							],
+							"signatures": [
+								{
+									"id": 108,
+									"name": "_rsize",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the reverb size"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 77,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L77"
+										}
+									],
+									"parameters": [
+										{
+											"id": 109,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 110,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 131,
+							"name": "_rspread",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 113,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L113"
+								}
+							],
+							"signatures": [
+								{
+									"id": 132,
+									"name": "_rspread",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the reverb spread"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 113,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L113"
+										}
+									],
+									"parameters": [
+										{
+											"id": 133,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 134,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 155,
+							"name": "_rtail",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 149,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L149"
+								}
+							],
+							"signatures": [
+								{
+									"id": 156,
+									"name": "_rtail",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the reverb tail"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 149,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L149"
+										}
+									],
+									"parameters": [
+										{
+											"id": 157,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 158,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 115,
+							"name": "_rtime",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 89,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L89"
+								}
+							],
+							"signatures": [
+								{
+									"id": 116,
+									"name": "_rtime",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the reverb time"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 89,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L89"
+										}
+									],
+									"parameters": [
+										{
+											"id": 117,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 118,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 139,
+							"name": "_rwidth",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 125,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L125"
+								}
+							],
+							"signatures": [
+								{
+									"id": 140,
+									"name": "_rwidth",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Mutate the reverb width"
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 125,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L125"
+										}
+									],
+									"parameters": [
+										{
+											"id": 141,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 142,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 119,
+							"name": "rdamp",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 95,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L95"
+								}
+							],
+							"signatures": [
+								{
+									"id": 120,
+									"name": "rdamp",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Reverb dampening. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 95,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L95"
+										}
+									],
+									"parameters": [
+										{
+											"id": 121,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 122,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 143,
+							"name": "rearly",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 131,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L131"
+								}
+							],
+							"signatures": [
+								{
+									"id": 144,
+									"name": "rearly",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Reverb early. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 131,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L131"
+										}
+									],
+									"parameters": [
+										{
+											"id": 145,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 146,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 95,
+							"name": "reverb",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 57,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L57"
+								}
+							],
+							"signatures": [
+								{
+									"id": 96,
+									"name": "reverb",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Wet/dry reverb amount. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 57,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L57"
+										}
+									],
+									"parameters": [
+										{
+											"id": 97,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0"
+										},
+										{
+											"id": 98,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 103,
+							"name": "rsize",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 69,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L69"
+								}
+							],
+							"signatures": [
+								{
+									"id": 104,
+									"name": "rsize",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Reverb size. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 69,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L69"
+										}
+									],
+									"parameters": [
+										{
+											"id": 105,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 106,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 127,
+							"name": "rspread",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 107,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L107"
+								}
+							],
+							"signatures": [
+								{
+									"id": 128,
+									"name": "rspread",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Reverb spread. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 107,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L107"
+										}
+									],
+									"parameters": [
+										{
+											"id": 129,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 130,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 151,
+							"name": "rtail",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 143,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L143"
+								}
+							],
+							"signatures": [
+								{
+									"id": 152,
+									"name": "rtail",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Reverb tail. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 143,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L143"
+										}
+									],
+									"parameters": [
+										{
+											"id": 153,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 154,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 111,
+							"name": "rtime",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 83,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L83"
+								}
+							],
+							"signatures": [
+								{
+									"id": 112,
+									"name": "rtime",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Reverb time. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 83,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L83"
+										}
+									],
+									"parameters": [
+										{
+											"id": 113,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 114,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 135,
+							"name": "rwidth",
+							"variant": "declaration",
+							"kind": 2048,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "ReverbGen.ts",
+									"line": 119,
+									"character": 4,
+									"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L119"
+								}
+							],
+							"signatures": [
+								{
+									"id": 136,
+									"name": "rwidth",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Reverb width. 0 - 1."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "ReverbGen.ts",
+											"line": 119,
+											"character": 4,
+											"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L119"
+										}
+									],
+									"parameters": [
+										{
+											"id": 137,
+											"name": "value",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"comment": {
+												"summary": [
+													{
+														"kind": "text",
+														"text": "0 to 1"
+													}
+												]
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"defaultValue": "0.25"
+										},
+										{
+											"id": 138,
+											"name": "time",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								159
+							]
+						},
+						{
+							"title": "Methods",
+							"children": [
+								123,
+								147,
+								99,
+								107,
+								131,
+								155,
+								115,
+								139,
+								119,
+								143,
+								95,
+								103,
+								127,
+								151,
+								111,
+								135
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "ReverbGen.ts",
+							"line": 14,
+							"character": 6,
+							"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L14"
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"target": {
+								"packageName": "sartori",
+								"packagePath": "src/oto/ct-synths/rnbo/RNBODevice.ts",
+								"qualifiedName": "RNBODevice"
+							},
+							"name": "RNBODevice",
+							"package": "sartori"
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"children": [
+						88
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "ReverbGen.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/cephasteom/ct-synths/blob/a649497a6e65f5fb736bbf9124f40ac17d58ed6b/rnbo/ReverbGen.ts#L1"
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Modules",
+			"children": [
+				1,
+				3,
+				2
+			]
+		}
+	],
+	"packageName": "sartori",
+	"readme": [
+		{
+			"kind": "text",
+			"text": "# Sartori\nA live coding language for unlimited pattern interference. Supercedes [Zen](https://github.com/cephasteom/zen).\n\n# Credits\n* This series of blog posts by Froos helped me finally crack time: [garten.salat.dev](https://garten.salat.dev/idlecycles/). Many, many thanks."
+		}
+	],
+	"symbolIdMap": {
+		"1": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": ""
+		},
+		"2": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": ""
+		},
+		"3": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": ""
+		},
+		"4": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay"
+		},
+		"11": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.delay"
+		},
+		"12": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.delay"
+		},
+		"13": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"14": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"15": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._delay"
+		},
+		"16": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._delay"
+		},
+		"17": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"18": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"19": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.dtime"
+		},
+		"20": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.dtime"
+		},
+		"21": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"22": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"23": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._dtime"
+		},
+		"24": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._dtime"
+		},
+		"25": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"26": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"27": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.dfb"
+		},
+		"28": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.dfb"
+		},
+		"29": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"30": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"31": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._dfb"
+		},
+		"32": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._dfb"
+		},
+		"33": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"34": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"35": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.dspread"
+		},
+		"36": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.dspread"
+		},
+		"37": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"38": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"39": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._dspread"
+		},
+		"40": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._dspread"
+		},
+		"41": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"42": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"43": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.dcolour"
+		},
+		"44": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.dcolour"
+		},
+		"45": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"46": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"47": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._dcolour"
+		},
+		"48": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._dcolour"
+		},
+		"49": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"50": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"51": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.dfilter"
+		},
+		"52": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay.dfilter"
+		},
+		"53": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"54": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"55": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._dfilter"
+		},
+		"56": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "FXDelay._dfilter"
+		},
+		"57": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "value"
+		},
+		"58": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/Delay.ts",
+			"qualifiedName": "time"
+		},
+		"59": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/RNBODevice.ts",
+			"qualifiedName": "RNBODevice.defaults"
+		},
+		"88": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen"
+		},
+		"95": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.reverb"
+		},
+		"96": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.reverb"
+		},
+		"97": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"98": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"99": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._reverb"
+		},
+		"100": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._reverb"
+		},
+		"101": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"102": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"103": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rsize"
+		},
+		"104": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rsize"
+		},
+		"105": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"106": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"107": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rsize"
+		},
+		"108": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rsize"
+		},
+		"109": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"110": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"111": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rtime"
+		},
+		"112": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rtime"
+		},
+		"113": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"114": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"115": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rtime"
+		},
+		"116": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rtime"
+		},
+		"117": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"118": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"119": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rdamp"
+		},
+		"120": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rdamp"
+		},
+		"121": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"122": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"123": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rdamp"
+		},
+		"124": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rdamp"
+		},
+		"125": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"126": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"127": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rspread"
+		},
+		"128": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rspread"
+		},
+		"129": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"130": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"131": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rspread"
+		},
+		"132": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rspread"
+		},
+		"133": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"134": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"135": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rwidth"
+		},
+		"136": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rwidth"
+		},
+		"137": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"138": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"139": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rwidth"
+		},
+		"140": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rwidth"
+		},
+		"141": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"142": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"143": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rearly"
+		},
+		"144": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rearly"
+		},
+		"145": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"146": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"147": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rearly"
+		},
+		"148": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rearly"
+		},
+		"149": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"150": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"151": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rtail"
+		},
+		"152": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen.rtail"
+		},
+		"153": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"154": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"155": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rtail"
+		},
+		"156": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "ReverbGen._rtail"
+		},
+		"157": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "value"
+		},
+		"158": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"qualifiedName": "time"
+		},
+		"159": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/RNBODevice.ts",
+			"qualifiedName": "RNBODevice.defaults"
+		},
+		"188": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel"
+		},
+		"195": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.dist"
+		},
+		"196": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.dist"
+		},
+		"197": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"198": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"199": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._dist"
+		},
+		"200": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._dist"
+		},
+		"201": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"202": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"203": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.drive"
+		},
+		"204": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.drive"
+		},
+		"205": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"206": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"207": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._drive"
+		},
+		"208": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._drive"
+		},
+		"209": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"210": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"211": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.ring"
+		},
+		"212": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.ring"
+		},
+		"213": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"214": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"215": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._ring"
+		},
+		"216": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._ring"
+		},
+		"217": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"218": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"219": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.ringf"
+		},
+		"220": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.ringf"
+		},
+		"221": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"222": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"223": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._ringf"
+		},
+		"224": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._ringf"
+		},
+		"225": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"226": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"227": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.ringspread"
+		},
+		"228": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.ringspread"
+		},
+		"229": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"230": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"231": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._ringspread"
+		},
+		"232": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._ringspread"
+		},
+		"233": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"234": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"235": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.ringmode"
+		},
+		"236": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.ringmode"
+		},
+		"237": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"238": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"239": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._ringmode"
+		},
+		"240": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._ringmode"
+		},
+		"241": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"242": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"243": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.chorus"
+		},
+		"244": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.chorus"
+		},
+		"245": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"246": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"247": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._chorus"
+		},
+		"248": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._chorus"
+		},
+		"249": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"250": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"251": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.chdepth"
+		},
+		"252": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.chdepth"
+		},
+		"253": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"254": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"255": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._chdepth"
+		},
+		"256": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._chdepth"
+		},
+		"257": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"258": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"259": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.chlfo"
+		},
+		"260": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.chlfo"
+		},
+		"261": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"262": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"263": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._chlfo"
+		},
+		"264": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._chlfo"
+		},
+		"265": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"266": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"267": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.chspread"
+		},
+		"268": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.chspread"
+		},
+		"269": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"270": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"271": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._chspread"
+		},
+		"272": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._chspread"
+		},
+		"273": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"274": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"275": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.lpf"
+		},
+		"276": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.lpf"
+		},
+		"277": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"278": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"279": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._lpf"
+		},
+		"280": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._lpf"
+		},
+		"281": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"282": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"283": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.hpf"
+		},
+		"284": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.hpf"
+		},
+		"285": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"286": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"287": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._hpf"
+		},
+		"288": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._hpf"
+		},
+		"289": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"290": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"295": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._gain"
+		},
+		"296": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._gain"
+		},
+		"297": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"298": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"299": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.lthresh"
+		},
+		"300": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel.lthresh"
+		},
+		"301": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"302": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"303": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._lthresh"
+		},
+		"304": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "FXChannel._lthresh"
+		},
+		"305": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "value"
+		},
+		"306": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"qualifiedName": "time"
+		},
+		"307": {
+			"packageName": "sartori",
+			"packagePath": "src/oto/ct-synths/rnbo/RNBODevice.ts",
+			"qualifiedName": "RNBODevice.defaults"
+		}
+	},
+	"files": {
+		"entries": {
+			"1": "src/oto/ct-synths/rnbo/Delay.ts",
+			"2": "src/oto/ct-synths/rnbo/ReverbGen.ts",
+			"3": "src/oto/ct-synths/rnbo/FXChannel.ts",
+			"4": "README.md",
+			"5": ""
+		},
+		"reflections": {
+			"1": 1,
+			"2": 2,
+			"3": 3,
+			"4": 0,
+			"5": 0
+		}
+	}
+}
