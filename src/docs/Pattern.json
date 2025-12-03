@@ -34,9 +34,9 @@
 			"sources": [
 				{
 					"fileName": "Pattern.ts",
-					"line": 466,
+					"line": 474,
 					"character": 13,
-					"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L466"
+					"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L474"
 				}
 			],
 			"typeParameters": [
@@ -60,9 +60,9 @@
 			"sources": [
 				{
 					"fileName": "Pattern.ts",
-					"line": 421,
+					"line": 429,
 					"character": 13,
-					"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L421"
+					"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L429"
 				}
 			],
 			"type": {
@@ -111,9 +111,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 424,
+									"line": 432,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L424"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L432"
 								}
 							],
 							"type": {
@@ -129,7 +129,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -144,7 +144,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -227,9 +227,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 432,
+									"line": 440,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L432"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L440"
 								}
 							],
 							"type": {
@@ -245,7 +245,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -260,7 +260,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -343,9 +343,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 422,
+									"line": 430,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L422"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L430"
 								}
 							],
 							"type": {
@@ -361,7 +361,7 @@
 											"fileName": "Pattern.ts",
 											"line": 73,
 											"character": 12,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L73"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L73"
 										}
 									],
 									"signatures": [
@@ -376,7 +376,7 @@
 													"fileName": "Pattern.ts",
 													"line": 73,
 													"character": 12,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L73"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L73"
 												}
 											],
 											"parameters": [
@@ -442,9 +442,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 431,
+									"line": 439,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L431"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L439"
 								}
 							],
 							"type": {
@@ -460,7 +460,7 @@
 											"fileName": "Pattern.ts",
 											"line": 93,
 											"character": 15,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L93"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L93"
 										}
 									],
 									"signatures": [
@@ -475,7 +475,7 @@
 													"fileName": "Pattern.ts",
 													"line": 93,
 													"character": 15,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L93"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L93"
 												}
 											],
 											"parameters": [
@@ -541,9 +541,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 426,
+									"line": 434,
 									"character": 16,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L426"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L434"
 								}
 							],
 							"type": {
@@ -559,7 +559,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -574,7 +574,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -657,9 +657,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 431,
+									"line": 439,
 									"character": 12,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L431"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L439"
 								}
 							],
 							"type": {
@@ -673,9 +673,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 359,
+											"line": 367,
 											"character": 13,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L359"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L367"
 										}
 									],
 									"signatures": [
@@ -688,9 +688,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 359,
+													"line": 367,
 													"character": 13,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L359"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L367"
 												}
 											],
 											"type": {
@@ -738,9 +738,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 425,
+									"line": 433,
 									"character": 28,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L425"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L433"
 								}
 							],
 							"type": {
@@ -754,9 +754,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 286,
+											"line": 294,
 											"character": 15,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L286"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L294"
 										}
 									],
 									"signatures": [
@@ -769,9 +769,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 286,
+													"line": 294,
 													"character": 15,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L286"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L294"
 												}
 											],
 											"parameters": [
@@ -872,7 +872,34 @@
 										"content": [
 											{
 												"kind": "code",
-												"text": "```ts\nset(4).ctms() // converts 4 cycles to milliseconds based on the current tempo.\n```"
+												"text": "```ts\n(4).ctms() // convert a number as a method\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nctms(1) // or as a function\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\n'1 2 3 4'.ctms() // convert a mini pattern string\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(1,2,3,4).ctms() // convert a Pattern\n```"
 											}
 										]
 									}
@@ -881,9 +908,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 433,
+									"line": 441,
 									"character": 9,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L433"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L441"
 								}
 							],
 							"type": {
@@ -897,9 +924,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 102,
-											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"line": 142,
+											"character": 13,
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L142"
 										}
 									],
 									"signatures": [
@@ -912,43 +939,38 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 102,
-													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"line": 142,
+													"character": 13,
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L142"
 												}
 											],
 											"parameters": [
 												{
 													"id": 159,
-													"name": "args",
+													"name": "cyclesOrPattern",
 													"variant": "param",
 													"kind": 32768,
-													"flags": {
-														"isRest": true
-													},
+													"flags": {},
 													"type": {
-														"type": "array",
-														"elementType": {
-															"type": "union",
-															"types": [
-																{
-																	"type": "intrinsic",
-																	"name": "number"
-																},
-																{
-																	"type": "reference",
-																	"target": 160,
-																	"typeArguments": [
-																		{
-																			"type": "intrinsic",
-																			"name": "any"
-																		}
-																	],
-																	"name": "Pattern",
-																	"package": "sartori"
-																}
-															]
-														}
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "number"
+															},
+															{
+																"type": "reference",
+																"target": 160,
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "number"
+																	}
+																],
+																"name": "Pattern",
+																"package": "sartori"
+															}
+														]
 													}
 												}
 											],
@@ -958,7 +980,7 @@
 												"typeArguments": [
 													{
 														"type": "intrinsic",
-														"name": "any"
+														"name": "number"
 													}
 												],
 												"name": "Pattern",
@@ -988,7 +1010,34 @@
 										"content": [
 											{
 												"kind": "code",
-												"text": "```ts\nset(4).cts() // converts 4 cycles to seconds based on the current tempo.\n```"
+												"text": "```ts\n(4).cts() // convert a number as a method\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\ncts(1) // or as a function\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\n'1 2 3 4'.cts() // convert a mini pattern string\n```"
+											}
+										]
+									},
+									{
+										"tag": "@example",
+										"content": [
+											{
+												"kind": "code",
+												"text": "```ts\nseq(1,2,3,4).cts() // convert a Pattern\n```"
 											}
 										]
 									}
@@ -997,9 +1046,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 433,
+									"line": 441,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L433"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L441"
 								}
 							],
 							"type": {
@@ -1013,9 +1062,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 102,
-											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"line": 122,
+											"character": 12,
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L122"
 										}
 									],
 									"signatures": [
@@ -1028,43 +1077,38 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 102,
-													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"line": 122,
+													"character": 12,
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L122"
 												}
 											],
 											"parameters": [
 												{
 													"id": 155,
-													"name": "args",
+													"name": "cyclesOrPattern",
 													"variant": "param",
 													"kind": 32768,
-													"flags": {
-														"isRest": true
-													},
+													"flags": {},
 													"type": {
-														"type": "array",
-														"elementType": {
-															"type": "union",
-															"types": [
-																{
-																	"type": "intrinsic",
-																	"name": "number"
-																},
-																{
-																	"type": "reference",
-																	"target": 160,
-																	"typeArguments": [
-																		{
-																			"type": "intrinsic",
-																			"name": "any"
-																		}
-																	],
-																	"name": "Pattern",
-																	"package": "sartori"
-																}
-															]
-														}
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "number"
+															},
+															{
+																"type": "reference",
+																"target": 160,
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "number"
+																	}
+																],
+																"name": "Pattern",
+																"package": "sartori"
+															}
+														]
 													}
 												}
 											],
@@ -1074,7 +1118,7 @@
 												"typeArguments": [
 													{
 														"type": "intrinsic",
-														"name": "any"
+														"name": "number"
 													}
 												],
 												"name": "Pattern",
@@ -1113,9 +1157,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 430,
+									"line": 438,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L430"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L438"
 								}
 							],
 							"type": {
@@ -1131,7 +1175,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -1146,7 +1190,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -1238,9 +1282,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 424,
+									"line": 432,
 									"character": 19,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L424"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L432"
 								}
 							],
 							"type": {
@@ -1256,7 +1300,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -1271,7 +1315,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -1363,9 +1407,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 423,
+									"line": 431,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L423"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L431"
 								}
 							],
 							"type": {
@@ -1381,7 +1425,7 @@
 											"fileName": "Pattern.ts",
 											"line": 43,
 											"character": 13,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L43"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L43"
 										}
 									],
 									"signatures": [
@@ -1396,7 +1440,7 @@
 													"fileName": "Pattern.ts",
 													"line": 43,
 													"character": 13,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L43"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L43"
 												}
 											],
 											"parameters": [
@@ -1501,9 +1545,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 429,
+									"line": 437,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L429"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L437"
 								}
 							],
 							"type": {
@@ -1519,7 +1563,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -1534,7 +1578,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -1598,9 +1642,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 427,
+									"line": 435,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L427"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L435"
 								}
 							],
 							"type": {
@@ -1614,9 +1658,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 454,
+											"line": 462,
 											"character": 9,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L454"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L462"
 										}
 									],
 									"signatures": [
@@ -1648,9 +1692,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 454,
+													"line": 462,
 													"character": 9,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L454"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L462"
 												}
 											],
 											"parameters": [
@@ -1720,9 +1764,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 424,
+									"line": 432,
 									"character": 24,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L424"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L432"
 								}
 							],
 							"type": {
@@ -1738,7 +1782,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -1753,7 +1797,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -1836,9 +1880,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 426,
+									"line": 434,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L426"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L434"
 								}
 							],
 							"type": {
@@ -1854,7 +1898,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -1869,7 +1913,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -1961,9 +2005,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 424,
+									"line": 432,
 									"character": 14,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L424"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L432"
 								}
 							],
 							"type": {
@@ -1979,7 +2023,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -1994,7 +2038,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -2077,9 +2121,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 431,
+									"line": 439,
 									"character": 37,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L431"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L439"
 								}
 							],
 							"type": {
@@ -2093,9 +2137,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 376,
+											"line": 384,
 											"character": 14,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L376"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L384"
 										}
 									],
 									"signatures": [
@@ -2108,9 +2152,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 376,
+													"line": 384,
 													"character": 14,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L376"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L384"
 												}
 											],
 											"type": {
@@ -2158,9 +2202,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 432,
+									"line": 440,
 									"character": 9,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L432"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L440"
 								}
 							],
 							"type": {
@@ -2176,7 +2220,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -2191,7 +2235,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -2274,9 +2318,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 425,
+									"line": 433,
 									"character": 41,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L425"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L433"
 								}
 							],
 							"type": {
@@ -2290,9 +2334,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 315,
+											"line": 323,
 											"character": 14,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L315"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L323"
 										}
 									],
 									"signatures": [
@@ -2305,9 +2349,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 315,
+													"line": 323,
 													"character": 14,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L315"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L323"
 												}
 											],
 											"parameters": [
@@ -2426,9 +2470,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 425,
+									"line": 433,
 									"character": 16,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L425"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L433"
 								}
 							],
 							"type": {
@@ -2442,9 +2486,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 262,
+											"line": 270,
 											"character": 13,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L262"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L270"
 										}
 									],
 									"signatures": [
@@ -2457,9 +2501,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 262,
+													"line": 270,
 													"character": 13,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L262"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L270"
 												}
 											],
 											"parameters": [
@@ -2539,9 +2583,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 425,
+									"line": 433,
 									"character": 9,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L425"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L433"
 								}
 							],
 							"type": {
@@ -2555,9 +2599,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 258,
+											"line": 266,
 											"character": 14,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L258"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L266"
 										}
 									],
 									"signatures": [
@@ -2570,9 +2614,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 258,
+													"line": 266,
 													"character": 14,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L258"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L266"
 												}
 											],
 											"parameters": [
@@ -2663,9 +2707,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 431,
+									"line": 439,
 									"character": 18,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L431"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L439"
 								}
 							],
 							"type": {
@@ -2679,9 +2723,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 370,
+											"line": 378,
 											"character": 15,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L370"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L378"
 										}
 									],
 									"signatures": [
@@ -2694,9 +2738,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 370,
+													"line": 378,
 													"character": 15,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L370"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L378"
 												}
 											],
 											"type": {
@@ -2753,9 +2797,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 425,
+									"line": 433,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L425"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L433"
 								}
 							],
 							"type": {
@@ -2769,9 +2813,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 249,
+											"line": 257,
 											"character": 12,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L249"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L257"
 										}
 									],
 									"signatures": [
@@ -2784,9 +2828,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 249,
+													"line": 257,
 													"character": 12,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L249"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L257"
 												}
 											],
 											"parameters": [
@@ -2885,9 +2929,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 426,
+									"line": 434,
 									"character": 9,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L426"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L434"
 								}
 							],
 							"type": {
@@ -2901,9 +2945,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 173,
+											"line": 213,
 											"character": 14,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L173"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L213"
 										}
 									],
 									"signatures": [
@@ -2916,9 +2960,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 173,
+													"line": 213,
 													"character": 14,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L173"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L213"
 												}
 											],
 											"parameters": [
@@ -3001,9 +3045,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 422,
+									"line": 430,
 									"character": 14,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L422"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L430"
 								}
 							],
 							"type": {
@@ -3019,7 +3063,7 @@
 											"fileName": "Pattern.ts",
 											"line": 86,
 											"character": 12,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L86"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L86"
 										}
 									],
 									"signatures": [
@@ -3034,7 +3078,7 @@
 													"fileName": "Pattern.ts",
 													"line": 86,
 													"character": 12,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L86"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L86"
 												}
 											],
 											"parameters": [
@@ -3089,9 +3133,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 422,
+									"line": 430,
 									"character": 9,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L422"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L430"
 								}
 							],
 							"type": {
@@ -3107,7 +3151,7 @@
 											"fileName": "Pattern.ts",
 											"line": 79,
 											"character": 12,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L79"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L79"
 										}
 									],
 									"signatures": [
@@ -3122,7 +3166,7 @@
 													"fileName": "Pattern.ts",
 													"line": 79,
 													"character": 12,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L79"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L79"
 												}
 											],
 											"parameters": [
@@ -3197,9 +3241,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 425,
+									"line": 433,
 									"character": 22,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L425"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L433"
 								}
 							],
 							"type": {
@@ -3213,9 +3257,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 272,
+											"line": 280,
 											"character": 13,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L272"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L280"
 										}
 									],
 									"signatures": [
@@ -3228,9 +3272,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 272,
+													"line": 280,
 													"character": 13,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L272"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L280"
 												}
 											],
 											"parameters": [
@@ -3340,9 +3384,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 423,
+									"line": 431,
 									"character": 10,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L423"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L431"
 								}
 							],
 							"type": {
@@ -3358,7 +3402,7 @@
 											"fileName": "Pattern.ts",
 											"line": 58,
 											"character": 13,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L58"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L58"
 										}
 									],
 									"signatures": [
@@ -3373,7 +3417,7 @@
 													"fileName": "Pattern.ts",
 													"line": 58,
 													"character": 13,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L58"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L58"
 												}
 											],
 											"parameters": [
@@ -3459,9 +3503,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 431,
+									"line": 439,
 									"character": 26,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L431"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L439"
 								}
 							],
 							"type": {
@@ -3475,9 +3519,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 359,
+											"line": 367,
 											"character": 13,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L359"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L367"
 										}
 									],
 									"signatures": [
@@ -3509,9 +3553,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 359,
+													"line": 367,
 													"character": 13,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L359"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L367"
 												}
 											],
 											"type": {
@@ -3559,9 +3603,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 425,
+									"line": 433,
 									"character": 48,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L425"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L433"
 								}
 							],
 							"type": {
@@ -3575,9 +3619,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 328,
+											"line": 336,
 											"character": 15,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L328"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L336"
 										}
 									],
 									"signatures": [
@@ -3590,9 +3634,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 328,
+													"line": 336,
 													"character": 15,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L328"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L336"
 												}
 											],
 											"parameters": [
@@ -3694,9 +3738,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 428,
+									"line": 436,
 									"character": 4,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L428"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L436"
 								}
 							],
 							"type": {
@@ -3710,9 +3754,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 335,
+											"line": 343,
 											"character": 14,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L335"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L343"
 										}
 									],
 									"signatures": [
@@ -3725,9 +3769,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 335,
+													"line": 343,
 													"character": 14,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L335"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L343"
 												}
 											],
 											"parameters": [
@@ -3802,9 +3846,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 424,
+									"line": 432,
 									"character": 9,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L424"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L432"
 								}
 							],
 							"type": {
@@ -3820,7 +3864,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -3835,7 +3879,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -3918,9 +3962,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 425,
+									"line": 433,
 									"character": 36,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L425"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L433"
 								}
 							],
 							"type": {
@@ -3934,9 +3978,9 @@
 									"sources": [
 										{
 											"fileName": "Pattern.ts",
-											"line": 300,
+											"line": 308,
 											"character": 12,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L300"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L308"
 										}
 									],
 									"signatures": [
@@ -3949,9 +3993,9 @@
 											"sources": [
 												{
 													"fileName": "Pattern.ts",
-													"line": 300,
+													"line": 308,
 													"character": 12,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L300"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L308"
 												}
 											],
 											"parameters": [
@@ -4061,9 +4105,9 @@
 							"sources": [
 								{
 									"fileName": "Pattern.ts",
-									"line": 432,
+									"line": 440,
 									"character": 13,
-									"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L432"
+									"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L440"
 								}
 							],
 							"type": {
@@ -4079,7 +4123,7 @@
 											"fileName": "Pattern.ts",
 											"line": 102,
 											"character": 4,
-											"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+											"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 										}
 									],
 									"signatures": [
@@ -4094,7 +4138,7 @@
 													"fileName": "Pattern.ts",
 													"line": 102,
 													"character": 4,
-													"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L102"
+													"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L102"
 												}
 											],
 											"parameters": [
@@ -4195,9 +4239,9 @@
 					"sources": [
 						{
 							"fileName": "Pattern.ts",
-							"line": 421,
+							"line": 429,
 							"character": 23,
-							"url": "https://github.com/cephasteom/sartori/blob/38a303ec496734c110d59695c5bd56e637d21dcd/src/core/Pattern.ts#L421"
+							"url": "https://github.com/cephasteom/sartori/blob/4fae06f681e21a60f6d7d893c75ef480e603db51/src/core/Pattern.ts#L429"
 						}
 					]
 				}
@@ -4223,7 +4267,7 @@
 	"readme": [
 		{
 			"kind": "text",
-			"text": "# Sartori\nA live coding language for unlimited pattern interference. Supercedes [Zen](https://github.com/cephasteom/zen).\n\n# Credits\n* Huge thanks to this series of blog posts by Froos for helping me understand how to manage time: [garten.salat.dev](https://garten.salat.dev/idlecycles/)."
+			"text": "# Sartori\nA live coding language for unlimited pattern interference. Supercedes [Zen](https://github.com/cephasteom/zen).\n\n# Credits\n* This series of blog posts by Froos helped me finally crack time: [garten.salat.dev](https://garten.salat.dev/idlecycles/). Many, many thanks."
 		}
 	],
 	"symbolIdMap": {
@@ -4975,7 +5019,7 @@
 		"155": {
 			"packageName": "sartori",
 			"packagePath": "src/core/Pattern.ts",
-			"qualifiedName": "args"
+			"qualifiedName": "cyclesOrPattern"
 		},
 		"156": {
 			"packageName": "sartori",
@@ -4995,7 +5039,7 @@
 		"159": {
 			"packageName": "sartori",
 			"packagePath": "src/core/Pattern.ts",
-			"qualifiedName": "args"
+			"qualifiedName": "cyclesOrPattern"
 		},
 		"160": {
 			"packageName": "sartori",
