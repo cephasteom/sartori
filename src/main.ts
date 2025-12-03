@@ -1,4 +1,4 @@
-// Bug: Tone synths aren't working well
+// Bug: Tone synths aren't working well + docs
 // TODO: more pattern functions
 // search box in docs
 // MIDI integration
