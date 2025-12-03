@@ -135,18 +135,22 @@ const cts = (cyclesOrPattern: number|Pattern<number>) => {
 /**
  * Cycles to milliseconds.
  * @param cycles - number of cycles
- * @example set(4).ctms() // converts 4 cycles to milliseconds based on the current tempo.
+ * @example (4).ctms() // convert a number as a method
+ * @example ctms(1) // or as a function
+ * @example '1 2 3 4'.ctms() // convert a mini pattern string
+ * @example seq(1,2,3,4).ctms() // convert a Pattern
  */
-const ctms = withValue((...args) => {
-    const cycles = args[0] ?? 1; // default 1
+const ctms = (cyclesOrPattern: number|Pattern<number>) => {
+    const cycles = cyclesOrPattern instanceof Pattern
+        ? cyclesOrPattern
+        : set(cyclesOrPattern);
     
-    const transport = getTransport();
-    const bpm = transport.bpm.value;
-    
-    const beatsPerCycle = 4; // assume 4/4 time signature
-    const secondsPerBeat = 60 / bpm;
-    return cycles * beatsPerCycle * secondsPerBeat * 1000;
-});
+    return P((from, to) => cycles.query(from, to).map(hap => ({
+        from: hap.from,
+        to: hap.to,
+        value: cyclesToSeconds(unwrap(cycles, hap.from, hap.to)) * 1000
+    })));
+}
 
 /**
  * Add a value or pattern.

@@ -17,3 +17,7 @@ export function cyclesToSeconds(cycles: number): number {
     const secondsPerBeat = 60 / bpm;
     return cycles * 4 * secondsPerBeat;
 }
+
+export function cyclesToMilliseconds(cycles: number): number {
+    return cyclesToSeconds(cycles) * 1000;
+}
