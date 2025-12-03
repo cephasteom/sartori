@@ -8,6 +8,7 @@
 // Tone synths aren't working well
 // customise display (sidebar)
 // solo and mute
+// bug: global.set({cps: sine(0.5,2).slow(2), e: '1*16'})
 
 import { evaluate } from './core/compile';
 import { Scheduler } from './core/Scheduler';
