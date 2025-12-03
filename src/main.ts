@@ -1,7 +1,6 @@
 // TODO: more pattern functions
 // MIDI integration
 // customise display (sidebar)
-// solo
 // Bug: Tone synths aren't working well
 // bug: global.set({cps: sine(0.5,2).slow(2), e: '1*16'})
 

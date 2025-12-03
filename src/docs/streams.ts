@@ -50,9 +50,6 @@ fx0.set({
         <li>
             <h4>Special Parameters</h4>
             <p>Some parameters effect the behaviour of the stream:</p>
-            ${marked(`\`\`\`typescript
-s0.set({ solo: '1 0 1 0' )} // solo stream
-\`\`\``)}
 ${marked(`\`\`\`typescript
 s0.set({ mute: '0 1 0 1' )} // mute stream
 \`\`\``)}
