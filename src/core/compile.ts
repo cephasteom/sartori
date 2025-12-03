@@ -14,7 +14,7 @@ const fxStreams = Array(4).fill(0).map((_, i) => new Stream('fx' + i))
 const global = new Stream('global');
 
 // Util: reset all streams to initial state
-export const reset = () => streams.forEach(stream => stream.__reset());
+export const reset = () => [global, ...streams, ...fxStreams].forEach(stream => stream.__reset());
 
 const channel = new BroadcastChannel('sartori');
 
