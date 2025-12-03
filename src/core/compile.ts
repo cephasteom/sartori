@@ -1,5 +1,6 @@
 import { Stream, type Event } from './Stream';
 import { methods } from './Pattern';
+import { scales } from './scales';
 
 // keep track of the last successfully evaluated code
 let lastCode: string = '';
@@ -17,6 +18,17 @@ export const reset = () => streams.forEach(stream => stream.__reset());
 
 const channel = new BroadcastChannel('sartori');
 
+// Utility functions accessible in user code
+const utils = {
+    scales: () => {
+        channel.postMessage({ type: 'success', message: 'Scales ->\n' });
+        channel.postMessage({ type: 'info', message: Object.keys(scales).join(', ') } );
+    },
+    print: (message: any) => {
+        channel.postMessage({ type: 'credit', message: String(message) } );
+    }
+}
+
 // everything the user should be able to access in their code
 const scope = {
     streams,
@@ -30,6 +42,7 @@ const scope = {
         [stream.id]: stream
     }), {}),
     ...methods,
+    ...utils,
 }
 
 /**

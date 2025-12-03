@@ -1,7 +1,6 @@
-// TODO: docs - fx
+// Utility functions scales etc
 // TODO: more pattern functions
 // MIDI integration
-// Utility functions scales etc
 // Tone synths aren't working well
 // customise display (sidebar)
 // solo and mute
