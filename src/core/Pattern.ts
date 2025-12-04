@@ -516,12 +516,12 @@ const toggle = (condition: Pattern<any>) => {
 }
 
 /**
- * Fill a cache with x values and repeat them.
+ * Fill a cache with x values and repeat them once per cycle.
  * @param size - amount of values to cache per cycle
  * @param clear - empties the cache when this pattern returns true
- * 
  * @param value - value or pattern to cache
- * @example coin().cache(16) // caches 16 values from coin() per cycle
+ * @example coin().cache(16) // caches 16 values from coin() and repeats once per cycle. 
+ * @example cache(8, every(4)) // caches 8 random values, and refreshes the cache every 4 cycles.
  */
 const cache = (...args: any[]) => {
     let state: any[] = [];
@@ -531,19 +531,15 @@ const cache = (...args: any[]) => {
         const size = unwrap(args[0] || 16, from, to);
         const clear = unwrap(args[1]?.fallsOnFrom() || 0, from, to);
 
-        // clear the cache if needed
-        if(clear) state = [];
-
-        const value = unwrap(pattern, from, to);
-
-        // add to the cache if not full
-        state.length < size && state.push(value);
-
-        // pad out the sequence if needed
-        let values = [...state];
-        while(values.length < size) values.push(0)
+        state = clear 
+            ? Array.from({ length: size }, (_, i) => {
+                const frac = i / size;
+                const t = from + frac * (to - from);
+                return unwrap(pattern, t, t + 1e-9);
+            })
+            : state;
         
-        return seq(...values).query(from, to);
+        return seq(...state).query(from, to);
     })
 };
     
