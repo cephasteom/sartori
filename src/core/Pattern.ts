@@ -224,6 +224,14 @@ const eq = withValue((next, prev) => prev == next ? 1 : 0);
 const neq = withValue((next, prev) => prev != next ? 1 : 0);
 
 /**
+ * If a value is true, negate it (1 -> 0, 0 -> 1).
+ * @param value - value or pattern to negate.
+ * @example coin().not() // returns 1 when coin() is 0, else 0
+ * @example not(coin()) // same as above
+ */
+const not = withValue((next) => next ? 0 : 1);
+
+/**
  * Map from one range to another.
  * @param outMin - output minimum
  * @param outMax - output maximum
@@ -600,7 +608,7 @@ export const methods = {
     interp,
     degrade, toggle, cache,
     choose, coin, rarely, sometimes, often, every, fallsOnFrom,
-    ifelse, ie, and, or, xor,
+    ifelse, ie, and, or, xor, not,
     c, cts, ctms, cps,
     lt, gt, eq, neq,
     ...operators.reduce((obj, name) => ({
