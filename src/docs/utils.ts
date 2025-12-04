@@ -1,14 +1,36 @@
+import { streamMethods} from './streams';
+import { patternMethods } from './patterns';
+import { instruments } from './instruments';
+
 export function sharedKeys(...objects: Record<string, any>[]): string[] {
-  if (objects.length === 0) return [];
+    if (objects.length === 0) return [];
 
-  // Start with keys of the first object
-  let common = new Set(Object.keys(objects[0]));
+    // Start with keys of the first object
+    let common = new Set(Object.keys(objects[0]));
 
-  // Intersect with keys of each subsequent object
-  for (let i = 1; i < objects.length; i++) {
-    const keys = new Set(Object.keys(objects[i]));
-    common = new Set([...common].filter(k => keys.has(k)));
-  }
+    // Intersect with keys of each subsequent object
+    for (let i = 1; i < objects.length; i++) {
+        const keys = new Set(Object.keys(objects[i]));
+        common = new Set([...common].filter(k => keys.has(k)));
+    }
 
-  return [...common];
+    return [...common];
+}
+
+export function search(query: string): Record<string, any> {
+    const searchable: Record<string, any> = {
+        stream: streamMethods,
+        pattern: patternMethods,
+        ...instruments
+    };
+    return Object.entries(searchable)
+        .reduce((acc, [section, items]) => ({
+            ...acc, 
+            [section]: Object.entries(items)
+                .filter(([name]) => name.toLowerCase().includes(query))
+                .reduce((obj, [name, info]) => ({
+                    ...obj,
+                    [name]: info,
+                }), {} as Record<string, any>)
+        }), {} as Record<string, Record<string, Record<string, any>>>);
 }

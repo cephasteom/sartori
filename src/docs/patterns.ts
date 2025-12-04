@@ -2,7 +2,7 @@ import Pattern from './Pattern.json'
 import { marked } from 'marked';
 
 // extract all Pattern methods
-const patternMethods: Record<string, any> = (Pattern.children.find((item) => item.name === 'methods')?.type?.declaration?.children || [])
+export const patternMethods: Record<string, any> = (Pattern.children.find((item) => item.name === 'methods')?.type?.declaration?.children || [])
     .reduce((obj, item) => ({
         ...obj,
         [item.name]: {
@@ -15,7 +15,7 @@ const patternMethods: Record<string, any> = (Pattern.children.find((item) => ite
         }
     }), {} as Record<string, any>);
 
-export default `
+export const patternDoc = `
 <ul class="docs__list">
     <p>Patterns are the building blocks of Sartori. They can be used to control any stream parameter.</p>
     ${marked(`\`\`\`typescript

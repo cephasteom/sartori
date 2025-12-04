@@ -1,4 +1,4 @@
-import instruments from './instruments.json'
+import json from './instruments.json'
 import { sharedKeys } from './utils';
 import { marked } from 'marked';
 
@@ -19,23 +19,23 @@ const getMethods = (json: any[]): Record<string, any> => {
         }), {} as Record<string, any>);
 }
 
-const sections = {
-    synth: getMethods(instruments.children[0].children[0]?.children || []),
-    sampler: getMethods(instruments.children[2].children[0]?.children || []),
-    granular: getMethods(instruments.children[1].children[0]?.children || []),
-    acid: getMethods(instruments.children[3].children[0]?.children || []),
-    ['tone.synth']: getMethods(instruments.children[4].children[0]?.children || []),
-    ['tone.am']: getMethods(instruments.children[5].children[0]?.children || []),
-    ['tone.fm']: getMethods(instruments.children[6].children[0]?.children || []),
-    ['tone.mono']: getMethods(instruments.children[7].children[0]?.children || [])
+export const instruments = {
+    synth: getMethods(json.children[0].children[0]?.children || []),
+    sampler: getMethods(json.children[2].children[0]?.children || []),
+    granular: getMethods(json.children[1].children[0]?.children || []),
+    acid: getMethods(json.children[3].children[0]?.children || []),
+    ['tone.synth']: getMethods(json.children[4].children[0]?.children || []),
+    ['tone.am']: getMethods(json.children[5].children[0]?.children || []),
+    ['tone.fm']: getMethods(json.children[6].children[0]?.children || []),
+    ['tone.mono']: getMethods(json.children[7].children[0]?.children || [])
 }
 
-const sharedMethods = sharedKeys(...Object.values(sections)).reduce((obj, key) => {
-    obj[key] = sections.synth[key]; // Assuming all sections have the same keys, take from Synth
+const sharedMethods = sharedKeys(...Object.values(instruments)).reduce((obj, key) => {
+    obj[key] = instruments.synth[key]; // Assuming all instruments have the same keys, take from Synth
     return obj;
 }, {} as Record<string, any>);
 
-export default `
+export const instrumentsDoc = `
 Sartori includes a default Synth, Sampler, Granular, and AcidSynth instrument. You can set the instrument on a stream using the <code>inst</code> parameter:
 ${marked(`\`\`\`typescript
 s0.set({ inst: 'synth' }) // set synth instrument
@@ -59,7 +59,7 @@ ${Object.entries(sharedMethods).map(([name, info]) => `
         </li>
     </ul>
 `).join('')}
-${Object.entries(sections).map(([instrumentName, methods]) => `
+${Object.entries(instruments).map(([instrumentName, methods]) => `
     <h3>${instrumentName}</h3>
     <ul class="docs__list">
         ${Object.entries(methods)

@@ -1,7 +1,7 @@
 import Stream from './Stream.json'
 import { marked } from 'marked';
 
-const streamMethods: Record<string, any> = (Stream.children[0]?.children?.filter((item) => ['set'].includes(item.name)) || [])
+export const streamMethods: Record<string, any> = (Stream.children[0]?.children?.filter((item) => ['set'].includes(item.name)) || [])
     .reduce((obj, item) => ({
         ...obj,
         [item.name]:
@@ -21,7 +21,7 @@ const streamMethods: Record<string, any> = (Stream.children[0]?.children?.filter
         }
     }), {} as Record<string, any>);
 
-export default `
+export const streamDoc = `
 <p>A Stream represents a musical layer. There are 16 instrument streams (s0 to s15) and 4 fx streams (fx0 to fx3).</p>
     <ul class="docs__list">
         <li>
