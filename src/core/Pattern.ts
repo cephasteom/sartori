@@ -521,7 +521,7 @@ const toggle = (condition: Pattern<any>) => {
  * @param clear - empties the cache when this pattern returns true
  * @param value - value or pattern to cache
  * @example coin().cache(16) // caches 16 values from coin() and repeats once per cycle. 
- * @example cache(8, every(4)) // caches 8 random values, and refreshes the cache every 4 cycles.
+ * @example random().cache(8, every(4)) // caches 8 random values, and refreshes the cache every 4 cycles.
  */
 const cache = (...args: any[]) => {
     let state: any[] = [];
@@ -531,13 +531,14 @@ const cache = (...args: any[]) => {
         const size = unwrap(args[0] || 16, from, to);
         const clear = unwrap(args[1]?.fallsOnFrom() || 0, from, to);
 
-        state = clear 
-            ? Array.from({ length: size }, (_, i) => {
+        clear && (state = [])
+        if(state.length === 0) {
+            state = Array.from({ length: size }, (_, i) => {
                 const frac = i / size;
                 const t = from + frac * (to - from);
                 return unwrap(pattern, t, t + 1e-9);
             })
-            : state;
+        }
         
         return seq(...state).query(from, to);
     })
