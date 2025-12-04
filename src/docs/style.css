@@ -1,16 +1,16 @@
-#help {
+#docs {
     background: var(--theme-blue-dark);
     padding: 1rem;
     overflow: hidden;
 }
 
-#help > div {
+#docs > div {
     overflow-y: scroll;
     height: 100%;
     border-radius: 2.5px;
 }
 
-#help button {
+#docs button {
     background: transparent;
     border: none;
     padding: 0;
@@ -18,49 +18,49 @@
     cursor: pointer;
 }
 
-#help button > h3 {
+#docs button > h3 {
     margin-top: 0;
 }
 
-#help .active > h3 {
+#docs .active > h3 {
     color: var(--theme-yellow)!important;
 }
 
-#help article {
+#docs article {
     display: none;
 }
 
-#help article:first-of-type {
+#docs article:first-of-type {
     display: block;
 }
 
-#help h2 {
+#docs h2 {
     margin-top: 0;
 }
 
-#help code {
+#docs code {
     max-width: 100%;
     background: var(--theme-blue);
     border-radius: 5px;
 }
 
-.help__list {
+.docs__list {
     padding: 0;
     list-style: none;
 }
 
-.help__list li {
+.docs__list li {
     margin-bottom: 3rem;
 }
 
-#help h2 { 
+#docs h2 { 
     color: var(--theme-yellow);
 }
 
-#help h3 { 
+#docs h3 { 
     color: var(--theme-orange);
 }
 
-#help h4 { 
+#docs h4 { 
     color: var(--theme-mauve);
 }

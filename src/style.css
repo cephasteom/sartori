@@ -58,7 +58,7 @@ main > section > div {
     min-height: 0;
 }
 
-#help {
+#docs {
     display: none;
 }
 
@@ -71,7 +71,7 @@ main > section > div {
         flex: 1;
     }
 
-    #help {
+    #docs {
         display: block;
     }
 }

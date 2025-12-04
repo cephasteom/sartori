@@ -8,8 +8,7 @@ let messages: {type: string, message: string}[] = [
     {type: 'credit', message: `© Cephas Teom ${new Date().getFullYear()}`},
     {type: 'info', message: '`ctrl + return` to play.'},
     {type: 'info', message: '`ctrl + .` to stop.'},
-    {type: 'info', message: '`cmd + 1` to toggle console.'},
-    {type: 'info', message: '`cmd + 2` to toggle help.'},
+    {type: 'info', message: 'Toggle console `cmd + 1`, docs `cmd + 2`.'},
 ]
 
 function log(type: string, message: string) {

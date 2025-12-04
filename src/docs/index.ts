@@ -14,8 +14,8 @@ import './style.css';
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('javascript', javascript);
 
-const help = document.getElementById('help')
-help && (help.innerHTML = `
+const docs = document.getElementById('docs')
+docs && (docs.innerHTML = `
 <div>
     <h2>Docs</h2>
     <button class="active"><h3>Quick Start</h3></button>
@@ -55,7 +55,7 @@ hljs.highlightAll();
 // current active article
 let article = 'docs__quick-start';
 // add event listeners to buttons
-document.querySelectorAll('#help button').forEach((button) => {
+document.querySelectorAll('#docs button').forEach((button) => {
     button.addEventListener('click', () => {
         const articleId = `docs__${button.textContent?.toLowerCase().replace(' ', '-')}`;
         const previousArticle = document.getElementById(article);
@@ -64,7 +64,7 @@ document.querySelectorAll('#help button').forEach((button) => {
         if (nextArticle) nextArticle.style.display = 'block';
         article = articleId;
         // update button styles
-        document.querySelectorAll('#help button').forEach((btn) => {
+        document.querySelectorAll('#docs button').forEach((btn) => {
             btn.classList.remove('active');
         });
         button.classList.add('active');

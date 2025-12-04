@@ -1,5 +1,4 @@
 // TODO: more pattern functions
-// search box in docs
 // MIDI integration
 // zmod
 
@@ -25,12 +24,23 @@ const scheduler = new Scheduler(
     (event: any, time: number) => handler(event, time) // handle scheduled events here.
 );
 
+// Toggle display of console and docs
 const toggle = (id: string, displayStyle: string = 'block') => {
     const el = document.getElementById(id);
     if(!el) return;
     el.style.display = el.style.display === 'none'
         ? displayStyle
         : 'none';
+
+    // If they're all hidden, hide the parent container too
+    const help: HTMLElement | null = document.querySelector('.help');
+    if(!help) return;
+    help.style.display = Array.from(help?.children || [])
+        // @ts-ignore
+        .map((c: Element) => c.style.display)
+        .every(style => style === 'none')
+        ? 'none'
+        : 'flex';
 }
 
 // Play / Stop controls
@@ -45,6 +55,6 @@ window.addEventListener('keydown', (e) => {
     // hide / show docs with cmd + 2
     if(e.metaKey && e.key === '2') {
         e.preventDefault();
-        toggle('help');
+        toggle('docs');
     }
 });
