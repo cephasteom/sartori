@@ -4,10 +4,10 @@ import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import typescript from 'highlight.js/lib/languages/typescript';
 import quickStart from './quick-start';
-import { streamDoc, streamMethods} from './streams';
-import { patternDoc, patternMethods } from './patterns';
+import { streamDoc} from './streams';
+import { patternDoc } from './patterns';
 import miniNotation from './mini-notation';
-import { instrumentsDoc, instruments } from './instruments';
+import { instrumentsDoc } from './instruments';
 import effects from './effects';
 import { search } from './utils';
 import './style.css';
@@ -15,24 +15,30 @@ import './style.css';
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('javascript', javascript);
 
-const searchable: Record<string, any> = {
-    stream: streamMethods,
-    pattern: patternMethods,
-    ...instruments
-};
+const docs = document.querySelector('#docs > div')
 
-console.log('searchable', searchable);
-
-const docs = document.getElementById('docs')
-
-const render = (searchResults: Record<string, any> = {}) => {
+const render = (searchResults: Record<string, Record<string, any>> = {}) => {
     docs && (docs.innerHTML = `
         <div>
-            <h2>Docs</h2>
-            <input type="text" id="docs__search" placeholder="Search..." />
             ${Object.keys(searchResults).length > 0
-                ? `<h3>Search Results</h3><p>No results found.</p>`
+                ? `<h2>Search Results</h2>
+                    ${Object.entries(searchResults).map(([section, items]) => `
+                        <h3>${section.charAt(0).toUpperCase() + section.slice(1)}</h3>
+                        <ul class="docs__list">
+                            ${Object.entries(items).map(([name, info]) => `
+                                <li>
+                                    <h4>${name}</h4>
+                                    <p>${info.description}</p>
+                                    ${info.examples.length > 0 ? `
+                                        ${marked(info.examples.join('\n'))}
+                                    ` : ''}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    `).join('')}
+                `
                 : `
+                    <h2>Docs</h2>
                     <button class="active"><h3>Quick Start</h3></button>
                     <button><h3>Stream</h3></button>
                     <button><h3>Pattern</h3></button>
@@ -81,8 +87,8 @@ document.querySelectorAll('#docs button').forEach((button) => {
 });
 
 // search functionality
-const searchInput = document.getElementById('docs__search') as HTMLInputElement;
+const searchInput = document.getElementById('search') as HTMLInputElement;
 searchInput.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase();
-    console.log(search(query));
+    render(search(query));
 });

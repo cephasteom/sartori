@@ -67,3 +67,23 @@ main > section > div {
         flex: 1;
     }
 }
+
+.help__component {
+    position: relative;
+}
+
+.help__component input {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: var(--theme-blue);
+    border-radius: 2px;
+    outline: none;
+    color: white;
+    
+}
+.help__component input::placeholder {
+    color: white;
+}

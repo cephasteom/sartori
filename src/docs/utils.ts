@@ -17,20 +17,22 @@ export function sharedKeys(...objects: Record<string, any>[]): string[] {
     return [...common];
 }
 
-export function search(query: string): Record<string, any> {
+export function search(query: string): Record<string, Record<string, any>> {
+    if (query.trim() === '') return {};
     const searchable: Record<string, any> = {
         stream: streamMethods,
         pattern: patternMethods,
         ...instruments
     };
     return Object.entries(searchable)
-        .reduce((acc, [section, items]) => ({
-            ...acc, 
-            [section]: Object.entries(items)
+        .reduce((acc, [section, items]) => {
+            const results = Object.entries(items)
                 .filter(([name]) => name.toLowerCase().includes(query))
                 .reduce((obj, [name, info]) => ({
                     ...obj,
                     [name]: info,
-                }), {} as Record<string, any>)
-        }), {} as Record<string, Record<string, Record<string, any>>>);
+                }), {} as Record<string, any>);
+            Object.keys(results).length > 0 && (acc[section] = results);
+            return acc;
+        }, {} as Record<string, Record<string, any>>);
 }
