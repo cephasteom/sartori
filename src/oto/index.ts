@@ -1,7 +1,24 @@
+import { start } from 'tone';
 import { Channel, channels } from './Channel';
 import { formatParamKey } from './utils';
 
 declare type Event = {id: string, params: Record<string, any>, time: number, type: string};
+const sartori = new BroadcastChannel('sartori');
+
+export function init() {
+    window.addEventListener('keydown', startAudio)
+    window.addEventListener('click', startAudio)
+    window.addEventListener('touchstart', startAudio)
+}
+
+async function startAudio() {
+    await start()    
+    console.log('started audio')
+    sartori.postMessage({ type: 'success', message: 'Started audio' });
+    window.removeEventListener('keydown', startAudio)
+    window.removeEventListener('click', startAudio)
+    window.removeEventListener('touchstart', startAudio)
+}
 
 export function handler(event: Event, time: number) {
     switch (event.type) {
@@ -69,4 +86,4 @@ function handleMutation(mutation: Event, time: number) {
         time,
         params.lag
     );
-}   
+}

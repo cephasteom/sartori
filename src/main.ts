@@ -1,10 +1,9 @@
 // MIDI integration
 // host my samples / files
-// mutation bug, just triggers new notes!
 
 import { evaluate } from './core/compile';
 import { Scheduler } from './core/Scheduler';
-import { handler } from './oto';
+import { init, handler } from './oto';
 
 import './normalize.css'
 import './style.css'
@@ -18,8 +17,10 @@ window.addEventListener("evaluateCode", (e) => {
     const customEvent = e as CustomEvent<{ code: string }>;
     evaluate(customEvent.detail.code);
 });
-
-// Init Scheduler
+    
+// Init oto
+init();
+// Initialize the scheduler, passing in oto's event handler
 const scheduler = new Scheduler(
     (event: any, time: number) => handler(event, time) // handle scheduled events here.
 );
