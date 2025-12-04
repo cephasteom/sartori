@@ -16,7 +16,7 @@ const patternMethods: Record<string, any> = (Pattern.children.find((item) => ite
     }), {} as Record<string, any>);
 
 export default `
-<ul class="help__list">
+<ul class="docs__list">
     <p>Patterns are the building blocks of Sartori. They can be used to control any stream parameter.</p>
     ${marked(`\`\`\`typescript
 s0.set({  

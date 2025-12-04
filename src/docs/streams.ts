@@ -23,7 +23,7 @@ const streamMethods: Record<string, any> = (Stream.children[0]?.children?.filter
 
 export default `
 <p>A Stream represents a musical layer. There are 16 instrument streams (s0 to s15) and 4 fx streams (fx0 to fx3).</p>
-    <ul class="help__list">
+    <ul class="docs__list">
         <li>
             <h4>set</h4>
             <p>Set parameters on the Stream.</p>

@@ -117,6 +117,11 @@ const withValue = (callback: (...args: any[]) => any) =>
     }
 
 /**
+ * Return the current cycle.
+ */
+const c = () => P((from, to) => ([{ from, to, value: Math.trunc(from) }]));
+
+/**
  * Return the current cycles per second.
  */
 const cps = () => P((from, to) => ([{ from, to, value: cyclesPerSecond() }]));
@@ -182,6 +187,38 @@ const div = withValue((next, prev) => prev / next);
  * @example seq(5,6,7).mod(saw(1,4,3)) // 5%1, 6%2, 7%3
  */
 const mod = withValue((next, prev) => prev % next);
+
+/**
+ * Less than comparison. Returns 1 if prev < next, else 0.
+ * @param value - value or pattern to compare with.
+ * @example seq(1,2,3).lt(2) // 1,0,0
+ * @example seq(1,2,3).lt(saw(0,4,3)) // compares each value with saw values
+ */
+const lt = withValue((next, prev) => prev < next ? 1 : 0);
+
+/**
+ * Greater than comparison. Returns 1 if prev > next, else 0.
+ * @param value - value or pattern to compare with.
+ * @example seq(1,2,3).gt(2) // 0,0,1
+ * @example seq(1,2,3).gt(saw(0,4,3)) // compares each value with saw values
+ */
+const gt = withValue((next, prev) => prev > next ? 1 : 0);
+
+/**
+ * Equal to comparison. Returns 1 if prev == next, else 0.
+ * @param value - value or pattern to compare with.
+ * @example seq(1,2,2).eq(2) // 0,1,1
+ * @example seq(1,2,3).eq(saw(0,4,3)) // compares each value with saw values
+ */
+const eq = withValue((next, prev) => prev == next ? 1 : 0);
+
+/**
+ * Not equal to comparison. Returns 1 if prev != next, else 0.
+ * @param value - value or pattern to compare with.
+ * @example seq(1,2,2).neq(2) // 1,0,0
+ * @example seq(1,2,3).neq(saw(0,4,3)) // compares each value with saw values
+ */
+const neq = withValue((next, prev) => prev != next ? 1 : 0);
 
 /**
  * Map from one range to another.
@@ -469,7 +506,8 @@ export const methods = {
     degrade,
     choose, coin, rarely, sometimes, often,
     and, or, xor,
-    cts, ctms, cps,
+    c, cts, ctms, cps,
+    lt, gt, eq, neq,
     // insert all operators from the Math object
     ...operators.reduce((obj, name) => ({
         ...obj,

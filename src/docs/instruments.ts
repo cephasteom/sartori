@@ -49,7 +49,7 @@ s7.set({ inst: 'tone.mono' }) // set mono synth instrument
 \`\`\``)}
 <h3>Shared Parameters</h3>
 ${Object.entries(sharedMethods).map(([name, info]) => `
-    <ul class="help__list">
+    <ul class="docs__list">
         <li>
             <h4>${name}</h4>
             <p>${info.description}</p>
@@ -61,7 +61,7 @@ ${Object.entries(sharedMethods).map(([name, info]) => `
 `).join('')}
 ${Object.entries(sections).map(([instrumentName, methods]) => `
     <h3>${instrumentName}</h3>
-    <ul class="help__list">
+    <ul class="docs__list">
         ${Object.entries(methods)
             .filter(([name]) => !(name in sharedMethods))
             .map(([name, info]) => `

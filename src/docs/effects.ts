@@ -38,7 +38,7 @@ fx0.set({ delay: 0.7, reverb: 0.4, e: '1*16' }) // set delay and reverb on effec
 \`\`\``)}
 ${Object.entries(sections).map(([name, methods]) => `
     <h3>${name}</h3>
-    <ul class="help__list">
+    <ul class="docs__list">
         ${Object.entries(methods)
             .map(([name, info]) => `
             <li>
