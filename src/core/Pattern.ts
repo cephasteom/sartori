@@ -456,8 +456,8 @@ const xor = withValue((v, w) => v != w ? 1 : 0);
  * @param condition - condition pattern
  * @param thenPattern - pattern to return if condition is true
  * @param elsePattern - pattern to return if condition is false
- * @example if(coin(), 'A', 'B') // returns 'A' when coin() is true, else 'B'
- * @example random().lt(0.3).if('A', 'B') // returns 1 when random()<0.3, else 0
+ * @example ifelse(coin(), 'A', 'B') // returns 'A' when coin() is true, else 'B'
+ * @example random().lt(0.3).ifelse('A', 'B') // returns 1 when random()<0.3, else 0
  */
 const ifelse = (
     thenPattern: string|number|Pattern<any>, 
@@ -469,6 +469,9 @@ const ifelse = (
         return wrap(condHaps ? thenPattern : elsePattern).query(from, to);
     });
 
+/**
+ * Alias for ifelse.
+ */
 const ie = ifelse
 
 // base function for handling Math[operation] patterns
