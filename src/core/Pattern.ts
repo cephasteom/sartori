@@ -451,6 +451,26 @@ const or = withValue((v, w) => v || w);
  */
 const xor = withValue((v, w) => v != w ? 1 : 0);
 
+/**
+ * If else control structure for patterns.
+ * @param condition - condition pattern
+ * @param thenPattern - pattern to return if condition is true
+ * @param elsePattern - pattern to return if condition is false
+ * @example if(coin(), 'A', 'B') // returns 'A' when coin() is true, else 'B'
+ * @example random().lt(0.3).if('A', 'B') // returns 1 when random()<0.3, else 0
+ */
+const ifelse = (
+    thenPattern: string|number|Pattern<any>, 
+    elsePattern: string|number|Pattern<any>,
+    pattern: string|number|Pattern<any>, 
+) => 
+    P((from, to) => {
+        const condHaps = unwrap(pattern, from, to);
+        return wrap(condHaps ? thenPattern : elsePattern).query(from, to);
+    });
+
+const ie = ifelse
+
 // base function for handling Math[operation] patterns
 const operate = (operator: string) => (...args: (number|Pattern<any>)[]) => cycle((from, to) => {
     // @ts-ignore
@@ -471,7 +491,8 @@ const operate = (operator: string) => (...args: (number|Pattern<any>)[]) => cycl
  * @example set(2).pow(2) // returns 4 every cycle
  * @example seq(1,2,3).pow(2) // returns the sine of 1, then 2, then 3 over successive cycles
  */
-const operators = Object.getOwnPropertyNames(Math).filter(prop => typeof (Math as any)[prop] === 'function');
+const operators = Object.getOwnPropertyNames(Math)
+    .filter(prop => typeof (Math as any)[prop] === 'function');
 
 // Util: unwrap ensures we get a raw value
 function unwrap<T>(value: Pattern<T>|any, from: number, to: number) {
@@ -493,9 +514,7 @@ function wrap<T>(value: T): Pattern<T> {
  * @param value - mini pattern string
  * @example mini('Cmaj7..?') // parses the mini pattern string into a Pattern
  */
-function mini(value: string) {
-    return evalNode(parse(value), methods);
-}
+const mini = (value: string) => evalNode(parse(value), methods);
 
 export const methods = {
     cat, set, seq,
@@ -507,14 +526,14 @@ export const methods = {
     stack,
     interp,
     degrade,
-    choose, coin, rarely, sometimes, often,
+    choose, coin, rarely, sometimes, often, ifelse, ie,
     and, or, xor,
     c, cts, ctms, cps,
     lt, gt, eq, neq,
     ...operators.reduce((obj, name) => ({
         ...obj,
         [name]: operate(name)
-    }), {})
+    }), {}),
 };
 
 // declare a type for Pattern methods, for use in the Pattern interface
@@ -585,5 +604,3 @@ Object.entries(methods).forEach(([name, method]) => {
         return method(...args, set(this.valueOf()));
     }
 });
-
-console.log(set(1.5).round().query(0,1)); // debug
