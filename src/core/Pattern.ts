@@ -1,7 +1,12 @@
-import { parse, evalNode } from './mini';
-import { cyclesPerSecond } from './utils';
 // Credit: the main architecture of this was adapted from https://garten.salat.dev/idlecycles/, by Froos
 // This outlines the underlying concepts of how Tidal was ported to Strudel. Very many thanks.
+
+import { parse, evalNode } from './mini';
+import { cyclesPerSecond } from './utils';
+import pkg from 'noisejs';
+// @ts-ignore
+const { Noise } = pkg;
+const noiseGenerator = new Noise(Math.random());
 
 /**
  * Hap type - represents a single event in a Pattern
@@ -323,6 +328,21 @@ const pulse = (min: number = 0, max: number = 1, duty: number = 0.5, q: number =
 const square = (min: number = 0, max: number = 1, q: number = 48) => pulse(min, max, 0.5, q);
 
 /**
+ * Noise waveform from min to max over one cycle.
+ * @param min 
+ * @param max 
+ * @param q 
+ * @example noise() // noise values between 0 and 1
+ * @example noise(5, 10) // noise values between 5 and 10
+ * @example noise().slow(3) // noise values between 0 and 1, slowed down over 3 cycles
+ */
+const noise = (min: number = 0, max: number = 1, q: number = 48) => 
+    waveform((i, min, max) => {
+        const v = noiseGenerator.simplex2(i / 32, 0) * 0.5 + 0.5;
+        return min + (max - min) * v;
+    })(min, max, q);
+
+/**
  * Layer values over the same time range.
  * @param values
  * @example stack(0, sine(), square()) // layers a sine wave and square wave over a constant 0 value.
@@ -441,7 +461,7 @@ export const methods = {
     cat, set, seq,
     fast, slow,
     add, sub, mul, div, mod,
-    saw, range, ramp, sine, cosine, tri, pulse, square,
+    saw, range, ramp, sine, cosine, tri, pulse, square, noise,
     mtr, scale, clamp,
     mini,
     stack,
@@ -520,3 +540,5 @@ Object.entries(methods).forEach(([name, method]) => {
         return method(...args, set(this.valueOf()));
     }
 });
+
+console.log(noise(0, 10).query(0,1));
