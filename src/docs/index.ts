@@ -43,7 +43,7 @@ const render = (searchResults: Record<string, Record<string, any>> = {}) => {
                     <button class="active"><h3>Quick Start</h3></button>
                     <button><h3>Stream</h3></button>
                     <button><h3>Pattern</h3></button>
-                    <button><h3>Mini-Notation</h3></button>
+                    <button><h3>Mini</h3></button>
                     <button><h3>Instruments</h3></button>
                     <button><h3>Effects</h3></button>
 
@@ -51,7 +51,7 @@ const render = (searchResults: Record<string, Record<string, any>> = {}) => {
                         ['quick-start']: quickStart,
                         ['stream']: streamDoc,
                         ['pattern']: patternDoc,
-                        ['mini-notation']: marked(miniNotation),
+                        ['mini']: marked(miniNotation),
                         ['instruments']: instrumentsDoc,
                         ['effects']: effects
                     }).map(([id, content]) => `
