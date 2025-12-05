@@ -3,7 +3,7 @@ A live coding language for unrestricted pattern interference. It supersedes Zen,
 
 The codebase is modular by design. You can use Sartori as a complete live coding environment—combining the core language, editor, console, help docs, and synthesis engine—or import individual modules into your own projects. Each folder contains a README explaining how to use its module independently.
 
-# Acknowledgements
+## Acknowledgements
 * This series of blog posts by Froos helped me finally crack time: [garten.salat.dev](https://garten.salat.dev/idlecycles/).
 * Code editor built with: [Prism](https://github.com/jonpyt/prism-code-editor/?tab=readme-ov-file).
 * Mini-language built on: [PegJS](https://github.com/pegjs/pegjs).
